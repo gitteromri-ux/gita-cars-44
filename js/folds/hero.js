@@ -75,8 +75,11 @@
     if(!hero) return;
 
     // Strip existing extras inserted by app-mb.js (scrollhint, bigtype, livestrip)
-    // We keep #heroStage, #heroContent, #heroIndicators (required by task)
+    // We keep #heroStage, .hero-content (wraps #heroContent), #heroIndicators (required by task)
+    // FIX (Audit P0): also preserve .hero-content parent so #heroContent survives.
     Array.from(hero.children).forEach(function(node){
+      // Preserve any element that has #heroContent inside it (the wrapper)
+      if(node.querySelector && node.querySelector('#heroContent')) return;
       if(!node.id) {
         node.remove();
         return;
@@ -191,9 +194,10 @@
       return out;
     }
 
-    var l1 = lineHtml(line1, 600,  'hl-accent');
-    var l2 = lineHtml(line2, 600 + Array.from(line1).length*22 + 60, 'hl-accent');
-    var l3 = lineHtml(line3, 600 + (Array.from(line1).length+Array.from(line2).length)*22 + 120, 'hl-period');
+    // FIX #1: LCP optimization — show H1 immediately (no animation delay)
+    var l1 = lineHtml(line1, 0,  'hl-accent');
+    var l2 = lineHtml(line2, 0,  'hl-accent');
+    var l3 = lineHtml(line3, 0,  'hl-period');
 
     return ''+
       '<div class="h-eyebrow" aria-label="יבוא אישי מארה״ב · מודל חדש · 100% שקוף">'+

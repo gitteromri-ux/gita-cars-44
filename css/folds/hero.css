@@ -138,8 +138,8 @@
   justify-content:center;
   min-height:100vh;
   min-height:100svh;
-  width: 56%;
-  max-width: 56%;
+  width: 72%;
+  max-width: 72%;
   padding-block: clamp(80px, 12vh, 140px) clamp(60px, 10vh, 110px);
   padding-inline-start: clamp(20px, 4vw, 72px);
   padding-inline-end: clamp(16px, 2vw, 32px);
@@ -189,33 +189,38 @@
 
 /* headline — massive, clipping the left edge */
 [data-fold="hero"] .h-headline{
-  font: 900 clamp(58px, 8.8vw, 148px)/0.88 'Heebo', sans-serif;
-  letter-spacing: -0.045em;
+  font: 900 clamp(36px, 5.2vw, 88px)/1.0 'Heebo', sans-serif;
+  letter-spacing: -0.025em;
   color: var(--h-text);
   margin: 0 0 28px;
-  margin-inline-start: -2vw;   /* the cinematic clip */
+  margin-inline-start: 0;
   max-width: none;
   white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: normal;
   position:relative;
 }
 [data-fold="hero"] .h-headline .hl-line{
   display:block;
   position:relative;
   overflow:visible;
+  white-space:nowrap;
 }
+/* FIX #1: LCP — characters visible IMMEDIATELY, animation only as polish */
 [data-fold="hero"] .h-headline .hl-char{
   display:inline-block;
-  opacity:0;
-  transform: translateY(80px);
-  will-change: transform, opacity;
-  animation: h-char-in 900ms var(--h-ease) forwards;
+  opacity:1;
+  transform: translateY(0);
+  will-change: auto;
+  animation: h-char-fade-polish 600ms var(--h-ease) forwards;
 }
 [data-fold="hero"] .h-headline .hl-space{ display:inline-block; width:0.32em; }
 [data-fold="hero"] .h-headline .hl-accent{ color: var(--h-cobalt-l); }
 [data-fold="hero"] .h-headline .hl-period{ color: var(--h-cobalt); }
 
-@keyframes h-char-in{
-  to { opacity:1; transform: translateY(0); }
+@keyframes h-char-fade-polish{
+  from { opacity:0.6; transform: translateY(6px); }
+  to   { opacity:1;   transform: translateY(0); }
 }
 
 /* sub-headline */
@@ -498,11 +503,15 @@
     margin-block-end: 18px;
   }
   [data-fold="hero"] .h-headline{
-    font-size: clamp(40px, 10.5vw, 64px);
-    line-height: 0.92;
-    letter-spacing: -0.04em;
-    margin-inline-start: -1.5vw;
+    font-size: clamp(28px, 7.6vw, 44px);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin-inline-start: 0;
     margin-block-end: 18px;
+    white-space: normal;
+  }
+  [data-fold="hero"] .h-headline .hl-line{
+    white-space: nowrap;
   }
   [data-fold="hero"] .h-sub{
     font-size: 15px;
@@ -561,7 +570,9 @@
 
 @media (max-width: 420px){
   [data-fold="hero"] .h-headline{
-    font-size: clamp(54px, 15.2vw, 76px);
+    font-size: clamp(22px, 6.6vw, 34px);
+    line-height: 1.05;
+    letter-spacing: -0.015em;
   }
   [data-fold="hero"] .h-content{
     padding-block-start: 80px;
