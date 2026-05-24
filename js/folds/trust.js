@@ -67,9 +67,9 @@
           BRAND <span class="dot"></span> NEW MODEL
         </div>
         <h1 class="tr-h1 d-1" data-tr-reveal>
-          <span class="l l-1">מודל.</span>
-          <span class="l l-2">אמינות.</span>
-          <span class="l l-3">שקיפות.</span>
+          <span class="l l-1">Trust.</span>
+          <span class="l l-2">Credibility.</span>
+          <span class="l l-3">The New Model.</span>
         </h1>
         <p class="tr-sub d-2" data-tr-reveal>
           AutoImports.co.il — חברת יבוא אישי דור-חדש. שקיפות מלאה, ייעוץ מומחים, ביטוח-נסיעה לכל שלב.

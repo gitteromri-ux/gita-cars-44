@@ -126,7 +126,7 @@
           <div class="row"><div class="row-lbl">שילוח</div><div class="row-val" data-k="ship">$2,000</div></div>
           <div class="row"><div class="row-lbl">מכס ועמלות</div><div class="row-val" data-k="customs">₪2,000</div></div>
           <div class="row"><div class="row-lbl">עמלת שירות <small>5%</small></div><div class="row-val" data-k="svc">$0</div></div>
-          <div class="row discount"><div class="row-lbl">הנחה ייעודית</div><div class="row-val" data-k="disc">−$3,000</div></div>
+          <div class="row discount"><div class="row-lbl">הנחת GITA</div><div class="row-val" data-k="disc">−$3,000</div></div>
         </div>
 
         <div class="final">
