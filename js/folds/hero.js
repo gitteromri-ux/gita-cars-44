@@ -75,8 +75,11 @@
     if(!hero) return;
 
     // Strip existing extras inserted by app-mb.js (scrollhint, bigtype, livestrip)
-    // We keep #heroStage, #heroContent, #heroIndicators (required by task)
+    // We keep #heroStage, .hero-content (wraps #heroContent), #heroIndicators (required by task)
+    // FIX (Audit P0): also preserve .hero-content parent so #heroContent survives.
     Array.from(hero.children).forEach(function(node){
+      // Preserve any element that has #heroContent inside it (the wrapper)
+      if(node.querySelector && node.querySelector('#heroContent')) return;
       if(!node.id) {
         node.remove();
         return;
@@ -171,9 +174,9 @@
     // Line 1: "כל רכב מארה״ב."
     // Line 2: "במחיר נמוך מבישראל."
     // Line 3: "72 שעות. עד הבית."
-    var line1 = 'כל רכב מארה״ב.';
-    var line2 = 'במחיר נמוך מבישראל.';
-    var line3 = '72 שעות. עד הבית.';
+    var line1 = 'הרכב שתמיד רצית';
+    var line2 = 'במחיר שלא ידעת';
+    var line3 = 'שאפשרי.';
 
     function lineHtml(text, baseDelay, accentCls){
       var arr = Array.from(text);
@@ -191,9 +194,10 @@
       return out;
     }
 
-    var l1 = lineHtml(line1, 600,  'hl-accent');
-    var l2 = lineHtml(line2, 600 + Array.from(line1).length*22 + 60, 'hl-accent');
-    var l3 = lineHtml(line3, 600 + (Array.from(line1).length+Array.from(line2).length)*22 + 120, 'hl-period');
+    // FIX #1: LCP optimization — show H1 immediately (no animation delay)
+    var l1 = lineHtml(line1, 0,  'hl-accent');
+    var l2 = lineHtml(line2, 0,  'hl-accent');
+    var l3 = lineHtml(line3, 0,  'hl-period');
 
     return ''+
       '<div class="h-eyebrow" aria-label="יבוא אישי מארה״ב · מודל חדש · 100% שקוף">'+
@@ -204,7 +208,7 @@
         '<span>100% שקוף</span>'+
       '</div>'+
       '<div class="h-rule" aria-hidden="true"></div>'+
-      '<h1 class="h-headline" aria-label="כל רכב מארה״ב. במחיר נמוך מבישראל. 72 שעות. עד הבית.">'+
+      '<h1 class="h-headline" aria-label="הרכב שתמיד רצית במחיר שלא ידעת שאפשרי.">'+
         '<span class="hl-line">'+l1+'</span>'+
         '<span class="hl-line">'+l2+'</span>'+
         '<span class="hl-line">'+l3+'</span>'+
@@ -223,14 +227,14 @@
           '<span class="h-stat-lbl">חיסכון ממוצע ללקוח</span>'+
         '</div>'+
         '<div class="h-stat">'+
-          '<span class="h-stat-num" data-target="72" data-suffix="h">0<span class="hsn-accent">h</span></span>'+
-          '<span class="h-stat-lbl">מהפנייה להצעה מותאמת</span>'+
+          '<span class="h-stat-num" data-target="5" data-suffix="%">0<span class="hsn-accent">%</span></span>'+
+          '<span class="h-stat-lbl">עמלת שירות שקופה בלבד</span>'+
         '</div>'+
       '</div>'+
       '<div class="h-cta-wrap">'+
         '<div class="h-cta-primary">'+
           '<a href="#offer" class="h-cta" id="hCta">'+
-            '<span class="h-cta-label">קבלו הצעה תוך 72 שעות</span>'+
+            '<span class="h-cta-label">פתח תיק — לקוחות חדשים</span>'+
             '<span class="h-cta-arrow" aria-hidden="true">'+
               '<svg viewBox="0 0 22 22" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">'+
                 '<path d="M4 11h14M12 5l6 6-6 6" stroke-linecap="square"/>'+
@@ -239,9 +243,9 @@
           '</a>'+
           '<span class="h-cta-sub">מקדמה 500₪ בלבד · ללא התחייבות</span>'+
         '</div>'+
-        '<a href="#how" class="h-cta-secondary">'+
-          '<span>איך זה עובד ב-6 שלבים</span>'+
-          '<span class="h-cta2-arrow" aria-hidden="true">↓</span>'+
+        '<a href="./login.html" class="h-cta-secondary">'+
+          '<span>כניסה ללקוחות קיימים</span>'+
+          '<span class="h-cta2-arrow" aria-hidden="true">→</span>'+
         '</a>'+
       '</div>'+
       '<div class="h-livestrip" aria-live="polite">'+
