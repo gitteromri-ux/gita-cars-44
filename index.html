@@ -123,7 +123,16 @@
 </section>
 
 <style>
-.hero-v3{position:relative;min-height:90vh;background:#050B1A;color:#fff;direction:rtl;overflow:hidden;padding:120px 0 80px}
+/* Kill ALL particles/stars overlays globally */
+.h-particles,.h-particles-fallback,.hero-particles,.hero-bigtype,.hero-livestrip,.hero-scrollhint,.h-grain,.h-vignette,[data-fold="hero"] .h-stage,.h-content{display:none !important}
+[data-fold="hero"]{display:none !important}
+.hero-mb:not(.hero-v3){display:none !important}
+/* Light fold backgrounds for breathing room */
+#why-mount,#trust-mount,#how,.calc,.faq-section,.cases-section,.board{background:#F7F9FC !important;color:#0A1224 !important}
+#why-mount *,#trust-mount *,#how *,.calc *,.faq-section *,.cases-section *,.board *{color:inherit}
+#why-mount h1,#why-mount h2,#why-mount h3,#trust-mount h1,#trust-mount h2,#trust-mount h3,#how h1,#how h2,#how h3,.calc h1,.calc h2,.calc h3,.faq-section h1,.faq-section h2,.faq-section h3,.cases-section h1,.cases-section h2,.cases-section h3,.board h1,.board h2,.board h3{color:#050B1A}
+#why-mount p,#trust-mount p,#how p,.calc p,.faq-section p,.cases-section p,.board p{color:#3D4A66}
+.hero-v3{position:relative;min-height:90vh;background:linear-gradient(160deg,#050B1A 0%,#0A1530 100%);color:#fff;direction:rtl;overflow:hidden;padding:120px 0 80px}
 .hero-v3-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 80% 40%,rgba(74,139,255,.22),transparent 60%),radial-gradient(ellipse 50% 40% at 20% 70%,rgba(30,95,255,.12),transparent 60%),#050B1A;z-index:0}
 .hero-v3-grid{position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}
 .hero-v3-eyebrow{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border:1px solid rgba(74,139,255,.35);border-radius:999px;font-size:13px;color:#A8C5FF;letter-spacing:.02em;margin-bottom:28px}
