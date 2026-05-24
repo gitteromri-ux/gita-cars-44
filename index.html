@@ -28,8 +28,105 @@
 <div class="global-vignette" aria-hidden="true"></div> <!-- ========= NAV ========= -->
 <nav class="mb-nav"> <div class="mb-nav-inner"> <a href="#" class="mb-logo"> <span class="mb-logo-mark">Ai</span> <span>AutoImports<small style="opacity:.55;font-weight:500;margin-inline-start:2px">.co.il</small></span> </a> <div class="mb-nav-links"> <a href="./catalog.html">קטלוג</a> <a href="./how-it-works.html">תהליך</a> <a href="./why-us.html">למה אנחנו</a> <a href="./reviews.html">ביקורות</a> <a href="./trust.html">אמינות</a> <a href="./blog.html">בלוג</a> <a href="./about.html">אודות</a> <a href="./faq.html">שאלות</a> </div> <a href="./start.html" class="mb-nav-cta">פתח תיק ₪500</a> <button class="mb-burger" id="burger">☰</button> </div>
 </nav> <!-- ========= HERO V3 — clean static ========= -->
-<section class="hero-v3" id="hero"> <div class="hero-v3-bg" aria-hidden="true"></div> <div class="hero-v3-grid"> <div class="hero-v3-text"> <div class="hero-v3-eyebrow"> <span class="hv3-dot"></span> <span>AutoImports.co.il · Trust. Credibility. The New Model.</span> </div> <h1 class="hero-v3-h1"> <span>המודל החדש</span> <span class="hv3-accent">של רכישת רכב.</span> <span>ללא גרר לאמצע.</span> </h1> <p class="hero-v3-sub"> אתה בוחר את הרכב — אנחנו מביאים אותו עד הבית במחיר האמיתי. שקיפות מלאה. עמלת שירות שקופה של 5%. ₪348K חיסכון ממוצע ללקוח. </p> <div class="hero-v3-stats"> <div class="hv3-stat"> <div class="hv3-stat-num">₪348K</div> <div class="hv3-stat-lbl">חיסכון ממוצע ללקוח</div> </div> <div class="hv3-stat-sep"></div> <div class="hv3-stat"> <div class="hv3-stat-num">78%</div> <div class="hv3-stat-lbl">חיסכון מקסימלי</div> </div> <div class="hv3-stat-sep"></div> <div class="hv3-stat"> <div class="hv3-stat-num">5<small>%</small></div> <div class="hv3-stat-lbl">עמלת שירות שקופה בלבד</div> </div> </div> <div class="hero-v3-cta-row"> <a href="./start.html" class="hv3-cta-primary">פתח תיק — לקוחות חדשים →</a> <a href="./login.html" class="hv3-cta-secondary">כניסה ללקוחות קיימים</a> </div> <div class="hero-v3-trust"> <span>מקדמה ₪500 בלבד · ללא התחייבות</span> <span class="hv3-trust-sep">·</span> <span>רישיון 17385 · ח״פ 516789432</span> </div> </div> <div class="hero-v3-visual"> <img src="./images/car-mercedes-g580-eq.png" alt="Mercedes-Benz G580 EQ" class="hv3-car" loading="eager" fetchpriority="high"> <div class="hv3-badge"> <div class="hv3-badge-name">Mercedes-Benz G580 EQ</div> <div class="hv3-badge-price"> <span class="hv3-was">₪2.1M ישראל</span> <span class="hv3-now">₪1.18M יבוא</span> </div> <div class="hv3-badge-save">חיסכון: ₪915,000 (55%)</div> </div> </div> </div>
-</section> <style>
+<section class="hero-fb" id="hero" dir="rtl">
+  <div class="hfb-stage" aria-hidden="true">
+    <div class="hfb-slide is-active" style="background-image:url('./images/hero-g63.jpg')"></div>
+    <div class="hfb-slide" style="background-image:url('./images/hero-wrangler.jpg')"></div>
+    <div class="hfb-slide" style="background-image:url('./images/hero-bronco-raptor.jpg')"></div>
+    <div class="hfb-slide" style="background-image:url('./images/hero-mustang.jpg')"></div>
+    <div class="hfb-slide" style="background-image:url('./images/hero-g580.jpg')"></div>
+    <div class="hfb-veil"></div>
+  </div>
+  <div class="hfb-content">
+    <div class="hfb-eyebrow">AutoImports.co.il</div>
+    <h1 class="hfb-h1">
+      <span class="hfb-line">הרכב שתמיד רצית</span>
+      <span class="hfb-line hfb-em">במחיר שלא האמנת שאפשרי.</span>
+    </h1>
+    <p class="hfb-sub">חמשת הרכבים הנמכרים ביותר — מתחלפים במסך מלא.</p>
+    <div class="hfb-cta-row">
+      <a href="./start.html" class="hfb-cta-primary">פתח תיק — לקוחות חדשים →</a>
+      <a href="./login.html" class="hfb-cta-secondary">כניסה ללקוחות קיימים</a>
+    </div>
+    <div class="hfb-trust">מקדמה ₪500 · ללא התחייבות · רישיון 17385 · ח״פ 516789432</div>
+  </div>
+  <div class="hfb-dots" role="tablist" aria-label="דגמים">
+    <button class="hfb-dot is-on" data-i="0" aria-label="Mercedes-AMG G63"></button>
+    <button class="hfb-dot" data-i="1" aria-label="Jeep Wrangler"></button>
+    <button class="hfb-dot" data-i="2" aria-label="Ford Bronco Raptor"></button>
+    <button class="hfb-dot" data-i="3" aria-label="Ford Mustang GT"></button>
+    <button class="hfb-dot" data-i="4" aria-label="Mercedes G580 EQ"></button>
+  </div>
+  <div class="hfb-modelbar" id="hfbModelBar">
+    <div class="hfb-model-name">Mercedes-AMG G63</div>
+    <div class="hfb-model-price"><span class="hfb-was">₪2.1M ישראל</span><span class="hfb-now">₪1.18M יבוא</span><span class="hfb-save">חיסכון ₪915,000</span></div>
+  </div>
+</section>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700;900&display=swap');
+.hero-fb{position:relative;min-height:100vh;height:100vh;width:100%;overflow:hidden;background:#000;direction:rtl;color:#fff}
+.hfb-stage{position:absolute;inset:0;z-index:0}
+.hfb-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease;transform:scale(1.04)}
+.hfb-slide.is-active{opacity:1}
+.hfb-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,11,26,.55) 0%,rgba(5,11,26,.35) 40%,rgba(5,11,26,.75) 100%),linear-gradient(270deg,rgba(5,11,26,.6) 0%,rgba(5,11,26,.1) 50%,rgba(5,11,26,.6) 100%);z-index:1}
+.hfb-content{position:relative;z-index:3;max-width:1320px;margin:0 auto;padding:140px 48px 80px;display:flex;flex-direction:column;align-items:flex-end;text-align:right;min-height:100vh;justify-content:center}
+.hfb-eyebrow{font:500 14px/1 'Frank Ruhl Libre',serif;letter-spacing:.18em;text-transform:uppercase;color:#A8C5FF;margin-bottom:28px;opacity:.92}
+.hfb-h1{font:700 clamp(40px,5.2vw,80px)/1.06 'Frank Ruhl Libre',serif;letter-spacing:-.015em;margin:0 0 24px;color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.4);max-width:1100px}
+.hfb-line{display:block}
+.hfb-em{font-weight:900;color:#fff;background:linear-gradient(90deg,#fff 0%,#C8DCFF 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hfb-sub{font:400 clamp(16px,1.3vw,20px)/1.55 'Frank Ruhl Libre',serif;color:#E6EEFB;margin:0 0 40px;max-width:680px;text-shadow:0 1px 12px rgba(0,0,0,.5)}
+.hfb-cta-row{display:flex;flex-wrap:wrap;gap:14px;justify-content:flex-end;margin-bottom:24px}
+.hfb-cta-primary{display:inline-flex;align-items:center;gap:8px;background:#4A8BFF;color:#fff;text-decoration:none;padding:18px 32px;border-radius:999px;font:600 16px/1 'Heebo',sans-serif;box-shadow:0 8px 32px rgba(74,139,255,.4);transition:transform .15s,box-shadow .15s}
+.hfb-cta-primary:hover{transform:translateY(-1px);box-shadow:0 12px 40px rgba(74,139,255,.55)}
+.hfb-cta-secondary{display:inline-flex;align-items:center;background:rgba(255,255,255,.08);backdrop-filter:blur(8px);color:#fff;text-decoration:none;padding:18px 28px;border-radius:999px;font:500 15px/1 'Heebo',sans-serif;border:1px solid rgba(255,255,255,.22);transition:background .15s}
+.hfb-cta-secondary:hover{background:rgba(255,255,255,.14)}
+.hfb-trust{font:400 13px/1.4 'Heebo',sans-serif;color:#B4C2D9;opacity:.85}
+.hfb-dots{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:4;display:flex;gap:10px}
+.hfb-dot{width:34px;height:3px;border-radius:2px;background:rgba(255,255,255,.28);border:0;cursor:pointer;padding:0;transition:background .25s,width .25s}
+.hfb-dot.is-on{background:#fff;width:48px}
+.hfb-modelbar{position:absolute;bottom:32px;right:48px;z-index:4;background:rgba(5,11,26,.55);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:16px 22px;min-width:280px}
+.hfb-model-name{font:600 13px/1 'Heebo',sans-serif;color:#A8C5FF;letter-spacing:.04em;margin-bottom:8px}
+.hfb-model-price{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font:600 15px/1.2 'Heebo',sans-serif}
+.hfb-was{color:#7B8AA8;text-decoration:line-through;font-weight:400}
+.hfb-now{color:#fff;font-weight:700}
+.hfb-save{color:#4FD18C;font-size:13px;font-weight:600}
+@media (max-width:768px){
+  .hero-fb{min-height:100svh;height:100svh}
+  .hfb-content{padding:96px 22px 140px;align-items:flex-end}
+  .hfb-h1{font-size:clamp(32px,8vw,46px)}
+  .hfb-sub{font-size:15px;margin-bottom:28px}
+  .hfb-cta-row{flex-direction:column;align-items:stretch;width:100%}
+  .hfb-cta-primary,.hfb-cta-secondary{justify-content:center;padding:16px 24px;font-size:15px}
+  .hfb-modelbar{right:16px;left:16px;bottom:64px;min-width:0}
+  .hfb-dots{bottom:24px}
+}
+</style>
+<script>
+(function(){
+  var slides=document.querySelectorAll('.hero-fb .hfb-slide');
+  var dots=document.querySelectorAll('.hero-fb .hfb-dot');
+  var bar=document.getElementById('hfbModelBar');
+  var data=[
+    {n:'Mercedes-AMG G63',was:'₪2.1M ישראל',now:'₪1.18M יבוא',save:'חיסכון ₪915,000'},
+    {n:'Jeep Wrangler Rubicon',was:'₪520K ישראל',now:'₪285K יבוא',save:'חיסכון ₪235,000'},
+    {n:'Ford Bronco Raptor',was:'₪780K ישראל',now:'₪410K יבוא',save:'חיסכון ₪370,000'},
+    {n:'Ford Mustang GT V8',was:'₪480K ישראל',now:'₪245K יבוא',save:'חיסכון ₪235,000'},
+    {n:'Mercedes-Benz G580 EQ',was:'₪2.1M ישראל',now:'₪1.18M יבוא',save:'חיסכון ₪915,000'}
+  ];
+  var i=0;
+  function show(n){
+    slides.forEach(function(s,k){s.classList.toggle('is-active',k===n)});
+    dots.forEach(function(d,k){d.classList.toggle('is-on',k===n)});
+    var d=data[n];
+    if(bar)bar.innerHTML='<div class="hfb-model-name">'+d.n+'</div><div class="hfb-model-price"><span class="hfb-was">'+d.was+'</span><span class="hfb-now">'+d.now+'</span><span class="hfb-save">'+d.save+'</span></div>';
+    i=n;
+  }
+  dots.forEach(function(d,k){d.addEventListener('click',function(){show(k)})});
+  setInterval(function(){show((i+1)%slides.length)},4500);
+})();
+</script>
+
+<style>
 /* ============ WHITE HERO OVERRIDE - keep V3 layout, flip to white bg ============ */
 /* HERO V3 stays on its native deep-navy bg (Tesla style) - no overrides */
 /* Light fold backgrounds only for content readability below the hero */ /* ============ FORCE plain native scroll ============ */
