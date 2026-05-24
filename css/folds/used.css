@@ -1,0 +1,415 @@
+/* ==========================================================================
+   FOLD — USED CARS · Carfax + PPI + Warranty (3 שכבות בטחון)
+   Scoped under #used only. RTL Hebrew. Deep navy + cobalt accent.
+   Source: Excel Website!B15 + 'תהליך מוצע' D9
+   ========================================================================== */
+
+#used {
+  --u-cobalt: #4A8BFF;
+  --u-cobalt-strong: #1e5fff;
+  --u-bg-0: #070a13;
+  --u-bg-1: #0c1220;
+  --u-bg-2: #131b2e;
+  --u-ink: #eef2fb;
+  --u-ink-mute: #9aa6c0;
+  --u-card-bg: rgba(74, 139, 255, 0.06);
+  --u-card-border: rgba(74, 139, 255, 0.18);
+  --u-card-bg-hover: rgba(74, 139, 255, 0.10);
+
+  position: relative;
+  display: block;
+  background: var(--u-bg-0);
+  color: var(--u-ink);
+  overflow: hidden;
+  isolation: isolate;
+  padding: clamp(80px, 11vw, 140px) 0 clamp(100px, 12vw, 160px);
+  font-family: 'Heebo', system-ui, sans-serif;
+  direction: rtl;
+  text-align: right;
+}
+
+/* === ambient background: blurred car image + dark mask + cobalt glows === */
+#used .u-bg {
+  position: absolute; inset: 0;
+  background-image: url('../../images/car-mercedes-gle-450d.png');
+  background-size: 140% auto;
+  background-position: 30% 40%;
+  background-repeat: no-repeat;
+  filter: blur(42px) saturate(0.6);
+  opacity: 0.28;
+  z-index: 0;
+  transform: scale(1.1);
+  pointer-events: none;
+}
+#used::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(900px 600px at 88% 12%, rgba(74, 139, 255, 0.14), transparent 60%),
+    radial-gradient(800px 500px at 12% 88%, rgba(30, 95, 255, 0.10), transparent 60%),
+    linear-gradient(180deg, rgba(7, 10, 19, 0.78) 0%, rgba(12, 18, 32, 0.82) 50%, rgba(7, 10, 19, 0.92) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+#used::after {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(74, 139, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 139, 255, 0.04) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+  z-index: 1;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+#used .u-wrap {
+  position: relative;
+  z-index: 2;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 64px);
+}
+
+/* =================== BLOCK A — HEADLINE =================== */
+#used .u-head { margin-bottom: clamp(48px, 6vw, 80px); }
+
+#used .u-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'JetBrains Mono', 'Heebo', monospace;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  color: var(--u-cobalt);
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+#used .u-eyebrow::before {
+  content: "";
+  width: 36px;
+  height: 1px;
+  background: var(--u-cobalt);
+}
+
+#used .u-h1 {
+  font-family: 'Heebo', sans-serif;
+  font-weight: 900;
+  font-size: clamp(40px, 6.4vw, 88px);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  margin: 0 0 22px;
+  color: var(--u-ink);
+}
+#used .u-h1 .u-accent {
+  color: var(--u-cobalt);
+}
+#used .u-h1 .u-num {
+  font-family: 'Anton', 'Heebo', sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.01em;
+  color: var(--u-cobalt);
+  margin: 0 0.05em;
+}
+
+#used .u-sub {
+  font-family: 'Heebo', sans-serif;
+  font-weight: 400;
+  font-size: clamp(15px, 1.4vw, 19px);
+  line-height: 1.65;
+  color: var(--u-ink-mute);
+  max-width: 760px;
+  margin: 0;
+}
+
+/* =================== BLOCK B — 3 LAYERS =================== */
+#used .u-layers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(18px, 2vw, 28px);
+  margin: 0 0 clamp(56px, 7vw, 88px);
+}
+
+#used .u-card {
+  position: relative;
+  background: var(--u-card-bg);
+  border: 1px solid var(--u-card-border);
+  border-radius: 18px;
+  padding: clamp(24px, 2.4vw, 36px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  overflow: hidden;
+}
+#used .u-card::before {
+  content: "";
+  position: absolute;
+  top: 0; right: 0;
+  width: 90px; height: 90px;
+  background: radial-gradient(circle at 100% 0%, rgba(74, 139, 255, 0.14), transparent 70%);
+  pointer-events: none;
+}
+#used .u-card:hover {
+  background: var(--u-card-bg-hover);
+  border-color: rgba(74, 139, 255, 0.32);
+  transform: translateY(-2px);
+}
+
+#used .u-card-icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(74, 139, 255, 0.10);
+  border: 1px solid rgba(74, 139, 255, 0.25);
+  color: var(--u-cobalt);
+}
+#used .u-card-icon svg {
+  width: 26px; height: 26px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#used .u-card-title {
+  font-family: 'Heebo', sans-serif;
+  font-weight: 900;
+  font-size: clamp(22px, 2vw, 28px);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--u-ink);
+  margin: 0;
+}
+#used .u-card-title .u-step {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 0.7em;
+  color: var(--u-cobalt);
+  letter-spacing: 0.05em;
+  margin-left: 8px;
+}
+
+#used .u-card-body {
+  font-family: 'Heebo', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--u-ink-mute);
+  margin: 0;
+  flex: 1;
+}
+
+#used .u-card-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding-top: 18px;
+  border-top: 1px dashed rgba(74, 139, 255, 0.22);
+}
+#used .u-card-stat b {
+  font-family: 'Anton', 'Heebo', sans-serif;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1;
+  color: var(--u-cobalt);
+  letter-spacing: 0.01em;
+}
+#used .u-card-stat span {
+  font-size: 13px;
+  color: var(--u-ink-mute);
+  line-height: 1.4;
+}
+
+#used .u-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Heebo', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--u-cobalt);
+  text-decoration: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: -6px;
+  transition: color 0.2s ease, gap 0.2s ease;
+}
+#used .u-card-link:hover {
+  color: #87b1ff;
+  gap: 10px;
+}
+#used .u-card-link::after {
+  content: "←";
+  font-weight: 700;
+}
+
+/* =================== BLOCK C — MINI CALC =================== */
+#used .u-calc {
+  position: relative;
+  background: linear-gradient(180deg, rgba(74, 139, 255, 0.08), rgba(74, 139, 255, 0.03));
+  border: 1px solid var(--u-card-border);
+  border-radius: 22px;
+  padding: clamp(28px, 3vw, 44px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+#used .u-calc-head {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+#used .u-calc-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  color: var(--u-cobalt);
+  text-transform: uppercase;
+}
+#used .u-calc-title {
+  font-family: 'Heebo', sans-serif;
+  font-weight: 900;
+  font-size: clamp(26px, 3vw, 38px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--u-ink);
+  margin: 0;
+}
+
+#used .u-calc-list {
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#used .u-calc-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+  background: rgba(7, 10, 19, 0.38);
+  border: 1px solid rgba(74, 139, 255, 0.12);
+  border-radius: 12px;
+}
+#used .u-calc-row-label {
+  font-family: 'Heebo', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--u-ink);
+}
+#used .u-calc-row-note {
+  font-family: 'Heebo', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--u-ink-mute);
+  margin-top: 2px;
+}
+#used .u-calc-row-price {
+  font-family: 'Anton', 'Heebo', sans-serif;
+  font-size: 22px;
+  color: var(--u-cobalt);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+#used .u-calc-row-price.is-free {
+  color: #6fe0a8;
+  font-family: 'Heebo', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+#used .u-calc-summary {
+  padding: 18px 20px;
+  background: rgba(74, 139, 255, 0.10);
+  border: 1px solid rgba(74, 139, 255, 0.28);
+  border-radius: 14px;
+  margin-bottom: 22px;
+}
+#used .u-calc-summary p {
+  font-family: 'Heebo', sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--u-ink);
+  margin: 0;
+}
+#used .u-calc-summary p + p { margin-top: 6px; }
+#used .u-calc-summary b {
+  font-weight: 900;
+  color: var(--u-cobalt);
+}
+#used .u-calc-summary .u-risk {
+  color: #ffb27a;
+  font-weight: 700;
+}
+
+#used .u-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 26px;
+  font-family: 'Heebo', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--u-ink);
+  background: rgba(74, 139, 255, 0.14);
+  border: 1px solid rgba(74, 139, 255, 0.36);
+  border-radius: 999px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+#used .u-cta:hover {
+  background: rgba(74, 139, 255, 0.22);
+  border-color: var(--u-cobalt);
+  transform: translateY(-1px);
+}
+#used .u-cta::after {
+  content: "←";
+  font-weight: 800;
+}
+
+/* =================== MOBILE — 390px =================== */
+@media (max-width: 860px) {
+  #used .u-layers {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 560px) {
+  #used { padding: 72px 0 96px; }
+  #used .u-wrap { padding: 0 18px; }
+  #used .u-h1 { font-size: 36px; line-height: 1.06; }
+  #used .u-sub { font-size: 15px; }
+  #used .u-card { padding: 22px; gap: 16px; }
+  #used .u-card-title { font-size: 22px; }
+  #used .u-card-body { font-size: 14.5px; }
+  #used .u-card-stat b { font-size: 30px; }
+  #used .u-calc { padding: 22px; border-radius: 18px; }
+  #used .u-calc-title { font-size: 24px; }
+  #used .u-calc-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 12px 14px;
+  }
+  #used .u-calc-row-price { justify-self: start; font-size: 19px; }
+  #used .u-cta { width: 100%; justify-content: center; }
+}

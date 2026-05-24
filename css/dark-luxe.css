@@ -1,0 +1,390 @@
+/* ============================================================
+   MERCEDES-USA OVERRIDE — deep dark canvas, BLUE+WHITE accents
+   No gold/yellow anywhere. Loaded AFTER premium.css.
+   ============================================================ */
+
+/* ============ BASE: dark canvas, light text ============ */
+html, body { background:#0a0d12 !important; color:#f4f6fa !important; }
+
+.why, .cars, .calc, .trust, section, main {
+  background:transparent !important;
+  color:#f4f6fa;
+}
+
+/* ============ AMBIENT BACKDROP — cool blue gradient ============ */
+body::before{
+  content:""; position:fixed; inset:0; z-index:-2;
+  background:
+    radial-gradient(70% 55% at 85% -10%, rgba(28,107,208,.18), transparent 70%),
+    radial-gradient(60% 45% at 5% 110%, rgba(28,107,208,.10), transparent 70%),
+    linear-gradient(180deg,#0a0d12 0%,#0e1218 100%);
+  pointer-events:none;
+}
+body::after{
+  content:""; position:fixed; inset:0; z-index:-1;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.95 0 0 0 0 0.96 0 0 0 0 1 0 0 0 .4 0'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
+  opacity:.022; mix-blend-mode:overlay; pointer-events:none;
+}
+
+/* ============ NAV ============ */
+header.nav, .nav, nav.nav, .top-nav, .navbar{
+  background:rgba(10,13,18,.82) !important;
+  backdrop-filter:blur(20px) saturate(140%);
+  -webkit-backdrop-filter:blur(20px) saturate(140%);
+  border-bottom:1px solid rgba(255,255,255,.08) !important;
+  color:#f4f6fa !important;
+}
+.nav a, .nav .brand, .nav-link, .nav button{ color:#f4f6fa !important; }
+.nav a:hover{ color:#79a8e8 !important; }
+
+/* ============ KILL ALL GOLD/YELLOW EVERYWHERE ============ */
+[style*="#b8975a"], [style*="#d9b977"], [style*="b8975a"], [style*="d9b977"] {
+  /* preserved selectors — actual overrides below */
+}
+/* Anywhere gold was used as text color → white */
+.gold, [class*="gold"], .accent-gold, .text-gold,
+.eyebrow, .band-eyebrow, .why-eyebrow, .section-eyebrow {
+  color:#79a8e8 !important;
+}
+.brand-text, .brand em, .brand-mark em { color:#79a8e8 !important; }
+
+/* Gold borders/lines → blue */
+.cine-line, .cine-line-l, .cine-line-r,
+.divider-line, .gold-line, .accent-line {
+  background:linear-gradient(90deg,transparent,#1c6bd0,transparent) !important;
+}
+
+/* SVG fills/strokes of gold → white */
+svg [fill="#b8975a"], svg [fill="#d9b977"] { fill:#ffffff !important; }
+svg [stroke="#b8975a"], svg [stroke="#d9b977"] { stroke:#1c6bd0 !important; }
+
+/* ============ TRUST STRIP ============ */
+.trust, section.trust{
+  background:linear-gradient(180deg,#0a0d12,#0e1218,#0a0d12) !important;
+  border-block:1px solid rgba(255,255,255,.06);
+  padding:48px var(--gutter) !important;
+}
+.trust h6, .trust-eyebrow{ color:rgba(121,168,232,.9) !important; }
+.brand-mark{ color:rgba(244,246,250,.65) !important; filter:none !important; }
+.brand-mark:hover{ color:#ffffff !important; }
+.brand-mark:hover svg{ filter:drop-shadow(0 0 18px rgba(28,107,208,.55)); }
+
+/* ============ HERO ============ */
+.hero{ background:transparent !important; color:#fff !important; }
+.hero h1, .hero-title{ color:#ffffff !important; text-shadow:0 2px 30px rgba(0,0,0,.5); }
+.hero-title em, .hero h1 em{
+  background:linear-gradient(180deg,#ffffff 0%,#9bc1ee 55%,#1c6bd0 100%) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  -webkit-text-fill-color:transparent !important;
+  color:transparent !important;
+  filter:drop-shadow(0 2px 18px rgba(28,107,208,.45));
+  font-style:normal !important;
+  font-weight:600 !important;
+}
+/* Catch-all: any leftover gold gradient text → blue gradient */
+[class*="gold"][style*="text-fill-color"], .hero em, .sec-title em, h1 em, h2 em{
+  background:linear-gradient(180deg,#ffffff 0%,#9bc1ee 55%,#1c6bd0 100%) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  -webkit-text-fill-color:transparent !important;
+  filter:drop-shadow(0 2px 14px rgba(28,107,208,.35));
+}
+/* Car saving gradient → blue */
+.car-card .car-saving, .car-saving, .car-save-pct{
+  background:linear-gradient(180deg,#79a8e8,#1c6bd0) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  -webkit-text-fill-color:transparent !important;
+  color:transparent !important;
+}
+/* Calculator result gradient → blue */
+.calc-result-final .val, .calc-total .val{
+  background:linear-gradient(180deg,#ffffff,#1c6bd0) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  -webkit-text-fill-color:transparent !important;
+}
+.hero p, .hero .lede{ color:rgba(244,246,250,.92) !important; }
+.hero-eyebrow{ color:#79a8e8 !important; letter-spacing:.18em; }
+
+/* Hero stats — glass cards, 3D tilt */
+.hero-stats{ perspective:1500px; }
+.hero-stat{
+  background:rgba(20,26,36,.55) !important;
+  border:1px solid rgba(255,255,255,.10) !important;
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  color:#f4f6fa !important;
+  transition:transform .5s cubic-bezier(.2,.7,.2,1), border-color .3s, background .3s;
+  transform-style:preserve-3d;
+}
+.hero-stat:hover{
+  transform:translateY(-4px) rotateX(2deg) rotateY(-2deg) !important;
+  border-color:rgba(121,168,232,.4) !important;
+  background:rgba(28,40,60,.7) !important;
+}
+.hero-stat .stat-num, .hero-stat strong{ color:#ffffff !important; }
+.hero-stat .stat-label, .hero-stat small{ color:rgba(244,246,250,.7) !important; }
+
+/* ============ BUTTONS — blue+white ============ */
+.btn-light{ background:#ffffff !important; color:#0a0d12 !important; border-color:#ffffff !important; font-weight:700 !important; }
+.btn-light:hover{ background:#1c6bd0 !important; color:#ffffff !important; border-color:#1c6bd0 !important; }
+.btn-primary{ background:#ffffff !important; color:#0a0d12 !important; border-color:#ffffff !important; font-weight:700 !important; }
+.btn-primary:hover{ background:#1c6bd0 !important; color:#ffffff !important; border-color:#1c6bd0 !important; }
+.btn-gold{ background:#1c6bd0 !important; color:#ffffff !important; border-color:#1c6bd0 !important; font-weight:700 !important; }
+.btn-gold:hover{ background:#0d4ea3 !important; border-color:#0d4ea3 !important; }
+.btn-ghost{ background:transparent !important; color:#ffffff !important; border:1px solid rgba(255,255,255,.4) !important; }
+.btn-ghost:hover{ background:#ffffff !important; color:#0a0d12 !important; }
+.nav-cta .btn-primary, .nav-cta .btn-light { color:#0a0d12 !important; }
+.hero-actions .btn-primary{ background:#ffffff !important; color:#0a0d12 !important; }
+.hero-actions .btn-primary:hover{ background:#1c6bd0 !important; color:#ffffff !important; }
+
+/* ============ WHY SECTION — luxe cards ============ */
+.why{ padding-block:120px !important; }
+.why h2{ color:#ffffff !important; }
+.why-grid{ perspective:1500px; }
+.why-card{
+  background:linear-gradient(180deg,#141a24,#0f141c) !important;
+  border:1px solid rgba(255,255,255,.08) !important;
+  color:#f4f6fa !important;
+  padding:36px 32px !important;
+  border-radius:4px;
+  transition:transform .45s cubic-bezier(.2,.7,.2,1), border-color .3s, box-shadow .3s;
+  transform-style:preserve-3d;
+}
+.why-card:hover{
+  transform:translateY(-6px) rotateX(2deg) !important;
+  border-color:rgba(121,168,232,.4) !important;
+  box-shadow:0 20px 60px rgba(28,107,208,.15);
+}
+.why-card h3, .why-card strong{ color:#ffffff !important; }
+.why-card p, .why-card .why-body{ color:rgba(244,246,250,.78) !important; }
+.why-card .why-num, .why-num{
+  color:#1c6bd0 !important;
+  font-weight:800;
+  -webkit-text-stroke:0 !important;
+  background:none !important;
+  -webkit-background-clip:initial !important;
+  background-clip:initial !important;
+}
+
+/* ============ CATALOG / CARS GRID — premium ============ */
+.cars, section.cars{ padding-block:120px !important; }
+.cars h2, .catalog h2{ color:#ffffff !important; }
+.cars-eyebrow, .catalog-eyebrow{ color:#79a8e8 !important; }
+
+.cars-grid, .catalog-grid, .car-grid{
+  display:grid !important;
+  grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)) !important;
+  gap:24px !important;
+}
+
+.car-card, .vehicle-card{
+  background:#0f141c !important;
+  border:1px solid rgba(255,255,255,.08) !important;
+  border-radius:6px !important;
+  overflow:hidden !important;
+  color:#f4f6fa !important;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1), border-color .3s, box-shadow .3s !important;
+  display:flex !important;
+  flex-direction:column !important;
+}
+.car-card:hover, .vehicle-card:hover{
+  transform:translateY(-6px) !important;
+  border-color:rgba(121,168,232,.5) !important;
+  box-shadow:0 24px 60px rgba(0,0,0,.4), 0 0 0 1px rgba(28,107,208,.2) inset;
+}
+
+/* Car image — uniform aspect ratio, no distortion */
+.car-card .car-img, .car-card img, .vehicle-card img{
+  width:100% !important;
+  aspect-ratio:16/10 !important;
+  object-fit:cover !important;
+  object-position:center !important;
+  background:#1a2030 !important;
+  display:block !important;
+}
+.car-card .car-img-wrap, .car-card .car-image{
+  position:relative !important;
+  aspect-ratio:16/10 !important;
+  overflow:hidden !important;
+  background:linear-gradient(135deg,#1a2030,#0f141c) !important;
+}
+
+/* Card body */
+.car-card .car-body, .car-card .body, .car-card .card-body{
+  padding:20px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  gap:10px !important;
+  flex:1 !important;
+}
+.car-card h3, .car-card .car-name, .car-card .car-title{
+  color:#ffffff !important;
+  font-size:18px !important;
+  margin:0 !important;
+  font-weight:600 !important;
+}
+.car-card .car-trim, .car-card .car-sub{ color:#79a8e8 !important; font-size:13px !important; }
+.car-card .price-row{ display:flex !important; justify-content:space-between !important; padding-top:12px !important; border-top:1px solid rgba(255,255,255,.08) !important; margin-top:8px !important; }
+.car-card .price-label{ color:rgba(244,246,250,.55) !important; font-size:12px !important; }
+.car-card .price-val{ color:#ffffff !important; font-weight:700 !important; font-size:15px !important; }
+.car-card .savings, .car-card .save-amt{ color:#1c6bd0 !important; font-weight:800 !important; }
+.car-card .eyebrow, .car-card .car-eyebrow{ color:rgba(121,168,232,.85) !important; text-transform:uppercase; letter-spacing:.12em; font-size:11px !important; }
+
+/* ============ CINEMATIC BANDS ============ */
+.band-eyebrow{ color:#79a8e8 !important; letter-spacing:.2em !important; }
+.band h2{ color:#ffffff !important; }
+.band p{ color:rgba(244,246,250,.88) !important; }
+
+/* Video MUST autoplay on mobile — force visibility */
+.band-video, .hero-video{
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+}
+
+/* ============ CTA ============ */
+.cta-band, .final-cta{
+  background:linear-gradient(180deg,#0a0d12,#0d1422) !important;
+}
+.cta-band h2, .final-cta h2{ color:#ffffff !important; }
+.cta-band p, .final-cta p{ color:rgba(244,246,250,.85) !important; }
+
+/* ============ FAQ ============ */
+.faq, section.faq{ padding-block:100px !important; }
+.faq h2{ color:#ffffff !important; }
+.faq details{
+  background:#0f141c !important;
+  border:1px solid rgba(255,255,255,.08) !important;
+  border-radius:4px !important;
+  margin-bottom:10px !important;
+  padding:0 !important;
+  color:#f4f6fa !important;
+}
+.faq details[open]{ border-color:rgba(121,168,232,.35) !important; }
+.faq summary, .faq .faq-q{
+  padding:22px 24px !important;
+  color:#ffffff !important;
+  font-weight:600 !important;
+  cursor:pointer !important;
+  list-style:none !important;
+}
+.faq summary::-webkit-details-marker, .faq summary::marker{ display:none !important; }
+.faq summary::after{
+  content:"+";
+  float:left;
+  color:#79a8e8;
+  font-weight:300;
+  font-size:24px;
+  line-height:1;
+  transition:transform .3s;
+}
+.faq details[open] summary::after{ content:"−"; }
+.faq .faq-a, .faq details > div:not(summary), .faq details p{
+  padding:0 24px 22px !important;
+  color:rgba(244,246,250,.78) !important;
+  line-height:1.7 !important;
+}
+
+/* ============ FOOTER ============ */
+footer, .footer{
+  background:#070a0e !important;
+  border-top:1px solid rgba(255,255,255,.06) !important;
+  color:rgba(244,246,250,.75) !important;
+  padding:64px var(--gutter) 32px !important;
+}
+footer a, .footer a{ color:rgba(244,246,250,.7) !important; }
+footer a:hover, .footer a:hover{ color:#79a8e8 !important; }
+
+/* ============ TABS ============ */
+.tab-btn, .tab-trigger{
+  background:transparent !important;
+  color:rgba(244,246,250,.6) !important;
+  border:none !important;
+  border-bottom:2px solid transparent !important;
+  padding:14px 22px !important;
+  font-weight:600 !important;
+}
+.tab-btn.active, .tab-btn[aria-selected="true"], .tab-trigger.active{
+  color:#ffffff !important;
+  border-bottom-color:#1c6bd0 !important;
+}
+
+/* ============ CALC / CALCULATOR ============ */
+.calc{ background:linear-gradient(180deg,#0a0d12,#0d1422,#0a0d12) !important; padding-block:100px !important; }
+.calc h2{ color:#ffffff !important; }
+.calc input, .calc select, .calc textarea{
+  background:#0f141c !important;
+  color:#ffffff !important;
+  border:1px solid rgba(255,255,255,.15) !important;
+}
+.calc input:focus, .calc select:focus{ border-color:#1c6bd0 !important; outline:none; }
+.calc-result, .calc-total{ color:#1c6bd0 !important; font-weight:800; }
+
+/* ============ PROCESS ============ */
+.process{ background:transparent !important; }
+.process h2{ color:#ffffff !important; }
+.process-step, .step-card{
+  background:#0f141c !important;
+  border:1px solid rgba(255,255,255,.08) !important;
+  color:#f4f6fa !important;
+}
+.process-step.active, .step-card.active{ border-color:#1c6bd0 !important; }
+.process-step .num, .step-num{ color:#79a8e8 !important; }
+
+/* ============ MOBILE ============ */
+@media (max-width: 768px){
+  .hero h1{ font-size:clamp(36px, 9vw, 56px) !important; line-height:1.05 !important; }
+  .hero p{ font-size:16px !important; }
+  .hero-stats{ grid-template-columns:repeat(2,1fr) !important; gap:10px !important; }
+  .hero-stat{ padding:14px !important; }
+  .hero-stat .stat-num{ font-size:22px !important; }
+
+  .why-grid{ grid-template-columns:1fr !important; gap:14px !important; }
+  .why-card{ padding:24px 20px !important; }
+
+  .cars-grid, .catalog-grid, .car-grid{
+    grid-template-columns:1fr !important;
+    gap:16px !important;
+  }
+
+  .band{ min-height:50vh !important; }
+  .band-content{ padding:48px 20px !important; }
+  .band h2{ font-size:clamp(26px,7vw,40px) !important; line-height:1.15 !important; }
+
+  /* CRITICAL: Force mobile video autoplay (iOS Safari quirk) */
+  .band-video, .hero-video{
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+    pointer-events:none !important;
+  }
+
+  .nav-cta { gap:8px !important; }
+  .nav-cta .btn{ padding:8px 14px !important; font-size:13px !important; }
+
+  footer{ padding:48px 20px 24px !important; }
+}
+
+@media (max-width: 480px){
+  .hero-stats{ grid-template-columns:1fr 1fr !important; }
+  .btn{ padding:12px 18px !important; font-size:14px !important; }
+}
+
+/* ============ Q&A TAB CARDS — fix any leftover white ============ */
+.tab-pane li, .qa-list li{
+  background:#0f141c !important;
+  border:1px solid rgba(255,255,255,.08) !important;
+}
+.tab-pane li strong{ color:#ffffff !important; }
+.tab-pane li span{ color:rgba(244,246,250,.7) !important; }
+
+/* ============ Final safety net: any leftover white background → dark ============ */
+[style*="background:#fff"], [style*="background: #fff"],
+[style*="background:#ffffff"], [style*="background: #ffffff"],
+[style*="background-color:#fff"], [style*="background-color: #fff"],
+[style*="background-color:#ffffff"]{
+  background:#0f141c !important;
+}

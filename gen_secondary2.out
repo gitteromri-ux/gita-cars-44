@@ -1,0 +1,20 @@
+=== START mode=secondary todo=18 ===
+[1/18] FAIL mercedes-g580-eq-rear: fail
+[2/18] FAIL chevy-tahoe-high-country-rear: fail
+[3/18] FAIL ford-bronco-raptor-rear: fail
+[4/18] FAIL lucid-air-pure-rear: fail
+[5/18] FAIL mercedes-g500-wheels: fail
+[6/18] FAIL kia-ev9-rwd-rear: fail
+[7/18] FAIL kia-ev9-rwd-wheels: fail
+[8/18] FAIL jeep-wrangler-sport-rear: fail
+[9/18] FAIL rivian-r1s-dual-wheels: fail
+[10/18] FAIL rivian-r1s-dual-rear: fail
+[11/18] FAIL jeep-wrangler-sport-wheels: fail
+[12/18] FAIL chevy-traverse-z71-rear: fail
+[13/18] FAIL chevy-traverse-z71-wheels: fail
+[14/18] OK mercedes-g580-eq-wheels (1816KB)
+[15/18] OK mercedes-g500-rear (1838KB)
+[16/18] OK mustang-gt-v8-wheels (1940KB)
+[17/18] OK lucid-air-pure-wheels (2256KB)
+[18/18] OK chevy-tahoe-high-country-wheels (2067KB)
+=== DONE mode=secondary: 5 ok, 13 failed ===

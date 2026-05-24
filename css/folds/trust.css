@@ -1,0 +1,508 @@
+/* ============================================================
+   FOLD TRUST — About + Credibility (3 layers: people · media · regulation)
+   Scoped under #trust. Hebrew RTL. Serif-italian luxe.
+   ============================================================ */
+
+#trust {
+  --t-navy-900: #060914;
+  --t-navy-800: #0a0f1e;
+  --t-navy-700: #111835;
+  --t-navy-600: #1a2348;
+  --t-cobalt: #4A8BFF;
+  --t-cobalt-deep: #1e5fff;
+  --t-cobalt-soft: rgba(74, 139, 255, 0.15);
+  --t-cream: #E8E0CC;
+  --t-cream-dim: rgba(232, 224, 204, 0.6);
+  --t-line: rgba(232, 224, 204, 0.12);
+  --t-mute: #8a93a8;
+
+  direction: rtl;
+  position: relative;
+  padding: clamp(80px, 11vw, 160px) 0 clamp(70px, 9vw, 130px);
+  background:
+    radial-gradient(ellipse at 85% 5%, rgba(74, 139, 255, 0.10), transparent 55%),
+    radial-gradient(ellipse at 5% 90%, rgba(232, 224, 204, 0.05), transparent 50%),
+    var(--t-navy-900);
+  color: #e9eef9;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Texture grain — subtle SVG noise via data-uri */
+#trust::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.045 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  opacity: 0.55;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Hairline grid */
+#trust::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(74, 139, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(74, 139, 255, 0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse at 50% 40%, #000 25%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 40%, #000 25%, transparent 80%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#trust .tr-w {
+  position: relative;
+  z-index: 1;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 56px);
+}
+
+/* ================== BLOCK A — Headline ================== */
+#trust .tr-hero {
+  text-align: center;
+  margin-bottom: clamp(72px, 9vw, 130px);
+}
+
+#trust .tr-eyebrow {
+  font-family: "Anton", "Heebo", sans-serif;
+  font-weight: 400;
+  font-size: clamp(11px, 1vw, 13px);
+  letter-spacing: 0.32em;
+  color: var(--t-cobalt);
+  margin-bottom: clamp(28px, 4vw, 44px);
+  text-transform: uppercase;
+}
+#trust .tr-eyebrow .dot {
+  display: inline-block;
+  width: 4px; height: 4px;
+  background: var(--t-cream);
+  border-radius: 50%;
+  margin: 0 12px;
+  vertical-align: middle;
+  opacity: 0.8;
+}
+
+#trust .tr-h1 {
+  font-family: "Frank Ruhl Libre", "Times New Roman", serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: clamp(54px, 9vw, 132px);
+  line-height: 0.94;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: #f4f0e2;
+}
+#trust .tr-h1 .l {
+  display: block;
+}
+#trust .tr-h1 .l-2 {
+  color: var(--t-cobalt);
+}
+#trust .tr-h1 .l-3 {
+  background: linear-gradient(90deg, #f4f0e2, var(--t-cream) 60%, rgba(232,224,204,0.7));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+#trust .tr-sub {
+  font-family: "Heebo", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: clamp(15px, 1.5vw, 19px);
+  line-height: 1.6;
+  color: var(--t-cream-dim);
+  max-width: 760px;
+  margin: clamp(32px, 4vw, 48px) auto 0;
+}
+
+/* ================== BLOCK B — Who we are ================== */
+#trust .tr-about {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: clamp(40px, 6vw, 96px);
+  align-items: start;
+  margin-bottom: clamp(80px, 10vw, 140px);
+  padding-block: clamp(40px, 5vw, 64px);
+  border-top: 1px solid var(--t-line);
+  border-bottom: 1px solid var(--t-line);
+}
+
+#trust .tr-about-label {
+  font-family: "Anton", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  color: var(--t-cobalt);
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+
+#trust .tr-about-body p {
+  font-family: "Frank Ruhl Libre", serif;
+  font-weight: 400;
+  font-size: clamp(17px, 1.6vw, 21px);
+  line-height: 1.7;
+  color: #e9eef9;
+  margin: 0 0 22px;
+}
+#trust .tr-about-body p:last-child {
+  font-weight: 500;
+  color: var(--t-cream);
+  font-style: italic;
+}
+#trust .tr-about-body strong {
+  color: var(--t-cobalt);
+  font-weight: 700;
+}
+
+/* KPI column */
+#trust .tr-kpis {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(14px, 2vw, 22px);
+}
+#trust .tr-kpi {
+  border: 1px solid var(--t-line);
+  background: linear-gradient(180deg, rgba(74,139,255,0.04), rgba(0,0,0,0));
+  border-radius: 4px;
+  padding: clamp(20px, 2.4vw, 30px) clamp(16px, 2vw, 24px);
+  position: relative;
+  transition: border-color .35s ease, transform .35s ease;
+}
+#trust .tr-kpi:hover {
+  border-color: rgba(74, 139, 255, 0.4);
+  transform: translateY(-2px);
+}
+#trust .tr-kpi-num {
+  font-family: "Frank Ruhl Libre", serif;
+  font-weight: 700;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1;
+  color: var(--t-cream);
+  letter-spacing: -0.02em;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+#trust .tr-kpi-num .unit {
+  font-size: 0.45em;
+  color: var(--t-cobalt);
+  margin-inline-start: 4px;
+  font-weight: 500;
+  font-style: italic;
+}
+#trust .tr-kpi-lbl {
+  font-family: "Heebo", sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--t-mute);
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+/* ================== BLOCK C — Advisory board ================== */
+#trust .tr-section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: clamp(36px, 4vw, 56px);
+  border-bottom: 1px solid var(--t-line);
+  padding-bottom: 20px;
+}
+#trust .tr-section-head h2 {
+  font-family: "Frank Ruhl Libre", serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: clamp(32px, 4.5vw, 56px);
+  margin: 0;
+  color: #f4f0e2;
+  letter-spacing: -0.01em;
+}
+#trust .tr-section-head .tag {
+  font-family: "Anton", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  color: var(--t-cobalt);
+  text-transform: uppercase;
+}
+
+#trust .tr-board {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(14px, 1.8vw, 24px);
+  margin-bottom: clamp(80px, 10vw, 140px);
+}
+
+#trust .tr-advisor {
+  text-align: center;
+  padding: clamp(22px, 2.4vw, 32px) clamp(14px, 1.6vw, 22px);
+  border: 1px solid var(--t-line);
+  border-radius: 6px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(0,0,0,0));
+  transition: border-color .4s ease, transform .4s ease, background .4s ease;
+  position: relative;
+}
+#trust .tr-advisor:hover {
+  border-color: rgba(74, 139, 255, 0.45);
+  transform: translateY(-3px);
+  background: linear-gradient(180deg, rgba(74,139,255,0.05), rgba(0,0,0,0));
+}
+
+#trust .tr-avatar {
+  width: 96px; height: 96px;
+  border-radius: 50%;
+  background: var(--t-cobalt-soft);
+  display: grid;
+  place-items: center;
+  margin: 0 auto clamp(16px, 1.8vw, 22px);
+  border: 1px solid rgba(74, 139, 255, 0.35);
+  position: relative;
+}
+#trust .tr-avatar::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px solid rgba(232, 224, 204, 0.08);
+}
+#trust .tr-avatar-initials {
+  font-family: "Heebo", sans-serif;
+  font-weight: 900;
+  font-size: 32px;
+  color: var(--t-cream);
+  letter-spacing: 0.04em;
+}
+
+#trust .tr-advisor-name {
+  font-family: "Frank Ruhl Libre", serif;
+  font-weight: 700;
+  font-size: clamp(17px, 1.5vw, 20px);
+  color: #f4f0e2;
+  margin: 0 0 10px;
+  line-height: 1.25;
+}
+#trust .tr-advisor-role {
+  font-family: "Heebo", sans-serif;
+  font-weight: 400;
+  font-size: clamp(12px, 1vw, 13px);
+  line-height: 1.55;
+  color: var(--t-mute);
+  margin: 0;
+}
+#trust .tr-advisor-role b {
+  color: var(--t-cobalt);
+  font-weight: 600;
+}
+
+#trust .tr-board-note {
+  text-align: center;
+  font-family: "Heebo", sans-serif;
+  font-size: 12px;
+  color: var(--t-mute);
+  margin-top: 24px;
+  opacity: 0.65;
+  font-style: italic;
+}
+
+/* ================== BLOCK D — Media + Partners ================== */
+#trust .tr-strip {
+  margin-bottom: clamp(56px, 7vw, 100px);
+}
+#trust .tr-strip-head {
+  font-family: "Anton", sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.36em;
+  color: var(--t-cream-dim);
+  text-transform: uppercase;
+  margin-bottom: clamp(24px, 3vw, 36px);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+#trust .tr-strip-head::before,
+#trust .tr-strip-head::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--t-line), transparent);
+}
+
+#trust .tr-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(20px, 3vw, 48px);
+  opacity: 0.6;
+}
+#trust .tr-logo {
+  font-family: "Frank Ruhl Libre", serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: clamp(18px, 1.9vw, 26px);
+  color: var(--t-cream);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  position: relative;
+  transition: color .3s ease, transform .3s ease;
+}
+#trust .tr-logo:not(:last-child)::after {
+  content: "·";
+  margin-inline-start: clamp(20px, 3vw, 48px);
+  color: var(--t-cobalt);
+  opacity: 0.5;
+}
+#trust .tr-logo:hover {
+  color: #fff;
+}
+
+/* Partners variant */
+#trust .tr-strip.tr-partners .tr-logos {
+  opacity: 0.75;
+}
+#trust .tr-strip.tr-partners .tr-logo {
+  font-style: normal;
+  font-weight: 500;
+  font-family: "Heebo", sans-serif;
+  font-size: clamp(15px, 1.4vw, 18px);
+  letter-spacing: 0.04em;
+}
+
+/* ================== Final CTA ================== */
+#trust .tr-cta-wrap {
+  text-align: center;
+  margin-top: clamp(40px, 5vw, 64px);
+}
+#trust .tr-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 36px;
+  font-family: "Heebo", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--t-cobalt-deep), var(--t-cobalt));
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  box-shadow:
+    0 12px 32px -8px rgba(30, 95, 255, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+#trust .tr-cta:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 18px 40px -8px rgba(30, 95, 255, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+#trust .tr-cta .arrow {
+  font-family: "Frank Ruhl Libre", serif;
+  font-weight: 400;
+  font-size: 22px;
+  transform: scaleX(-1);
+  line-height: 1;
+}
+
+/* ================== Reveal animation ================== */
+#trust [data-tr-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .9s cubic-bezier(.16,.84,.36,1), transform .9s cubic-bezier(.16,.84,.36,1);
+}
+#trust [data-tr-reveal].in {
+  opacity: 1;
+  transform: translateY(0);
+}
+#trust [data-tr-reveal].d-1 { transition-delay: .08s; }
+#trust [data-tr-reveal].d-2 { transition-delay: .16s; }
+#trust [data-tr-reveal].d-3 { transition-delay: .24s; }
+#trust [data-tr-reveal].d-4 { transition-delay: .32s; }
+#trust [data-tr-reveal].d-5 { transition-delay: .40s; }
+
+/* ================== Responsive — Tablet ================== */
+@media (max-width: 980px) {
+  #trust .tr-about {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  #trust .tr-board {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  #trust .tr-board .tr-advisor:nth-child(4),
+  #trust .tr-board .tr-advisor:nth-child(5) {
+    grid-column: span 1;
+  }
+}
+
+/* ================== Responsive — Mobile 390 ================== */
+@media (max-width: 640px) {
+  #trust {
+    padding: 72px 0 60px;
+  }
+  #trust .tr-h1 {
+    font-size: clamp(44px, 12vw, 64px);
+    line-height: 0.98;
+  }
+  #trust .tr-about {
+    padding-block: 36px;
+    gap: 32px;
+  }
+  #trust .tr-kpis {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  #trust .tr-board {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  /* 5 → 2x3: last advisor (5) full width and centered */
+  #trust .tr-board .tr-advisor:nth-child(5) {
+    grid-column: 1 / -1;
+    max-width: 60%;
+    margin-inline: auto;
+  }
+  #trust .tr-avatar {
+    width: 80px; height: 80px;
+  }
+  #trust .tr-avatar-initials {
+    font-size: 26px;
+  }
+  /* Logos → horizontal scroll */
+  #trust .tr-logos {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-block: 4px 12px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    gap: 28px;
+  }
+  #trust .tr-logos::-webkit-scrollbar { display: none; }
+  #trust .tr-logo:not(:last-child)::after {
+    margin-inline-start: 28px;
+  }
+  #trust .tr-strip-head {
+    font-size: 11px;
+    letter-spacing: 0.28em;
+  }
+  #trust .tr-cta {
+    padding: 16px 26px;
+    font-size: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #trust [data-tr-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,27 @@
+.rv-summary { display: grid; grid-template-columns: 220px 1fr; gap: 36px; align-items: center; padding: 36px; }
+@media (max-width: 700px) { .rv-summary { grid-template-columns: 1fr; } }
+.rv-avg { text-align: center; }
+.rv-avg-score { font-family:'Anton',sans-serif; font-size: 88px; color: var(--co-cobalt); line-height: 1; }
+.rv-avg-stars { font-size: 22px; color: #FFB800; margin-top: 6px; }
+.rv-avg-count { color: var(--co-text-dim); font-size: 13px; margin-top: 8px; }
+.rv-breakdown { display: grid; gap: 8px; }
+.rv-bar { display: grid; grid-template-columns: 32px 1fr 50px; gap: 10px; align-items: center; color: var(--co-text-soft); font-size: 13px; }
+.bar-track { height: 8px; background: rgba(255,255,255,.06); border-radius: 6px; overflow: hidden; }
+.bar-fill { height: 100%; background: linear-gradient(90deg, var(--co-cobalt), var(--co-cobalt-2)); border-radius: 6px; }
+.rv-bar b { color: var(--co-cobalt); text-align: left; }
+
+.rv-filter-row { display:flex; flex-wrap: wrap; gap: 8px; margin: 30px 0 24px; }
+.rv-filter { padding: 8px 16px; background: var(--co-pane); border: 1px solid var(--co-border-2); color: var(--co-text-soft); border-radius: 100px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all .2s; }
+.rv-filter:hover { border-color: var(--co-cobalt-line); }
+.rv-filter.active { background: var(--co-cobalt); color: #fff; border-color: var(--co-cobalt); }
+
+.rv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 18px; }
+.review-card { display:flex; flex-direction: column; gap: 14px; }
+.rv-head { display:flex; align-items:center; justify-content: space-between; }
+.rv-stars { color: #FFB800; font-size: 18px; letter-spacing: 2px; }
+.rv-verified { font-size: 11px; padding: 4px 10px; background: var(--co-cobalt-soft); border: 1px solid var(--co-cobalt-line); color: var(--co-cobalt); border-radius: 100px; font-weight: 600; }
+.rv-body { color: var(--co-text-soft); font-size: 14.5px; line-height: 1.65; flex: 1; }
+.rv-foot { display:flex; justify-content: space-between; align-items: flex-end; padding-top: 12px; border-top: 1px solid var(--co-border); }
+.rv-foot b { display:block; color: #fff; font-size: 14px; font-weight: 700; }
+.rv-foot span { color: var(--co-cobalt); font-size: 12px; font-weight: 500; }
+.rv-foot time { color: var(--co-text-dim); font-size: 12px; }

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#050B1A">
+<title>בלוג | AutoImports.co.il</title>
+<meta name="description" content="AutoImports.co.il — המודל החדש של רכישת רכב בישראל. יבוא אישי מארה״ב, 100% שקוף, עד 78% חיסכון.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Heebo:wght@300;400;500;600;700;800;900&family=Anton&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/mb.css">
+<link rel="stylesheet" href="./css/award.css">
+<link rel="stylesheet" href="./css/chatbot.css">
+<link rel="stylesheet" href="./css/pages/_shared.css">
+<link rel="stylesheet" href="./css/pages/blog.css">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://unpkg.com/lenis@1.0.42/dist/lenis.min.js" defer></script>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23050B1A'/%3E%3Ctext x='32' y='44' font-family='Inter,Arial,sans-serif' font-size='30' font-weight='900' fill='%234A8BFF' text-anchor='middle'%3EAi%3C/text%3E%3C/svg%3E">
+</head>
+<body class="subpage">
+<nav class="mb-nav">
+  <div class="mb-nav-inner">
+    <a href="./index.html" class="mb-logo">
+      <span class="mb-logo-mark">Ai</span>
+      <span>AutoImports<small style="opacity:.55;font-weight:500;margin-inline-start:2px">.co.il</small></span>
+    </a>
+    <div class="mb-nav-links">
+      <a href="./index.html" >בית</a>
+      <a href="./catalog.html" >קטלוג</a>
+      <a href="./how-it-works.html" >תהליך</a>
+      <a href="./why-us.html" >למה אנחנו</a>
+      <a href="./reviews.html" >ביקורות</a>
+      <a href="./trust.html" >אמינות</a>
+      <a href="./blog.html" class="active">בלוג</a>
+      <a href="./about.html" >אודות</a>
+      <a href="./faq.html" >שאלות</a>
+    </div>
+    <a href="./start.html" class="mb-nav-cta">פתח תיק ₪500</a>
+    <button class="mb-burger" id="burger">☰</button>
+  </div>
+</nav><section class="page-hero" data-reveal>
+  <div class="eyebrow">בלוג ועדכונים</div>
+  <h1>מה חדש<br>בעולם היבוא.</h1>
+  <p class="sub">מאמרים מעמיקים על דגמים ספציפיים (G-Class, Tesla), שינויי-רגולציה, מימון, ביטוח, ומה שצריך לדעת לפני שיוצאים לדרך.</p>
+  <div class="cta-row">
+    <a href="./catalog.html" class="btn-primary-cobalt">כל הרכבים בקטלוג</a>
+    
+  </div>
+</section>
+<div class="page-divider"></div>
+
+<section class="psec" data-reveal>
+  <div class="blog-filter-row">
+    <button class="blog-filter active" data-filter="all">הכל</button>
+    <button class="blog-filter" data-filter="g-class">G-Class</button>
+    <button class="blog-filter" data-filter="tesla">Tesla</button>
+    <button class="blog-filter" data-filter="regulation">רגולציה</button>
+    <button class="blog-filter" data-filter="financing">מימון</button>
+    <button class="blog-filter" data-filter="insurance">ביטוח</button>
+    <button class="blog-filter" data-filter="import">יבוא</button>
+  </div>
+
+  <div class="sec-eyebrow" style="margin-top:30px">מאמר נבחר</div>
+  <article class="blog-featured glass-card" onclick="alert('המאמר ייפתח בקרוב')">
+  <div class="bf-bg" style="background: linear-gradient(135deg, #4A8BFF 0%, #0A1530 100%)">
+    <div class="bf-icon">G</div>
+  </div>
+  <div class="bf-body">
+    <span class="chip">G-Class</span>
+    <h2>G63 AMG vs G580 EQ — האם החשמלי באמת אופציה?</h2>
+    <p>בדיקה מעמיקה: 577HP בנזין מול 587HP חשמל, צריכת דלק מול טווח, מחירים בארץ ובארה״ב.</p>
+    <div class="bf-meta"><time>2025-05-12</time><span>· 8 דק׳ קריאה</span></div>
+  </div>
+</article>
+
+  <div class="sec-eyebrow" style="margin-top:50px">עוד מאמרים</div>
+  <div class="blog-grid"><article class="blog-card" data-cat="tesla" onclick="alert('המאמר ייפתח בקרוב')">
+      <div class="bc-bg" style="background: linear-gradient(135deg, #22D3EE 0%, #0A1530 100%)">
+        <div class="bc-icon">T</div>
+      </div>
+      <div class="bc-body">
+        <span class="chip">Tesla</span>
+        <h3>Model S Plaid — 1.99 שניות, ועדיין משתלם 60% פחות</h3>
+        <p>איך נראה ה-Tesla הכי מהיר בעולם דרך הפורטל שלנו: $124K בארה״ב, ₪410K בארץ.</p>
+        <div class="bc-meta"><time>2025-04-28</time><span>· 6 דק׳</span></div>
+      </div>
+    </article><article class="blog-card" data-cat="regulation" onclick="alert('המאמר ייפתח בקרוב')">
+      <div class="bc-bg" style="background: linear-gradient(135deg, #7C5CFF 0%, #0A1530 100%)">
+        <div class="bc-icon">ר</div>
+      </div>
+      <div class="bc-body">
+        <span class="chip">רגולציה</span>
+        <h3>תיקון חוק 2026 — מה השתנה ביבוא אישי</h3>
+        <p>משרד התחבורה שחרר תיקון רגולציה. הקלות חדשות לחשמליות, חסמים חדשים על דיזל ישן.</p>
+        <div class="bc-meta"><time>2025-04-15</time><span>· 12 דק׳</span></div>
+      </div>
+    </article><article class="blog-card" data-cat="financing" onclick="alert('המאמר ייפתח בקרוב')">
+      <div class="bc-bg" style="background: linear-gradient(135deg, #FF8A65 0%, #0A1530 100%)">
+        <div class="bc-icon">מ</div>
+      </div>
+      <div class="bc-body">
+        <span class="chip">מימון</span>
+        <h3>מימון יבוא אישי — מדריך 2026</h3>
+        <p>בנק לאומי, מזרחי-טפחות, דיסקונט — מי נותן הכי טוב? ריבית, תקופה, אחוז מימון.</p>
+        <div class="bc-meta"><time>2025-03-22</time><span>· 10 דק׳</span></div>
+      </div>
+    </article><article class="blog-card" data-cat="insurance" onclick="alert('המאמר ייפתח בקרוב')">
+      <div class="bc-bg" style="background: linear-gradient(135deg, #34D399 0%, #0A1530 100%)">
+        <div class="bc-icon">ב</div>
+      </div>
+      <div class="bc-body">
+        <span class="chip">ביטוח</span>
+        <h3>איך מבטחים יבוא אישי — הראל vs מנורה vs איילון</h3>
+        <p>השוואת 3 חברות הביטוח הגדולות. מי הכי גמישה? מי הכי זולה? מי הכי מהירה?</p>
+        <div class="bc-meta"><time>2025-03-08</time><span>· 7 דק׳</span></div>
+      </div>
+    </article><article class="blog-card" data-cat="import" onclick="alert('המאמר ייפתח בקרוב')">
+      <div class="bc-bg" style="background: linear-gradient(135deg, #F472B6 0%, #0A1530 100%)">
+        <div class="bc-icon">י</div>
+      </div>
+      <div class="bc-body">
+        <span class="chip">יבוא</span>
+        <h3>RoRo vs קונטיינר — איזה לבחור?</h3>
+        <p>ההבדל: $1,000. ההבדל בסיכון: ענק. מתי כדאי לשלם יותר על קונטיינר?</p>
+        <div class="bc-meta"><time>2025-02-19</time><span>· 5 דק׳</span></div>
+      </div>
+    </article><article class="blog-card" data-cat="tesla" onclick="alert('המאמר ייפתח בקרוב')">
+      <div class="bc-bg" style="background: linear-gradient(135deg, #22D3EE 0%, #0A1530 100%)">
+        <div class="bc-icon">T</div>
+      </div>
+      <div class="bc-body">
+        <span class="chip">Tesla</span>
+        <h3>Cybertruck — האם זה שווה את ה-₪780K?</h3>
+        <p>הפיק-אפ הקליפ של אילון. ניתוח עלות-תועלת מלא, כולל סטנדרטיזציה ומיסוי בישראל.</p>
+        <div class="bc-meta"><time>2025-02-05</time><span>· 11 דק׳</span></div>
+      </div>
+    </article><article class="blog-card" data-cat="g-class" onclick="alert('המאמר ייפתח בקרוב')">
+      <div class="bc-bg" style="background: linear-gradient(135deg, #4A8BFF 0%, #0A1530 100%)">
+        <div class="bc-icon">G</div>
+      </div>
+      <div class="bc-body">
+        <span class="chip">G-Class</span>
+        <h3>G63 4×4² — דגם הפלגה של מרצדס</h3>
+        <p>הדגם המוגבה, מה אפשרי לייבא לישראל ומה לא. כל הסיפור על "האקסטרים-G".</p>
+        <div class="bc-meta"><time>2025-01-22</time><span>· 9 דק׳</span></div>
+      </div>
+    </article><article class="blog-card" data-cat="regulation" onclick="alert('המאמר ייפתח בקרוב')">
+      <div class="bc-bg" style="background: linear-gradient(135deg, #7C5CFF 0%, #0A1530 100%)">
+        <div class="bc-icon">ר</div>
+      </div>
+      <div class="bc-body">
+        <span class="chip">רגולציה</span>
+        <h3>30 שלבי הרגולציה — איך לזכור אותם</h3>
+        <p>מדריך מעמיק: כל 30 השלבים, סדר ביצוע, זמן ממוצע לכל שלב.</p>
+        <div class="bc-meta"><time>2025-01-08</time><span>· 15 דק׳</span></div>
+      </div>
+    </article><article class="blog-card" data-cat="financing" onclick="alert('המאמר ייפתח בקרוב')">
+      <div class="bc-bg" style="background: linear-gradient(135deg, #FF8A65 0%, #0A1530 100%)">
+        <div class="bc-icon">מ</div>
+      </div>
+      <div class="bc-body">
+        <span class="chip">מימון</span>
+        <h3>ליסינג vs מימון — בהפרשי-מס</h3>
+        <p>יבוא אישי + ליסינג = שילוב מעניין. מתי כדאי? מתי לא?</p>
+        <div class="bc-meta"><time>2024-12-30</time><span>· 8 דק׳</span></div>
+      </div>
+    </article><article class="blog-card" data-cat="import" onclick="alert('המאמר ייפתח בקרוב')">
+      <div class="bc-bg" style="background: linear-gradient(135deg, #F472B6 0%, #0A1530 100%)">
+        <div class="bc-icon">י</div>
+      </div>
+      <div class="bc-body">
+        <span class="chip">יבוא</span>
+        <h3>דולר ב-2.93 — חלון הזדמנות נדיר</h3>
+        <p>השער הנמוך ב-7 שנים. ניתוח שווקים: כמה זמן זה ימשך?</p>
+        <div class="bc-meta"><time>2024-12-15</time><span>· 6 דק׳</span></div>
+      </div>
+    </article><article class="blog-card" data-cat="insurance" onclick="alert('המאמר ייפתח בקרוב')">
+      <div class="bc-bg" style="background: linear-gradient(135deg, #34D399 0%, #0A1530 100%)">
+        <div class="bc-icon">ב</div>
+      </div>
+      <div class="bc-body">
+        <span class="chip">ביטוח</span>
+        <h3>מה כיסויים לא רגילים בביטוח רכב יוקרה?</h3>
+        <p>גניבת חלקים, גנדור, יבוא חוזר — כיסויים נדירים שמטוב לשים אליהם לב.</p>
+        <div class="bc-meta"><time>2024-12-01</time><span>· 9 דק׳</span></div>
+      </div>
+    </article></div>
+</section>
+
+<script>
+document.querySelectorAll('.blog-filter').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.blog-filter').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    document.querySelectorAll('.blog-card').forEach(card => {
+      card.style.display = (f === 'all' || card.dataset.cat === f) ? '' : 'none';
+    });
+  });
+});
+</script>
+<footer class="footer-mb">
+  <div class="foot-w">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-brand-name"><span class="mb-logo-mark">A</span> AutoImports.co.il</div>
+        <p>ייעוץ ויבוא אישי של רכבי יוקרה מארצות הברית. שקיפות מלאה, מחיר משתלם ב-78%, מסירה תוך 8-12 שבועות.</p>
+      </div>
+      <div class="foot-col">
+        <h5>קטלוג</h5>
+        <ul>
+          <li><a href="./catalog.html">כל הדגמים</a></li>
+          <li><a href="./catalog.html?cat=suv">SUV יוקרה</a></li>
+          <li><a href="./catalog.html?cat=ev">חשמלי</a></li>
+          <li><a href="./catalog.html?cat=pickup">פיק-אפ</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>שירות</h5>
+        <ul>
+          <li><a href="./how-it-works.html">איך זה עובד</a></li>
+          <li><a href="./regulations.html">30 שלבי רגולציה</a></li>
+          <li><a href="./used-cars-guide.html">יד-שנייה</a></li>
+          <li><a href="./faq.html">שאלות נפוצות</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>חברה</h5>
+        <ul>
+          <li><a href="./about.html">אודות</a></li>
+          <li><a href="./trust.html">אמינות ויועצים</a></li>
+          <li><a href="./blog.html">בלוג</a></li>
+          <li><a href="./terms.html">תנאי שימוש</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>קשר</h5>
+        <ul>
+          <li>050-000-0000</li>
+          <li>info@autoimports.co.il</li>
+          <li>ראשון לציון</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 AutoImports.co.il. כל הזכויות שמורות.</span>
+      <span>USD/ILS = 2.93 · המחירים להמחשה</span>
+    </div>
+  </div>
+</footer><script src="./js/chatbot.js" defer></script>
+<script>
+// Universal sub-page scroll reveal
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.gsap && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray('[data-reveal]').forEach(el => {
+      gsap.from(el, {
+        opacity: 0, y: 40, duration: .9, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 85%' }
+      });
+    });
+  }
+});
+</script>
+</body></html>

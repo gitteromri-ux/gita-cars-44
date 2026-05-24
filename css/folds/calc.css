@@ -1,0 +1,444 @@
+/* ============================================================
+   FOLD: CALC  (#calc)  —  AutoImports luxury financial instrument
+   Cobalt + navy. RTL. Tabular nums. No white, no gold.
+   ============================================================ */
+
+#calc {
+  --co-navy-0: #05070d;
+  --co-navy-1: #0a0f1a;
+  --co-navy-2: #0f1626;
+  --co-navy-3: #16213a;
+  --co-cobalt: #2b6fff;
+  --co-cobalt-bright: #4d8bff;
+  --co-cobalt-glow: rgba(43, 111, 255, .55);
+  --co-cobalt-soft: rgba(43, 111, 255, .14);
+  --co-text: #eef2ff;
+  --co-text-mute: rgba(238, 242, 255, .58);
+  --co-text-faint: rgba(238, 242, 255, .34);
+  --co-line: rgba(120, 160, 255, .12);
+  --co-line-strong: rgba(120, 160, 255, .26);
+  --co-red: #ff4d4d;
+
+  position: relative;
+  padding: clamp(64px, 8vw, 140px) clamp(20px, 4vw, 64px);
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgba(43,111,255,.10), transparent 60%),
+    radial-gradient(900px 500px at 10% 110%, rgba(43,111,255,.06), transparent 65%),
+    linear-gradient(180deg, var(--co-navy-0), var(--co-navy-1));
+  color: var(--co-text);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+#calc::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(rgba(120,160,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120,160,255,.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at 50% 50%, #000 30%, transparent 80%);
+}
+
+#calc .calc-w {
+  max-width: 1480px; margin: 0 auto; position: relative; z-index: 1;
+}
+
+/* ── Section head ── */
+#calc .sec-head { margin-bottom: clamp(28px, 4vw, 56px); }
+#calc .sec-head .eyebrow {
+  font: 700 11px/1 'Heebo', sans-serif;
+  letter-spacing: .28em;
+  color: var(--co-cobalt-bright);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+#calc .sec-head .eyebrow::before {
+  content: ""; width: 28px; height: 1px; background: var(--co-cobalt-bright);
+}
+#calc .sec-head h2 {
+  font: 400 clamp(34px, 4.4vw, 68px)/1.04 'Frank Ruhl Libre', serif;
+  letter-spacing: -0.02em; color: var(--co-text); margin: 0;
+}
+#calc .sec-head p {
+  font: 400 16px/1.55 'Heebo', sans-serif;
+  color: var(--co-text-mute); margin-top: 14px; max-width: 620px;
+}
+
+/* ── Two-panel split ── */
+#calc .calc-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 3vw, 56px);
+  align-items: stretch;
+}
+
+#calc .panel {
+  background: linear-gradient(180deg, rgba(255,255,255,.014), rgba(255,255,255,0) 70%), var(--co-navy-2);
+  border: 1px solid var(--co-line);
+  border-radius: 22px;
+  padding: clamp(24px, 3vw, 44px);
+  position: relative;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+#calc .panel::after {
+  content: ""; position: absolute; inset: 0; border-radius: 22px; pointer-events: none;
+  background: linear-gradient(135deg, var(--co-cobalt-soft), transparent 35%);
+  opacity: .55;
+}
+#calc .panel-title {
+  font: 700 11px/1 'Heebo', sans-serif;
+  letter-spacing: .28em; text-transform: uppercase;
+  color: var(--co-text-faint);
+  margin-bottom: 28px;
+  display: flex; align-items: center; gap: 10px;
+}
+#calc .panel-title b { color: var(--co-cobalt-bright); font-weight: 700; }
+
+/* ── INPUT THEATER ── */
+#calc .dial-wrap {
+  position: relative;
+  width: min(360px, 86%);
+  aspect-ratio: 2 / 1.08;
+  margin: 0 auto 8px;
+  user-select: none;
+  touch-action: none;
+}
+#calc .dial-svg { width: 100%; height: 100%; display: block; overflow: visible; cursor: grab; }
+#calc .dial-wrap.dragging .dial-svg { cursor: grabbing; }
+#calc .dial-track { fill: none; stroke: rgba(120,160,255,.14); stroke-width: 14; stroke-linecap: round; }
+#calc .dial-fill {
+  fill: none;
+  stroke: url(#calcCobaltGrad);
+  stroke-width: 14;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 10px var(--co-cobalt-glow));
+  transition: stroke-dashoffset .12s cubic-bezier(.2,.7,.2,1);
+}
+#calc .dial-ticks line { stroke: rgba(120,160,255,.18); stroke-width: 1; }
+#calc .dial-ticks line.major { stroke: rgba(120,160,255,.42); stroke-width: 1.4; }
+#calc .dial-knob {
+  fill: var(--co-cobalt-bright);
+  filter: drop-shadow(0 0 14px var(--co-cobalt-glow));
+  transition: r .14s ease;
+}
+#calc .dial-wrap:hover .dial-knob, #calc .dial-wrap.dragging .dial-knob { r: 12; }
+
+#calc .dial-center {
+  position: absolute;
+  inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+  pointer-events: none;
+  padding-bottom: 8px;
+}
+#calc .dial-label {
+  font: 700 10px/1 'Heebo', sans-serif;
+  letter-spacing: .32em; text-transform: uppercase;
+  color: var(--co-text-faint); margin-bottom: 6px;
+}
+#calc .dial-value {
+  font: 400 clamp(56px, 8vw, 96px)/1 'Anton', sans-serif;
+  letter-spacing: -0.01em;
+  color: var(--co-text);
+  font-variant-numeric: tabular-nums;
+  unicode-bidi: isolate;
+  direction: ltr;
+  background: linear-gradient(180deg, #ffffff 0%, #b6ccff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#calc .dial-sub {
+  font: 500 12px/1 'JetBrains Mono', monospace;
+  color: var(--co-cobalt-bright);
+  letter-spacing: .12em;
+  margin-top: 6px;
+  font-variant-numeric: tabular-nums;
+  unicode-bidi: isolate; direction: ltr;
+}
+
+#calc .dial-bounds {
+  display: flex; justify-content: space-between;
+  font: 500 11px/1 'JetBrains Mono', monospace;
+  color: var(--co-text-faint);
+  margin: 0 auto 28px; width: min(360px, 86%);
+  font-variant-numeric: tabular-nums;
+  unicode-bidi: isolate; direction: ltr;
+}
+
+/* ── Segmented buttons ── */
+#calc .seg-label {
+  font: 700 10px/1 'Heebo', sans-serif;
+  letter-spacing: .28em; text-transform: uppercase;
+  color: var(--co-text-faint);
+  margin: 22px 0 10px;
+}
+#calc .seg {
+  display: grid; grid-auto-flow: column; grid-auto-columns: 1fr;
+  gap: 6px;
+  background: var(--co-navy-1);
+  border: 1px solid var(--co-line);
+  border-radius: 14px;
+  padding: 6px;
+}
+#calc .seg button {
+  position: relative;
+  border: 0; background: transparent;
+  color: var(--co-text-mute);
+  font: 600 13px/1 'Heebo', sans-serif;
+  padding: 12px 8px;
+  border-radius: 9px;
+  cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  transition: color .2s ease, background .2s ease, transform .2s ease;
+}
+#calc .seg button svg { width: 20px; height: 20px; opacity: .7; transition: opacity .2s ease; }
+#calc .seg button:hover { color: var(--co-text); background: rgba(43,111,255,.06); }
+#calc .seg button.active {
+  color: #fff;
+  background: linear-gradient(180deg, var(--co-cobalt), var(--co-cobalt-bright) 90%);
+  box-shadow: 0 4px 18px var(--co-cobalt-glow), inset 0 0 0 1px rgba(255,255,255,.12);
+}
+#calc .seg button.active svg { opacity: 1; }
+
+/* Body chips */
+#calc .chips {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+#calc .chips button {
+  border: 1px solid var(--co-line-strong);
+  background: var(--co-navy-1);
+  color: var(--co-text-mute);
+  font: 600 13px/1 'Heebo', sans-serif;
+  padding: 10px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+#calc .chips button:hover { color: var(--co-text); border-color: var(--co-cobalt); }
+#calc .chips button.active {
+  background: var(--co-cobalt);
+  border-color: var(--co-cobalt);
+  color: #fff;
+  box-shadow: 0 4px 14px var(--co-cobalt-glow);
+}
+
+/* Options expander */
+#calc .opts {
+  margin-top: 22px;
+  border-top: 1px solid var(--co-line);
+  padding-top: 18px;
+}
+#calc .opts-tog {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  color: var(--co-text-mute);
+  font: 600 12px/1 'Heebo', sans-serif;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  text-align: right;
+  padding: 6px 0;
+  cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+}
+#calc .opts-tog::after {
+  content: "+"; color: var(--co-cobalt-bright); font-size: 18px; transition: transform .25s ease;
+}
+#calc .opts.open .opts-tog::after { transform: rotate(45deg); }
+#calc .opts-body {
+  display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s ease;
+}
+#calc .opts.open .opts-body { grid-template-rows: 1fr; }
+#calc .opts-body > div { overflow: hidden; padding-top: 14px; display: flex; gap: 8px; }
+#calc .cond-toggle {
+  display: inline-flex; background: var(--co-navy-1);
+  border: 1px solid var(--co-line); border-radius: 999px; padding: 4px;
+}
+#calc .cond-toggle button {
+  border: 0; background: transparent; color: var(--co-text-mute);
+  font: 600 12px/1 'Heebo', sans-serif;
+  padding: 8px 18px; border-radius: 999px; cursor: pointer;
+  transition: all .2s ease;
+}
+#calc .cond-toggle button.active {
+  background: var(--co-cobalt); color: #fff;
+}
+
+/* Tax slider */
+#calc .tax-slide {
+  margin-top: 16px;
+  padding: 16px;
+  background: var(--co-navy-1);
+  border: 1px solid var(--co-line);
+  border-radius: 12px;
+  display: none;
+}
+#calc .tax-slide.open { display: block; }
+#calc .tax-slide-head {
+  display: flex; justify-content: space-between; align-items: center;
+  font: 600 12px/1 'Heebo', sans-serif;
+  color: var(--co-text-mute);
+  margin-bottom: 10px;
+}
+#calc .tax-slide-head b { color: var(--co-cobalt-bright); font-variant-numeric: tabular-nums; direction: ltr; }
+#calc input[type="range"].tax-input {
+  width: 100%; -webkit-appearance: none; appearance: none;
+  height: 4px; border-radius: 2px;
+  background: linear-gradient(90deg, var(--co-cobalt) 0%, var(--co-cobalt) var(--p,50%), rgba(120,160,255,.18) var(--p,50%));
+  outline: none;
+}
+#calc input[type="range"].tax-input::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--co-cobalt-bright);
+  border: 2px solid #fff;
+  box-shadow: 0 0 12px var(--co-cobalt-glow);
+  cursor: grab;
+}
+#calc input[type="range"].tax-input::-moz-range-thumb {
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--co-cobalt-bright); border: 2px solid #fff;
+  box-shadow: 0 0 12px var(--co-cobalt-glow); cursor: grab;
+}
+
+/* ── OUTPUT LEDGER ── */
+#calc .ledger { display: flex; flex-direction: column; gap: 2px; }
+#calc .row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  padding: 14px 4px;
+  border-bottom: 1px solid var(--co-line);
+  gap: 16px;
+}
+#calc .row-lbl {
+  font: 500 14px/1.3 'Heebo', sans-serif;
+  color: var(--co-text-mute);
+}
+#calc .row-lbl small {
+  color: var(--co-text-faint);
+  font-weight: 400;
+  margin-inline-start: 6px;
+}
+#calc .row-val {
+  font: 500 16px/1 'JetBrains Mono', monospace;
+  color: var(--co-text);
+  font-variant-numeric: tabular-nums;
+  unicode-bidi: isolate; direction: ltr;
+}
+#calc .row.discount .row-val { color: var(--co-cobalt-bright); }
+#calc .row.tax-row .row-lbl { color: var(--co-text); }
+#calc .row.tax-row .tax-toggle {
+  margin-inline-start: 8px;
+  border: 0; background: transparent; color: var(--co-cobalt-bright);
+  font: 600 11px/1 'Heebo', sans-serif; cursor: pointer;
+  padding: 4px 8px; border-radius: 6px;
+  border: 1px solid var(--co-line-strong);
+  transition: all .2s ease;
+}
+#calc .row.tax-row .tax-toggle:hover { background: var(--co-cobalt-soft); border-color: var(--co-cobalt); }
+
+#calc .final {
+  margin-top: 18px;
+  padding: 22px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(43,111,255,.18), rgba(43,111,255,.04));
+  border: 1px solid var(--co-cobalt);
+  position: relative;
+  overflow: hidden;
+}
+#calc .final::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(400px 200px at 50% 0%, var(--co-cobalt-soft), transparent 60%);
+  pointer-events: none;
+}
+#calc .final-lbl {
+  font: 700 10px/1 'Heebo', sans-serif;
+  letter-spacing: .32em; text-transform: uppercase;
+  color: var(--co-cobalt-bright); margin-bottom: 8px;
+}
+#calc .final-val {
+  font: 400 clamp(40px, 6vw, 72px)/1 'Anton', sans-serif;
+  letter-spacing: -0.01em;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+  unicode-bidi: isolate; direction: ltr;
+  text-shadow: 0 0 30px var(--co-cobalt-glow);
+}
+
+#calc .compare {
+  margin-top: 14px;
+  display: grid; gap: 6px;
+}
+#calc .compare-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font: 500 13px/1.3 'Heebo', sans-serif;
+  color: var(--co-text-mute);
+}
+#calc .compare-row.strike .strike-val {
+  color: var(--co-red);
+  text-decoration: line-through;
+  font: 500 15px/1 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums; direction: ltr;
+  opacity: .82;
+}
+#calc .compare-row.save {
+  margin-top: 6px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--co-line);
+  font-weight: 700;
+  color: var(--co-cobalt-bright);
+}
+#calc .compare-row.save b {
+  font: 400 clamp(22px, 2.6vw, 32px)/1 'Anton', sans-serif;
+  color: var(--co-cobalt-bright);
+  font-variant-numeric: tabular-nums; direction: ltr; unicode-bidi: isolate;
+}
+
+/* CTA */
+#calc .cta-find {
+  margin-top: 28px;
+  width: 100%;
+  padding: 18px 28px;
+  border: 0;
+  border-radius: 14px;
+  background: linear-gradient(180deg, var(--co-cobalt-bright), var(--co-cobalt));
+  color: #fff;
+  font: 700 15px/1 'Heebo', sans-serif;
+  letter-spacing: .04em;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  box-shadow: 0 12px 32px var(--co-cobalt-glow), inset 0 0 0 1px rgba(255,255,255,.18);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+#calc .cta-find:hover { transform: translateY(-2px); box-shadow: 0 16px 42px var(--co-cobalt-glow), inset 0 0 0 1px rgba(255,255,255,.28); }
+#calc .cta-find:active { transform: translateY(0); }
+#calc .cta-find svg { width: 18px; height: 18px; transition: transform .25s ease; }
+#calc .cta-find:hover svg { transform: translateX(-6px); }
+
+/* Number-change flash */
+@keyframes calcFlash {
+  0%   { color: var(--co-cobalt-bright); text-shadow: 0 0 12px var(--co-cobalt-glow); }
+  100% { color: inherit; text-shadow: none; }
+}
+#calc .row-val.flash, #calc .final-val.flash { animation: calcFlash .35s ease-out; }
+
+/* ── Mobile ── */
+@media (max-width: 900px) {
+  #calc .calc-split { grid-template-columns: 1fr; gap: 18px; }
+  #calc .dial-wrap { width: min(320px, 92%); }
+}
+@media (max-width: 480px) {
+  #calc { padding: 56px 14px; }
+  #calc .panel { padding: 22px 18px; border-radius: 18px; }
+  #calc .seg button { font-size: 12px; padding: 11px 4px; }
+  #calc .seg button svg { width: 16px; height: 16px; }
+  #calc .chips button { font-size: 12px; padding: 8px 12px; }
+  #calc .row-lbl { font-size: 13px; }
+  #calc .row-val { font-size: 14px; }
+  #calc .final { padding: 18px; }
+}

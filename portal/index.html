@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#050B1A">
+<title>פורטל לקוחות · AutoImports.co.il</title>
+<meta name="description" content="הפורטל הפרטי שלך — עקוב אחרי הרכב שלך מ-Atlanta עד לוד. מסע תלת-מימדי בזמן אמת.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Heebo:wght@300;400;500;600;700;800;900&family=Anton&display=swap" rel="stylesheet">
+
+<!-- MapLibre GL JS -->
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+
+<link rel="stylesheet" href="./css/portal.css">
+<link rel="stylesheet" href="../css/chatbot.css">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23050B1A'/%3E%3Ctext x='32' y='44' font-family='Inter,Arial,sans-serif' font-size='30' font-weight='900' fill='%234A8BFF' text-anchor='middle'%3EAi%3C/text%3E%3C/svg%3E">
+</head>
+<body class="portal-body">
+
+<!-- ===== GLOBAL OVERLAYS ===== -->
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<!-- ============================================ -->
+<!-- BLOCK 0 — LOGIN SCREEN                       -->
+<!-- ============================================ -->
+<section class="login-screen" id="loginScreen">
+  <div class="login-bg" aria-hidden="true">
+    <div class="login-aurora"></div>
+    <div class="login-grid"></div>
+  </div>
+
+  <div class="login-card">
+    <a href="../index.html" class="login-brand">
+      <span class="brand-mark">Ai</span>
+      <span class="brand-text">AutoImports<small>.co.il</small></span>
+    </a>
+
+    <div class="login-pill">פורטל לקוחות · מאובטח</div>
+
+    <h1 class="login-title">
+      <span>ברוך הבא</span>
+      <span class="login-title-accent">אל הפורטל הפרטי שלך.</span>
+    </h1>
+    <p class="login-sub">עקוב אחרי הרכב שלך מהרגע שפתחת את התיק ועד שהמפתחות בידך — בזמן אמת, מ-Atlanta עד לוד.</p>
+
+    <form class="login-form" id="loginForm" autocomplete="off">
+      <label class="login-field">
+        <span class="login-label">אימייל</span>
+        <input type="email" name="email" placeholder="you@example.com" value="omri.gitter@example.com" required>
+      </label>
+      <label class="login-field">
+        <span class="login-label">סיסמה</span>
+        <input type="password" name="password" placeholder="••••••••" value="demo-password" required>
+      </label>
+      <label class="login-field">
+        <span class="login-label">מספר תיק</span>
+        <input type="text" name="case" placeholder="AI-2025-XXXX-XXX" value="AI-2025-G63-001" required>
+      </label>
+      <button type="submit" class="login-cta">
+        <span>כניסה לפורטל</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+      <div class="login-hint">demo · כל פרטי כניסה יקבלו אישור</div>
+    </form>
+  </div>
+</section>
+
+
+<!-- ============================================ -->
+<!-- DASHBOARD (hidden until login)               -->
+<!-- ============================================ -->
+<main class="dashboard" id="dashboard" hidden>
+
+  <!-- TOP NAV -->
+  <nav class="d-nav">
+    <a href="../index.html" class="d-brand">
+      <span class="brand-mark">Ai</span>
+      <span class="brand-text">AutoImports<small>.co.il</small></span>
+    </a>
+    <div class="d-nav-links">
+      <a href="#hero" class="active">סקירה</a>
+      <a href="#timeline">מסע</a>
+      <a href="#tracking">מעקב חי</a>
+      <a href="#moments">רגעי קסם</a>
+      <a href="#vault">מסמכים</a>
+      <a href="#comm">תקשורת</a>
+    </div>
+    <div class="d-nav-right">
+      <button class="d-mute" id="muteBtn" title="השתק צלילים">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>
+      </button>
+      <div class="d-user">
+        <div class="d-user-avatar">OG</div>
+        <div class="d-user-meta">
+          <span class="d-user-name">עומרי גיטר</span>
+          <span class="d-user-case">תיק #AI-2025-G63-001</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ====================================== -->
+  <!-- BLOCK 1 — HERO DASHBOARD              -->
+  <!-- ====================================== -->
+  <section class="d-hero" id="hero">
+    <div class="d-hero-inner">
+
+      <div class="d-hero-text">
+        <span class="greeting-pill" id="greetingPill">ערב טוב</span>
+        <h1 class="d-hero-title">
+          ערב טוב, <span class="accent-grad">עומרי.</span><br>
+          הרכב שלך<br>
+          בדרך הביתה.
+        </h1>
+        <p class="d-hero-sub">Mercedes-Benz G63 AMG · 2025 · שחור Obsidian · ריפוד נאפה אדום</p>
+
+        <div class="hero-stats">
+          <div class="hs-card">
+            <div class="hs-label">סטטוס</div>
+            <div class="hs-value status-active">
+              <span class="pulse-dot"></span>
+              על הסיפון
+            </div>
+          </div>
+          <div class="hs-card">
+            <div class="hs-label">יום</div>
+            <div class="hs-value"><span class="big-num">12</span><span class="hs-unit">/38</span></div>
+          </div>
+          <div class="hs-card">
+            <div class="hs-label">ETA למסירה</div>
+            <div class="hs-value-small">4 באוקטובר<br><small>שני · 09:00</small></div>
+          </div>
+          <div class="hs-card">
+            <div class="hs-label">מחיר סופי</div>
+            <div class="hs-value-small">₪1,180,000<br><small>שולם 25%</small></div>
+          </div>
+        </div>
+
+        <div class="alert-strip">
+          <span class="alert-emoji">🚢</span>
+          <span class="alert-text">הרכב על הסיפון · יום 12/38 · ETA: 4 אוקטובר 2025</span>
+          <span class="alert-live"><span class="pulse-dot"></span>שידור חי</span>
+        </div>
+      </div>
+
+      <div class="d-hero-stage">
+        <div class="hero-car-card">
+          <div class="hero-car-bg"></div>
+          <img src="../images/car-mercedes-g63-amg.png" alt="Mercedes G63 AMG" class="hero-car-img" id="heroCarImg">
+          <div class="hero-car-overlay">
+            <div class="car-badge">G63 AMG · 2025</div>
+            <div class="car-vin">VIN: WDCYC7HJ5LX•••••842</div>
+          </div>
+        </div>
+
+        <div class="globe-mini" id="globeMini">
+          <canvas id="globeCanvas"></canvas>
+          <div class="globe-overlay">
+            <span class="globe-coord-label">מיקום עכשיו</span>
+            <span class="globe-coord">35.18°N · 12.45°W</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====================================== -->
+  <!-- BLOCK 2 — TIMELINE 3D                  -->
+  <!-- ====================================== -->
+  <section class="d-timeline" id="timeline">
+    <div class="d-section-head">
+      <div class="section-eyebrow">המסע שלך · 7 שלבים</div>
+      <h2 class="section-h2">מ-Atlanta <span class="accent-grad">עד לוד</span></h2>
+      <p class="section-sub">גלול אופקית כדי לראות את כל השלבים. השלב הפעיל מסומן בזוהר כחול.</p>
+    </div>
+
+    <div class="timeline-rail" id="timelineRail">
+      <div class="timeline-track" id="timelineTrack">
+        <!-- injected by JS -->
+      </div>
+      <div class="timeline-progress" id="timelineProgress"></div>
+    </div>
+
+    <div class="timeline-nav">
+      <button class="tl-arrow" id="tlPrev" aria-label="הקודם">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="tl-progress-bar"><div class="tl-progress-fill" id="tlProgressFill"></div></div>
+      <button class="tl-arrow" id="tlNext" aria-label="הבא">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ====================================== -->
+  <!-- BLOCK 3 — LIVE TRACKING                -->
+  <!-- ====================================== -->
+  <section class="d-tracking" id="tracking">
+    <div class="d-section-head">
+      <div class="section-eyebrow">מעקב חי · GPS</div>
+      <h2 class="section-h2">האונייה שלך <span class="accent-grad">באטלנטי הצפוני</span></h2>
+      <p class="section-sub">RoRo Vessel "Atlantic Sky" · 450 ק״מ מערבית לליסבון · 18 קשרים · ETA 12 ימים</p>
+    </div>
+
+    <div class="tracking-grid">
+      <div class="tracking-map-card">
+        <div id="trackMap"></div>
+        <div class="map-readout">
+          <div class="readout-item">
+            <span class="readout-label">קואורדינטות</span>
+            <span class="readout-value" id="coordRead">35.18°N · 12.45°W</span>
+          </div>
+          <div class="readout-item">
+            <span class="readout-label">מהירות</span>
+            <span class="readout-value" id="speedRead">18 קשרים</span>
+          </div>
+          <div class="readout-item">
+            <span class="readout-label">כיוון</span>
+            <span class="readout-value">086° · NE</span>
+          </div>
+          <div class="readout-item">
+            <span class="readout-label">ETA Haifa</span>
+            <span class="readout-value">12 ימים</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tracking-side">
+        <div class="track-vessel-card">
+          <div class="vessel-img">
+            <svg viewBox="0 0 200 100" fill="none">
+              <path d="M10 70 L25 50 L175 50 L190 70 Z" fill="#4A8BFF" opacity="0.3"/>
+              <path d="M25 50 L175 50 L160 30 L40 30 Z" fill="#4A8BFF" opacity="0.6"/>
+              <rect x="60" y="15" width="20" height="15" fill="#4A8BFF"/>
+              <rect x="120" y="10" width="15" height="20" fill="#4A8BFF"/>
+              <path d="M5 75 Q100 85 195 75 L190 80 Q100 90 10 80 Z" fill="#0A1530" opacity="0.8"/>
+            </svg>
+          </div>
+          <div class="vessel-name">Atlantic Sky</div>
+          <div class="vessel-meta">RoRo · IMO 9712345 · 67,500 GT</div>
+          <div class="vessel-route">Savannah → Haifa</div>
+        </div>
+
+        <div class="daily-progress-card">
+          <div class="dp-title">התקדמות יומית</div>
+          <div class="dp-chart" id="dpChart">
+            <!-- bars injected by JS -->
+          </div>
+          <div class="dp-foot">
+            <span>יום 1</span>
+            <span class="dp-foot-active">יום 12</span>
+            <span>יום 38</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================== -->
+  <!-- BLOCK 4 — MAGIC MOMENTS FEED           -->
+  <!-- ====================================== -->
+  <section class="d-moments" id="moments">
+    <div class="d-section-head">
+      <div class="section-eyebrow">רגעי קסם · feed</div>
+      <h2 class="section-h2">המסע שלך, <span class="accent-grad">רגע אחרי רגע.</span></h2>
+      <p class="section-sub">כל אבן-דרך מתועדת. סרטון, תמונה, אפדייט — הכל כאן.</p>
+    </div>
+    <div class="moments-feed" id="momentsFeed">
+      <!-- injected by JS -->
+    </div>
+  </section>
+
+  <!-- ====================================== -->
+  <!-- BLOCK 5 — DOCUMENT VAULT               -->
+  <!-- ====================================== -->
+  <section class="d-vault" id="vault">
+    <div class="d-section-head">
+      <div class="section-eyebrow">כספת המסמכים שלך</div>
+      <h2 class="section-h2">כל מסמך, <span class="accent-grad">במקום אחד.</span></h2>
+      <p class="section-sub">חוזה, רישיון יבוא, Carfax, PPI, שטר מטען, טופס 21, רישיון רכב. הכל מאובטח, הכל זמין.</p>
+    </div>
+
+    <div class="vault-tabs" id="vaultTabs">
+      <button class="vault-tab active" data-tab="all">הכל</button>
+      <button class="vault-tab" data-tab="legal">חוזים</button>
+      <button class="vault-tab" data-tab="import">יבוא</button>
+      <button class="vault-tab" data-tab="vehicle">רכב</button>
+      <button class="vault-tab" data-tab="shipping">שילוח</button>
+    </div>
+
+    <div class="vault-grid" id="vaultGrid">
+      <!-- injected by JS -->
+    </div>
+  </section>
+
+  <!-- ====================================== -->
+  <!-- BLOCK 6 — COMMUNICATION CENTER         -->
+  <!-- ====================================== -->
+  <section class="d-comm" id="comm">
+    <div class="d-section-head">
+      <div class="section-eyebrow">מרכז התקשורת שלך</div>
+      <h2 class="section-h2">השיחה שלך עם <span class="accent-grad">שרה כהן.</span></h2>
+      <p class="section-sub">מנהלת התיק שלך · זמינה 09:00-19:00 · ממוצע מענה: 14 דקות</p>
+    </div>
+
+    <div class="comm-grid">
+
+      <div class="chat-card">
+        <div class="chat-header">
+          <div class="chat-avatar">SC</div>
+          <div class="chat-meta">
+            <div class="chat-name">שרה כהן</div>
+            <div class="chat-status"><span class="online-dot"></span>מקוונת · ענתה לפני 4 דקות</div>
+          </div>
+          <button class="chat-call" title="התקשר">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.72 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0122 16.92z"/></svg>
+          </button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+          <!-- injected by JS -->
+        </div>
+        <div class="chat-input">
+          <input type="text" placeholder="הקלד הודעה...">
+          <button>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="emails-card">
+        <div class="emails-head">
+          <h3>אימיילים אחרונים</h3>
+          <span class="emails-count">5 חדשים</span>
+        </div>
+        <div class="emails-list" id="emailsList">
+          <!-- injected by JS -->
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====================================== -->
+  <!-- BLOCK 7 — EXCITEMENT / NEWSLETTERS    -->
+  <!-- ====================================== -->
+  <section class="d-excite" id="excite">
+    <div class="d-section-head">
+      <div class="section-eyebrow">תוכן בלעדי בשבילך</div>
+      <h2 class="section-h2">כי יבוא רכב <span class="accent-grad">זה לא רק לוגיסטיקה.</span></h2>
+      <p class="section-sub">5 אימיילים אינטראקטיביים מחכים לך. גרפיקה, סיפורים, סטטיסטיקות — והכל על ה-G63 שלך.</p>
+    </div>
+
+    <div class="excite-grid" id="exciteGrid">
+      <!-- injected by JS -->
+    </div>
+
+    <div class="excite-footer">
+      <a href="../index.html" class="back-home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        <span>חזרה לדף הבית</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+
+<!-- ===== MODAL CONTAINER ===== -->
+<div class="modal-root" id="modalRoot" hidden>
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+  <div class="modal-card" id="modalCard">
+    <button class="modal-close" id="modalClose" aria-label="סגור">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+</div>
+
+
+<!-- ===== LIBRARIES ===== -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://unpkg.com/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+
+<!-- ===== PORTAL JS ===== -->
+<script src="./js/portal.js"></script>
+<script src="./js/scene-3d.js"></script>
+<script src="./js/timeline.js"></script>
+<script src="./js/map-tracking.js"></script>
+<script src="./js/magic-moments.js"></script>
+
+<script src="../js/chatbot.js" defer></script>
+</body>
+</html>

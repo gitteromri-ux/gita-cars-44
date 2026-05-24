@@ -1,0 +1,517 @@
+/* ============================================================
+   FOLD 2 — VALUE-PROP / WHO WE ARE
+   Scroll-driven comparison theater. 4 acts, pinned on desktop.
+   All rules scoped under #who.gita-vp so nothing leaks.
+   ============================================================ */
+
+#who.gita-vp{
+  --vp-bg:#0a0e1a;
+  --vp-bg-2:#0f1320;
+  --vp-bg-3:#1a2030;
+  --vp-ink:#e8ecf5;
+  --vp-ink-dim:#8892ad;
+  --vp-ink-faint:#525a70;
+  --vp-cobalt:#1e5fff;
+  --vp-cobalt-2:#4a8fff;
+  --vp-cobalt-soft:rgba(74,143,255,.16);
+  --vp-red:#ff4d4d;
+  --vp-red-soft:rgba(255,77,77,.14);
+  --vp-line:rgba(232,236,245,.08);
+  --vp-line-2:rgba(232,236,245,.14);
+
+  position:relative;
+  background:var(--vp-bg);
+  color:var(--vp-ink);
+  direction:rtl;
+  font-family:'Heebo',system-ui,sans-serif;
+  font-feature-settings:"tnum" 1;
+  padding:0;
+  overflow:hidden;
+}
+
+#who.gita-vp *{box-sizing:border-box}
+
+/* Reset legacy children from the old layout */
+#who.gita-vp .sec-w,
+#who.gita-vp .who-split,
+#who.gita-vp .who-grid{all:unset}
+
+/* ============================================================
+   PIN CONTAINER — 400vh tall on desktop, sticky inner stage
+   ============================================================ */
+#who.gita-vp .vp-track{
+  position:relative;
+  width:100%;
+  height:400vh;          /* scroll length = 4 acts */
+}
+#who.gita-vp .vp-stage{
+  position:sticky;
+  top:0;
+  width:100%;
+  height:100vh;
+  overflow:hidden;
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(30,95,255,.10), transparent 60%),
+    radial-gradient(900px 500px at 10% 110%, rgba(30,95,255,.06), transparent 60%),
+    var(--vp-bg);
+}
+
+/* Subtle grid texture */
+#who.gita-vp .vp-stage::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(var(--vp-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--vp-line) 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity:.35;
+  mask-image:radial-gradient(ellipse at center, #000 30%, transparent 80%);
+  pointer-events:none;
+}
+
+#who.gita-vp .vp-eyebrow{
+  position:absolute;
+  top:clamp(20px,4vh,40px);
+  right:clamp(20px,4vw,56px);
+  font-size:11px;
+  letter-spacing:.32em;
+  font-weight:500;
+  color:var(--vp-ink-dim);
+  text-transform:uppercase;
+  z-index:5;
+  display:flex; align-items:center; gap:10px;
+}
+#who.gita-vp .vp-eyebrow::before{
+  content:""; width:32px; height:1px; background:var(--vp-cobalt);
+}
+#who.gita-vp .vp-progress{
+  position:absolute;
+  bottom:24px; left:50%; transform:translateX(-50%);
+  display:flex; gap:8px; z-index:5;
+}
+#who.gita-vp .vp-progress i{
+  width:32px; height:2px; background:var(--vp-line-2);
+  border-radius:1px; transition:background .4s;
+}
+#who.gita-vp .vp-progress i.on{ background:var(--vp-cobalt-2); }
+
+/* ============================================================
+   ACT (generic stage) — each act is an absolute layer.
+   GSAP toggles opacity / transforms via scroll.
+   ============================================================ */
+#who.gita-vp .vp-act{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:clamp(60px,8vh,100px) clamp(20px,5vw,80px);
+  opacity:0;
+  will-change:opacity,transform;
+}
+
+/* ============================================================
+   ACT 1 — THE PROBLEM (giant editorial type stack)
+   ============================================================ */
+#who.gita-vp .vp-act-1 .vp-stack{
+  text-align:center;
+  width:100%;
+}
+#who.gita-vp .vp-act-1 .vp-line{
+  display:block;
+  line-height:.92;
+  letter-spacing:-.02em;
+  margin:0;
+  font-weight:900;
+  opacity:0;
+  transform:translateY(40px);
+  will-change:opacity,transform;
+}
+#who.gita-vp .vp-l1{
+  font-family:'Heebo',sans-serif;
+  font-size:clamp(56px,14vw,240px);
+  color:var(--vp-ink);
+}
+#who.gita-vp .vp-l2,
+#who.gita-vp .vp-l3{
+  font-family:'Anton','Heebo',sans-serif;
+  font-weight:400;
+  font-size:clamp(40px,8vw,144px);
+  letter-spacing:0;
+  margin-top:.15em;
+  font-feature-settings:"tnum" 1;
+}
+#who.gita-vp .vp-l2{ color:var(--vp-cobalt-2); }
+#who.gita-vp .vp-l3{ color:var(--vp-red); }
+#who.gita-vp .vp-l2 .vp-tag,
+#who.gita-vp .vp-l3 .vp-tag{
+  display:inline-block;
+  font-family:'Heebo',sans-serif;
+  font-weight:500;
+  font-size:.22em;
+  letter-spacing:.32em;
+  vertical-align:middle;
+  margin-left:.4em;
+  color:var(--vp-ink-dim);
+  text-transform:uppercase;
+}
+
+/* ============================================================
+   ACT 2 — THE DIAGNOSIS (comparison bar + donut)
+   ============================================================ */
+#who.gita-vp .vp-act-2 .vp-diag{
+  width:min(1200px,100%);
+  display:grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap:clamp(40px,6vw,80px);
+  align-items:center;
+}
+#who.gita-vp .vp-bars{
+  display:flex; flex-direction:column; gap:32px;
+  position:relative;
+}
+#who.gita-vp .vp-bar{
+  position:relative;
+}
+#who.gita-vp .vp-bar .vp-bar-meta{
+  display:flex; justify-content:space-between; align-items:baseline;
+  margin-bottom:10px;
+  font-size:12px; letter-spacing:.24em; text-transform:uppercase;
+  color:var(--vp-ink-dim); font-weight:500;
+}
+#who.gita-vp .vp-bar .vp-bar-meta b{
+  font-family:'Anton',sans-serif;
+  letter-spacing:0;
+  font-weight:400;
+  font-size:clamp(28px,3.4vw,52px);
+  text-transform:none;
+}
+#who.gita-vp .vp-bar.is-bad b{ color:var(--vp-red); }
+#who.gita-vp .vp-bar.is-good b{ color:var(--vp-cobalt-2); }
+#who.gita-vp .vp-bar-track{
+  height:14px;
+  background:var(--vp-bg-3);
+  border-radius:8px;
+  position:relative;
+  overflow:hidden;
+}
+#who.gita-vp .vp-bar-fill{
+  position:absolute; top:0; right:0; bottom:0;
+  width:0%;
+  border-radius:8px;
+  will-change:width;
+}
+#who.gita-vp .vp-bar.is-bad .vp-bar-fill{
+  background:linear-gradient(90deg, var(--vp-red), #c93333);
+}
+#who.gita-vp .vp-bar.is-good .vp-bar-fill{
+  background:linear-gradient(90deg, var(--vp-cobalt), var(--vp-cobalt-2));
+  box-shadow:0 0 24px rgba(74,143,255,.4);
+}
+
+#who.gita-vp .vp-delta{
+  margin-top:20px;
+  padding:18px 22px;
+  background:var(--vp-bg-2);
+  border:1px solid var(--vp-line-2);
+  border-radius:12px;
+  display:flex; align-items:center; gap:14px;
+  font-size:14px;
+}
+#who.gita-vp .vp-delta .vp-arrow{
+  width:32px; height:32px;
+  display:grid; place-items:center;
+  background:var(--vp-cobalt-soft);
+  border-radius:50%;
+  color:var(--vp-cobalt-2);
+  font-size:18px;
+}
+#who.gita-vp .vp-delta b{
+  font-family:'Anton',sans-serif; font-weight:400;
+  font-size:22px; color:var(--vp-ink);
+  letter-spacing:.5px;
+}
+#who.gita-vp .vp-delta span{ color:var(--vp-ink-dim); font-weight:500; }
+
+/* Donut */
+#who.gita-vp .vp-donut-wrap{
+  display:flex; flex-direction:column; align-items:center; gap:24px;
+}
+#who.gita-vp .vp-donut{
+  width:min(360px,90%);
+  aspect-ratio:1;
+  position:relative;
+}
+#who.gita-vp .vp-donut svg{
+  width:100%; height:100%;
+  transform:rotate(-90deg);
+}
+#who.gita-vp .vp-donut .vp-seg{
+  fill:none;
+  stroke-width:22;
+  stroke-linecap:butt;
+  transition:stroke-width .3s;
+}
+#who.gita-vp .vp-donut .vp-seg-importer{ stroke:var(--vp-red); stroke-width:30; }
+#who.gita-vp .vp-donut .vp-seg-tax{ stroke:#5c6479; }
+#who.gita-vp .vp-donut .vp-seg-vat{ stroke:#737d96; }
+#who.gita-vp .vp-donut .vp-seg-ship{ stroke:#3d4358; }
+#who.gita-vp .vp-donut .vp-seg-other{ stroke:#2a2f40; }
+#who.gita-vp .vp-donut-center{
+  position:absolute; inset:0;
+  display:grid; place-items:center; text-align:center;
+}
+#who.gita-vp .vp-donut-center .vp-dc-tag{
+  font-size:10px; letter-spacing:.32em; color:var(--vp-ink-dim);
+  text-transform:uppercase; margin-bottom:6px;
+}
+#who.gita-vp .vp-donut-center .vp-dc-val{
+  font-family:'Anton',sans-serif; font-weight:400;
+  font-size:36px; color:var(--vp-ink);
+  letter-spacing:.5px;
+}
+#who.gita-vp .vp-donut-center .vp-dc-sub{
+  font-size:11px; color:var(--vp-cobalt-2); font-weight:500;
+  letter-spacing:.18em; text-transform:uppercase; margin-top:4px;
+}
+
+#who.gita-vp .vp-legend{
+  display:grid; grid-template-columns:1fr 1fr; gap:8px 18px;
+  width:100%; max-width:360px;
+  font-size:12px; color:var(--vp-ink-dim);
+}
+#who.gita-vp .vp-legend i{
+  display:inline-block; width:10px; height:10px; border-radius:2px;
+  margin-left:8px; vertical-align:middle;
+}
+#who.gita-vp .vp-legend .l-imp i{ background:var(--vp-red); }
+#who.gita-vp .vp-legend .l-tax i{ background:#5c6479; }
+#who.gita-vp .vp-legend .l-vat i{ background:#737d96; }
+#who.gita-vp .vp-legend .l-ship i{ background:#3d4358; }
+#who.gita-vp .vp-legend .l-imp{
+  color:var(--vp-red); font-weight:600;
+}
+#who.gita-vp .vp-legend .l-imp b{
+  background:var(--vp-cobalt-soft);
+  color:var(--vp-cobalt-2);
+  font-weight:600;
+  padding:2px 8px; border-radius:99px;
+  margin-right:8px;
+  font-size:10px; letter-spacing:.16em;
+}
+
+/* ============================================================
+   ACT 3 — THE NEW MODEL (3 tiles)
+   ============================================================ */
+#who.gita-vp .vp-act-3 .vp-tiles{
+  width:min(1280px,100%);
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:clamp(16px,1.8vw,28px);
+}
+#who.gita-vp .vp-tile{
+  position:relative;
+  background:linear-gradient(180deg, var(--vp-bg-2) 0%, var(--vp-bg) 100%);
+  border:1px solid var(--vp-line-2);
+  border-radius:18px;
+  padding:clamp(24px,2.4vw,40px);
+  min-height:clamp(280px,38vh,400px);
+  display:flex; flex-direction:column; justify-content:space-between;
+  overflow:hidden;
+  transform:translateY(30px); opacity:0;
+}
+#who.gita-vp .vp-tile::before{
+  content:""; position:absolute; inset:0;
+  background:radial-gradient(400px 200px at 100% 0%, var(--vp-cobalt-soft), transparent 60%);
+  pointer-events:none;
+}
+#who.gita-vp .vp-tile-num{
+  font-family:'Anton',sans-serif; font-weight:400;
+  font-size:clamp(56px,5.5vw,88px);
+  line-height:1;
+  color:var(--vp-cobalt);
+  letter-spacing:1px;
+}
+#who.gita-vp .vp-tile-body h3{
+  font-family:'Heebo',sans-serif; font-weight:700;
+  font-size:clamp(20px,1.6vw,26px);
+  line-height:1.25;
+  margin:0 0 12px;
+  color:var(--vp-ink);
+  letter-spacing:-.01em;
+}
+#who.gita-vp .vp-tile-body p{
+  font-family:'Heebo',sans-serif; font-weight:400;
+  font-size:clamp(14px,1.05vw,16px);
+  line-height:1.65;
+  color:var(--vp-ink-dim);
+  margin:0;
+}
+#who.gita-vp .vp-tile-tag{
+  position:absolute; top:24px; left:24px;
+  font-size:10px; letter-spacing:.32em; text-transform:uppercase;
+  color:var(--vp-cobalt-2); font-weight:500;
+}
+
+/* ============================================================
+   ACT 4 — PROOF (media logos + advisors)
+   ============================================================ */
+#who.gita-vp .vp-act-4 .vp-proof{
+  width:min(1280px,100%);
+  display:flex; flex-direction:column; gap:clamp(28px,4vh,52px);
+}
+#who.gita-vp .vp-proof-head{
+  text-align:center;
+}
+#who.gita-vp .vp-proof-head .vp-eye{
+  font-size:11px; letter-spacing:.32em; text-transform:uppercase;
+  color:var(--vp-cobalt-2); font-weight:500; margin-bottom:14px;
+}
+#who.gita-vp .vp-proof-head h3{
+  font-family:'Heebo',sans-serif; font-weight:900;
+  font-size:clamp(28px,3.4vw,48px);
+  letter-spacing:-.02em; line-height:1.1; margin:0;
+  color:var(--vp-ink);
+}
+#who.gita-vp .vp-proof-head h3 em{
+  font-style:normal; color:var(--vp-cobalt-2);
+}
+
+#who.gita-vp .vp-logos{
+  display:flex; gap:14px; flex-wrap:wrap; justify-content:center;
+  padding:18px 0;
+  border-block:1px solid var(--vp-line);
+}
+#who.gita-vp .vp-logo{
+  width:140px; height:56px;
+  border:1px solid var(--vp-line-2);
+  border-radius:8px;
+  display:grid; place-items:center;
+  background:var(--vp-bg-2);
+  font-family:'Heebo',sans-serif;
+  font-weight:500; font-style:italic;
+  font-size:14px; color:var(--vp-ink-dim);
+  letter-spacing:.02em;
+  transition:border-color .3s, color .3s;
+}
+#who.gita-vp .vp-logo:hover{
+  border-color:var(--vp-cobalt-2); color:var(--vp-ink);
+}
+
+#who.gita-vp .vp-advisors{
+  display:grid; grid-template-columns:repeat(4,1fr);
+  gap:clamp(16px,2vw,32px);
+}
+#who.gita-vp .vp-advisor{
+  display:flex; flex-direction:column; align-items:center; gap:12px;
+  text-align:center;
+}
+#who.gita-vp .vp-circ{
+  width:96px; height:96px; border-radius:50%;
+  background:radial-gradient(circle at 30% 30%, var(--vp-cobalt-2), var(--vp-cobalt) 65%, #0a2a8a 100%);
+  display:grid; place-items:center;
+  font-family:'Heebo',sans-serif; font-weight:700;
+  font-size:32px; color:#fff;
+  box-shadow:0 0 0 2px var(--vp-bg), 0 0 0 4px rgba(74,143,255,.4),
+             0 12px 32px rgba(30,95,255,.25);
+  letter-spacing:-.02em;
+}
+#who.gita-vp .vp-adv-name{
+  font-family:'Heebo',sans-serif; font-weight:700;
+  font-size:14px; color:var(--vp-ink); line-height:1.3;
+}
+#who.gita-vp .vp-adv-role{
+  font-family:'Heebo',sans-serif; font-weight:400;
+  font-size:12px; color:var(--vp-ink-dim); line-height:1.4;
+  letter-spacing:.04em;
+}
+
+#who.gita-vp .vp-trust{
+  display:flex; gap:24px; justify-content:center; flex-wrap:wrap;
+  padding-top:clamp(16px,2vh,28px);
+  border-top:1px solid var(--vp-line);
+}
+#who.gita-vp .vp-trust .t{
+  display:flex; align-items:baseline; gap:10px;
+}
+#who.gita-vp .vp-trust .t b{
+  font-family:'Anton',sans-serif; font-weight:400;
+  font-size:28px; color:var(--vp-cobalt-2);
+  letter-spacing:.5px;
+}
+#who.gita-vp .vp-trust .t span{
+  font-size:12px; color:var(--vp-ink-dim);
+  letter-spacing:.16em; text-transform:uppercase; font-weight:500;
+}
+
+/* ============================================================
+   MOBILE (≤768px) — no pin, plain stacked reveals
+   ============================================================ */
+@media (max-width:768px){
+  #who.gita-vp .vp-track{ height:auto; }
+  #who.gita-vp .vp-stage{
+    position:relative;
+    height:auto;
+    padding:60px 0;
+  }
+  #who.gita-vp .vp-eyebrow{
+    position:relative; top:auto; right:auto;
+    margin:0 20px 24px;
+  }
+  #who.gita-vp .vp-progress{ display:none; }
+  #who.gita-vp .vp-act{
+    position:relative; inset:auto;
+    opacity:1; /* JS will animate in */
+    padding:48px 20px;
+    min-height:auto;
+  }
+  #who.gita-vp .vp-act.is-pre{ opacity:0; transform:translateY(24px); }
+  #who.gita-vp .vp-act.is-in{
+    opacity:1; transform:none;
+    transition:opacity .8s ease, transform .8s ease;
+  }
+
+  #who.gita-vp .vp-l1{ font-size:12vw; }
+  #who.gita-vp .vp-l2,
+  #who.gita-vp .vp-l3{ font-size:11vw; }
+
+  #who.gita-vp .vp-act-2 .vp-diag{
+    grid-template-columns:1fr;
+    gap:32px;
+  }
+  #who.gita-vp .vp-donut{ width:240px; }
+
+  #who.gita-vp .vp-act-3 .vp-tiles{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+  #who.gita-vp .vp-tile{ min-height:auto; opacity:1; transform:none; }
+
+  #who.gita-vp .vp-act-4 .vp-advisors{
+    grid-template-columns:repeat(2,1fr);
+    gap:24px;
+  }
+
+  /* Horizontal swipe row for logos on mobile */
+  #who.gita-vp .vp-logos{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    justify-content:flex-start;
+    padding:18px 20px;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+  }
+  #who.gita-vp .vp-logo{
+    flex:0 0 auto;
+    scroll-snap-align:start;
+  }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion:reduce){
+  #who.gita-vp .vp-act,
+  #who.gita-vp .vp-line,
+  #who.gita-vp .vp-tile{
+    opacity:1 !important; transform:none !important;
+  }
+}

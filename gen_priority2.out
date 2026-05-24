@@ -1,0 +1,20 @@
+=== START mode=priority todo=18 ===
+[1/18] FAIL mercedes-g500-interior: fail
+[2/18] FAIL mercedes-g580-eq-interior: fail
+[3/18] FAIL chevy-tahoe-high-country-front: fail
+[4/18] FAIL mercedes-g500-side: fail
+[5/18] FAIL mercedes-g580-eq-front: fail
+[6/18] OK mercedes-g580-eq-side (1649KB)
+[7/18] OK chevy-tahoe-high-country-side (1602KB)
+[8/18] OK mercedes-gle-450d-side (1829KB)
+[9/18] OK bmw-x5-xdrive40i-side (1764KB)
+[10/18] OK chevy-tahoe-high-country-interior (2164KB)
+[11/18] OK mercedes-gls-450d-interior (2134KB)
+[12/18] OK rivian-r1s-dual-front (1829KB)
+[13/18] OK mercedes-g500-front (1748KB)
+[14/18] OK tesla-model-x-lr-front (1866KB)
+[15/18] OK bmw-x5-xdrive40i-front (2026KB)
+[16/18] OK chevy-traverse-z71-side (1674KB)
+[17/18] OK rivian-r1s-dual-side (1584KB)
+[18/18] OK chevy-traverse-z71-interior (2047KB)
+=== DONE mode=priority: 13 ok, 5 failed ===

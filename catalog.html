@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#050B1A">
+<title>קטלוג | AutoImports.co.il</title>
+<meta name="description" content="AutoImports.co.il — המודל החדש של רכישת רכב בישראל. יבוא אישי מארה״ב, 100% שקוף, עד 78% חיסכון.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Heebo:wght@300;400;500;600;700;800;900&family=Anton&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/mb.css">
+<link rel="stylesheet" href="./css/award.css">
+<link rel="stylesheet" href="./css/chatbot.css">
+<link rel="stylesheet" href="./css/pages/_shared.css">
+<link rel="stylesheet" href="./css/pages/catalog.css">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://unpkg.com/lenis@1.0.42/dist/lenis.min.js" defer></script>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23050B1A'/%3E%3Ctext x='32' y='44' font-family='Inter,Arial,sans-serif' font-size='30' font-weight='900' fill='%234A8BFF' text-anchor='middle'%3EAi%3C/text%3E%3C/svg%3E">
+</head>
+<body class="subpage">
+<nav class="mb-nav">
+  <div class="mb-nav-inner">
+    <a href="./index.html" class="mb-logo">
+      <span class="mb-logo-mark">Ai</span>
+      <span>AutoImports<small style="opacity:.55;font-weight:500;margin-inline-start:2px">.co.il</small></span>
+    </a>
+    <div class="mb-nav-links">
+      <a href="./index.html" >בית</a>
+      <a href="./catalog.html" class="active">קטלוג</a>
+      <a href="./how-it-works.html" >תהליך</a>
+      <a href="./why-us.html" >למה אנחנו</a>
+      <a href="./reviews.html" >ביקורות</a>
+      <a href="./trust.html" >אמינות</a>
+      <a href="./blog.html" >בלוג</a>
+      <a href="./about.html" >אודות</a>
+      <a href="./faq.html" >שאלות</a>
+    </div>
+    <a href="./start.html" class="mb-nav-cta">פתח תיק ₪500</a>
+    <button class="mb-burger" id="burger">☰</button>
+  </div>
+</nav><section class="page-hero" data-reveal>
+  <div class="eyebrow">קטלוג מלא</div>
+  <h1>20 דגמים.<br>מחיר אמיתי.</h1>
+  <p class="sub">כל הרכבים שאנחנו מציעים ביבוא אישי, עם פילטרים מתקדמים: יצרן, סוג רכב, סוג דלק, מחיר, שנה. מיון לפי חיסכון, מחיר או א-ב.</p>
+  <div class="cta-row">
+    <a href="./start.html" class="btn-primary-cobalt">פתח תיק עכשיו</a>
+    <a href="./index.html#calc" class="btn-link">מחשבון מחיר →</a>
+  </div>
+</section>
+<div class="page-divider"></div>
+
+<section class="psec">
+  <div class="cat-toolbar-row">
+    <div class="cat-count"><b id="catCount">20</b> מתוך 20 רכבים</div>
+    <select id="catSort" class="cat-sort">
+      <option value="saving">חיסכון הגבוה ביותר</option>
+      <option value="price-asc">מחיר: נמוך לגבוה</option>
+      <option value="price-desc">מחיר: גבוה לנמוך</option>
+      <option value="abc">א-ב</option>
+    </select>
+  </div>
+
+  <div class="cat-layout-wrap">
+    <aside class="cat-filter-rail">
+      <div class="filter-block">
+        <h5>יצרן</h5>
+        <div id="filterMakes" class="filter-list"></div>
+      </div>
+      <div class="filter-block">
+        <h5>סוג רכב</h5>
+        <div id="filterBody" class="filter-list"></div>
+      </div>
+      <div class="filter-block">
+        <h5>סוג דלק</h5>
+        <div id="filterFuel" class="filter-list"></div>
+      </div>
+      <div class="filter-block">
+        <h5>שנת ייצור</h5>
+        <div id="filterYear" class="filter-list"></div>
+      </div>
+      <button id="filterClear" class="filter-clear-btn">נקה הכל</button>
+    </aside>
+
+    <div class="cat-grid" id="catGrid"></div>
+  </div>
+</section>
+
+<script src="./js/data.js"></script>
+<script>
+(function() {
+  const grid = document.getElementById('catGrid');
+  const filters = { makes: new Set(), bodies: new Set(), fuels: new Set(), years: new Set() };
+  let sortBy = 'saving';
+
+  function getMake(c) { return (c.name || '').split(' ')[0]; }
+  function getFuel(c) { return c.fuel || (c.type && c.type.includes('ev') ? 'חשמלי' : 'בנזין'); }
+
+  const makes = [...new Set(CARS.map(getMake))].sort();
+  const bodies = [...new Set(CARS.map(c => c.body))].sort();
+  const fuels = [...new Set(CARS.map(getFuel))].sort();
+  const years = [...new Set(CARS.map(c => c.year || 2025))].sort().reverse();
+
+  function buildFilter(id, items, set) {
+    const root = document.getElementById(id);
+    items.forEach(v => {
+      const el = document.createElement('label');
+      el.innerHTML = `<input type="checkbox" value="${v}"> <span>${v}</span>`;
+      el.querySelector('input').addEventListener('change', (e) => {
+        if (e.target.checked) set.add(v); else set.delete(v);
+        render();
+      });
+      root.appendChild(el);
+    });
+  }
+  buildFilter('filterMakes', makes, filters.makes);
+  buildFilter('filterBody', bodies, filters.bodies);
+  buildFilter('filterFuel', fuels, filters.fuels);
+  buildFilter('filterYear', years, filters.years);
+
+  function fmt(n) { return '₪' + Math.round(n).toLocaleString('he-IL'); }
+
+  function card(c) {
+    const make = getMake(c);
+    const img = c.heroImg || `./images/cars/${c.slug}/hero.jpg`;
+    return `<article class="cat-card" onclick="location.href='./car.html?slug=${c.slug}'">
+      <div class="cc-img" style="background-image:linear-gradient(135deg,#0F1E3D,#050B1A)">
+        <img src="${img}" onerror="this.style.display='none'" alt="${c.name}">
+        <span class="cc-save">חיסכון ${c.savePct}%</span>
+      </div>
+      <div class="cc-body">
+        <span class="chip">${make}</span>
+        <h3>${c.name}</h3>
+        <div class="cc-meta"><span>${c.body || 'SUV'}</span><span>· ${getFuel(c)}</span><span>· ${c.year || 2025}</span></div>
+        <div class="cc-prices">
+          <div class="pi-us"><span>בארץ</span><b>${fmt(c.israelNIS)}</b></div>
+          <div class="pi-ai"><span>איתנו</span><b>${fmt(c.landedNIS)}</b></div>
+        </div>
+        <div class="cc-cta">צפה במפרט מלא →</div>
+      </div>
+    </article>`;
+  }
+
+  function render() {
+    let list = CARS.filter(c => {
+      const m = getMake(c);
+      if (filters.makes.size && !filters.makes.has(m)) return false;
+      if (filters.bodies.size && !filters.bodies.has(c.body)) return false;
+      if (filters.fuels.size && !filters.fuels.has(getFuel(c))) return false;
+      if (filters.years.size && !filters.years.has(c.year || 2025)) return false;
+      return true;
+    });
+    if (sortBy === 'saving') list.sort((a,b) => b.savePct - a.savePct);
+    if (sortBy === 'price-asc') list.sort((a,b) => a.landedNIS - b.landedNIS);
+    if (sortBy === 'price-desc') list.sort((a,b) => b.landedNIS - a.landedNIS);
+    if (sortBy === 'abc') list.sort((a,b) => a.name.localeCompare(b.name, 'he'));
+
+    grid.innerHTML = list.map(card).join('');
+    document.getElementById('catCount').textContent = list.length;
+  }
+
+  document.getElementById('catSort').addEventListener('change', e => { sortBy = e.target.value; render(); });
+  document.getElementById('filterClear').addEventListener('click', () => {
+    Object.values(filters).forEach(s => s.clear());
+    document.querySelectorAll('.cat-filter-rail input').forEach(i => i.checked = false);
+    render();
+  });
+
+  // Apply ?cat= from URL
+  const params = new URLSearchParams(location.search);
+  const catParam = params.get('cat');
+  if (catParam) {
+    // try to map to body filter
+    const mapping = { suv: 'suv', ev: 'suv', pickup: 'pickup', sedan: 'sedan' };
+    const target = mapping[catParam];
+    if (target && bodies.includes(target)) {
+      filters.bodies.add(target);
+      document.querySelector(`#filterBody input[value="${target}"]`).checked = true;
+    }
+    if (catParam === 'ev') {
+      ['חשמלי','EV','חשמלי + היברידי'].forEach(v => {
+        const cb = document.querySelector(`#filterFuel input[value="${v}"]`);
+        if (cb) { cb.checked = true; filters.fuels.add(v); }
+      });
+    }
+  }
+
+  render();
+})();
+</script>
+<footer class="footer-mb">
+  <div class="foot-w">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-brand-name"><span class="mb-logo-mark">A</span> AutoImports.co.il</div>
+        <p>ייעוץ ויבוא אישי של רכבי יוקרה מארצות הברית. שקיפות מלאה, מחיר משתלם ב-78%, מסירה תוך 8-12 שבועות.</p>
+      </div>
+      <div class="foot-col">
+        <h5>קטלוג</h5>
+        <ul>
+          <li><a href="./catalog.html">כל הדגמים</a></li>
+          <li><a href="./catalog.html?cat=suv">SUV יוקרה</a></li>
+          <li><a href="./catalog.html?cat=ev">חשמלי</a></li>
+          <li><a href="./catalog.html?cat=pickup">פיק-אפ</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>שירות</h5>
+        <ul>
+          <li><a href="./how-it-works.html">איך זה עובד</a></li>
+          <li><a href="./regulations.html">30 שלבי רגולציה</a></li>
+          <li><a href="./used-cars-guide.html">יד-שנייה</a></li>
+          <li><a href="./faq.html">שאלות נפוצות</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>חברה</h5>
+        <ul>
+          <li><a href="./about.html">אודות</a></li>
+          <li><a href="./trust.html">אמינות ויועצים</a></li>
+          <li><a href="./blog.html">בלוג</a></li>
+          <li><a href="./terms.html">תנאי שימוש</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>קשר</h5>
+        <ul>
+          <li>050-000-0000</li>
+          <li>info@autoimports.co.il</li>
+          <li>ראשון לציון</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 AutoImports.co.il. כל הזכויות שמורות.</span>
+      <span>USD/ILS = 2.93 · המחירים להמחשה</span>
+    </div>
+  </div>
+</footer><script src="./js/chatbot.js" defer></script>
+<script>
+// Universal sub-page scroll reveal
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.gsap && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray('[data-reveal]').forEach(el => {
+      gsap.from(el, {
+        opacity: 0, y: 40, duration: .9, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 85%' }
+      });
+    });
+  }
+});
+</script>
+</body></html>

@@ -1,0 +1,26 @@
+=== START mode=secondary todo=24 ===
+[1/24] FAIL ford-bronco-raptor-rear: fail
+[2/24] FAIL lucid-air-pure-wheels: fail
+[3/24] FAIL mercedes-g500-wheels: fail
+[4/24] FAIL mercedes-g580-eq-rear: fail
+[5/24] FAIL mercedes-g580-eq-wheels: fail
+[6/24] FAIL lucid-air-pure-rear: fail
+[7/24] FAIL mercedes-g500-rear: fail
+[8/24] FAIL chevy-tahoe-high-country-wheels: fail
+[9/24] FAIL chevy-tahoe-high-country-rear: fail
+[10/24] FAIL kia-ev9-rwd-wheels: fail
+[11/24] FAIL rivian-r1s-dual-rear: fail
+[12/24] FAIL kia-ev9-rwd-rear: fail
+[13/24] FAIL mustang-gt-v8-wheels: fail
+[14/24] FAIL rivian-r1s-dual-wheels: fail
+[15/24] FAIL jeep-wrangler-sport-wheels: fail
+[16/24] FAIL jeep-wrangler-sport-rear: fail
+[17/24] FAIL chevy-traverse-z71-rear: fail
+[18/24] FAIL chevy-traverse-z71-wheels: fail
+[19/24] OK mercedes-g63-amg-rear (1833KB)
+[20/24] OK ford-bronco-big-bend-rear (1716KB)
+[21/24] OK bmw-x5-xdrive40i-rear (1931KB)
+[22/24] OK ford-bronco-big-bend-wheels (2040KB)
+[23/24] OK bmw-x5-xdrive40i-wheels (1930KB)
+[24/24] OK mustang-gt-v8-rear (1933KB)
+=== DONE mode=secondary: 6 ok, 18 failed ===

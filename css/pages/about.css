@@ -1,0 +1,22 @@
+.abt-team { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:18px; margin-top:40px; }
+.tcard { background: var(--co-pane); border: 1px solid var(--co-border-2); border-radius: 16px; padding: 22px; text-align:center; transition: transform .2s, border-color .2s; }
+.tcard:hover { transform: translateY(-4px); border-color: var(--co-cobalt-line); }
+.tav { width: 88px; height: 88px; border-radius: 50%; margin: 0 auto 16px; display: grid; place-items: center; font-family: 'Frank Ruhl Libre', serif; font-weight: 700; font-size: 30px; color: #fff; box-shadow: 0 10px 30px -10px rgba(74,139,255,.5); }
+.tcard h4 { font-size: 18px; margin: 0 0 6px; color: #fff; font-weight: 700; }
+.trole { color: var(--co-cobalt); font-size: 13px; font-weight: 600; margin: 0 0 10px; }
+.tbio { color: var(--co-text-dim); font-size: 13.5px; line-height: 1.55; }
+
+.abt-videos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 36px; }
+@media (max-width: 900px) { .abt-videos { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 560px) { .abt-videos { grid-template-columns: repeat(2, 1fr); } }
+.vtile { position: relative; aspect-ratio: 4/5; border-radius: 12px; overflow: hidden; cursor: pointer; background: #0A1530; border: 1px solid var(--co-border-2); transition: transform .2s, border-color .2s; }
+.vtile:hover { transform: scale(1.03); border-color: var(--co-cobalt); }
+.vtile video { width:100%; height:100%; object-fit: cover; }
+.vtile-label { position: absolute; bottom: 8px; right: 10px; left: 10px; color:#fff; font-size: 12px; font-weight: 600; text-shadow: 0 2px 8px rgba(0,0,0,.8); }
+.vtile-play { position: absolute; top: 8px; left: 10px; width: 28px; height: 28px; background: rgba(74,139,255,.85); border-radius: 50%; color:#fff; display:grid; place-items:center; font-size: 11px; }
+
+.abt-org { margin-top: 36px; }
+.org-top { background: linear-gradient(135deg, var(--co-cobalt), var(--co-cobalt-2)); color:#fff; padding: 18px 24px; border-radius: 14px; font-weight: 700; text-align:center; max-width: 320px; margin: 0 auto 18px; }
+.org-row { display:grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+@media (max-width: 800px) { .org-row { grid-template-columns: repeat(2, 1fr); } }
+.org-node { background: var(--co-pane); border: 1px solid var(--co-border-2); padding: 16px 18px; border-radius: 12px; text-align:center; font-weight: 600; font-size: 14px; color: var(--co-text-soft); }

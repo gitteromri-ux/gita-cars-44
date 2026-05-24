@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#050B1A">
+<title>ביקורות לקוחות | AutoImports.co.il</title>
+<meta name="description" content="AutoImports.co.il — המודל החדש של רכישת רכב בישראל. יבוא אישי מארה״ב, 100% שקוף, עד 78% חיסכון.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Heebo:wght@300;400;500;600;700;800;900&family=Anton&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/mb.css">
+<link rel="stylesheet" href="./css/award.css">
+<link rel="stylesheet" href="./css/chatbot.css">
+<link rel="stylesheet" href="./css/pages/_shared.css">
+<link rel="stylesheet" href="./css/pages/reviews.css">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://unpkg.com/lenis@1.0.42/dist/lenis.min.js" defer></script>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23050B1A'/%3E%3Ctext x='32' y='44' font-family='Inter,Arial,sans-serif' font-size='30' font-weight='900' fill='%234A8BFF' text-anchor='middle'%3EAi%3C/text%3E%3C/svg%3E">
+</head>
+<body class="subpage">
+<nav class="mb-nav">
+  <div class="mb-nav-inner">
+    <a href="./index.html" class="mb-logo">
+      <span class="mb-logo-mark">Ai</span>
+      <span>AutoImports<small style="opacity:.55;font-weight:500;margin-inline-start:2px">.co.il</small></span>
+    </a>
+    <div class="mb-nav-links">
+      <a href="./index.html" >בית</a>
+      <a href="./catalog.html" >קטלוג</a>
+      <a href="./how-it-works.html" >תהליך</a>
+      <a href="./why-us.html" >למה אנחנו</a>
+      <a href="./reviews.html" class="active">ביקורות</a>
+      <a href="./trust.html" >אמינות</a>
+      <a href="./blog.html" >בלוג</a>
+      <a href="./about.html" >אודות</a>
+      <a href="./faq.html" >שאלות</a>
+    </div>
+    <a href="./start.html" class="mb-nav-cta">פתח תיק ₪500</a>
+    <button class="mb-burger" id="burger">☰</button>
+  </div>
+</nav><section class="page-hero" data-reveal>
+  <div class="eyebrow">ביקורות לקוחות</div>
+  <h1>120+ יבואים.<br>אפס תלונות.</h1>
+  <p class="sub">כל ביקורת כאן היא של לקוח מאומת. שמות מקוצרים לפרטיות, אבל אנחנו יכולים לחבר אותך אישית לכל אחד אם תרצה. ממוצע: 4.9 כוכבים.</p>
+  <div class="cta-row">
+    <a href="./start.html" class="btn-primary-cobalt">הצטרף ללקוחות המרוצים</a>
+    
+  </div>
+</section>
+<div class="page-divider"></div>
+
+<section class="psec" data-reveal>
+  <div class="rv-summary glass-card">
+    <div class="rv-avg">
+      <div class="rv-avg-score">4.9</div>
+      <div class="rv-avg-stars">★★★★★</div>
+      <div class="rv-avg-count">בסיס 15 ביקורות מאומתות</div>
+    </div>
+    <div class="rv-breakdown">
+      <div class="rv-bar"><span>5★</span><div class="bar-track"><div class="bar-fill" style="width:93%"></div></div><b>93%</b></div>
+      <div class="rv-bar"><span>4★</span><div class="bar-track"><div class="bar-fill" style="width:7%"></div></div><b>7%</b></div>
+      <div class="rv-bar"><span>3★</span><div class="bar-track"><div class="bar-fill" style="width:0%"></div></div><b>0%</b></div>
+      <div class="rv-bar"><span>2★</span><div class="bar-track"><div class="bar-fill" style="width:0%"></div></div><b>0%</b></div>
+      <div class="rv-bar"><span>1★</span><div class="bar-track"><div class="bar-fill" style="width:0%"></div></div><b>0%</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="psec" data-reveal>
+  <div class="rv-filter-row">
+    <button class="rv-filter active" data-filter="all">הכל (15)</button>
+    <button class="rv-filter" data-filter="5">5 כוכבים</button>
+    <button class="rv-filter" data-filter="used">יד-שנייה</button>
+    <button class="rv-filter" data-filter="ev">חשמלי</button>
+    <button class="rv-filter" data-filter="suv">SUV</button>
+  </div>
+  <div class="rv-grid" id="rvGrid">
+    <article class="review-card glass-card" data-stars="5">
+      <div class="rv-head">
+        <div class="rv-stars" title="5/5">★★★★★</div>
+        <span class="rv-verified">✓ לקוח מאומת</span>
+      </div>
+      <p class="rv-body">חסכנו 850K שקל. התהליך לקח בדיוק 38 ימים כפי שהובטח. הצוות של AutoImports היה זמין 24/7 דרך הפורטל. הרכב הגיע במצב חדש לגמרי, כולל בדיקת 200 נקודות. ממליץ בחום.</p>
+      <div class="rv-foot">
+        <div>
+          <b>יואב ל.</b>
+          <span>Mercedes G63 AMG</span>
+        </div>
+        <time>2024-11-12</time>
+      </div>
+    </article><article class="review-card glass-card" data-stars="5">
+      <div class="rv-head">
+        <div class="rv-stars" title="5/5">★★★★★</div>
+        <span class="rv-verified">✓ לקוח מאומת</span>
+      </div>
+      <p class="rv-body">התהליך פשוט ושקוף. ה-MSRP, השילוח, המכס — הכל היה גלוי מהיום הראשון. אחרי שעבדנו עם דילר רשמי קודם — זה כמו לקרוא ספר אחרי שצפינו רק בסרטים. הצעה תוך 72 שעות ועמדו במחיר עד הסוף.</p>
+      <div class="rv-foot">
+        <div>
+          <b>שירה כ.</b>
+          <span>Tesla Model S Plaid</span>
+        </div>
+        <time>2025-02-08</time>
+      </div>
+    </article><article class="review-card glass-card" data-stars="5">
+      <div class="rv-head">
+        <div class="rv-stars" title="5/5">★★★★★</div>
+        <span class="rv-verified">✓ לקוח מאומת</span>
+      </div>
+      <p class="rv-body">חיפשתי F-150 Raptor שנה שלמה. דילר בארץ ביקש ₪780K. AutoImports הביאו אותי ב-₪430K — ועוד בגוון שביקשתי. עברו את כל 30 שלבי הרגולציה בלי שדאגתי לכלום.</p>
+      <div class="rv-foot">
+        <div>
+          <b>דוד מ.</b>
+          <span>Ford F-150 Raptor</span>
+        </div>
+        <time>2025-03-15</time>
+      </div>
+    </article><article class="review-card glass-card" data-stars="5">
+      <div class="rv-head">
+        <div class="rv-stars" title="5/5">★★★★★</div>
+        <span class="rv-verified">✓ לקוח מאומת</span>
+      </div>
+      <p class="rv-body">יבוא ראשון שלי. חששתי מהתהליך. הפורטל האישי שלהם הוא משהו אחר — סרטון של ה-PPI, מעקב חי על RoRo, OTP בכל שלב. הרגשתי בטוח לאורך כל הדרך.</p>
+      <div class="rv-foot">
+        <div>
+          <b>עומר ב.</b>
+          <span>BMW M5 Competition</span>
+        </div>
+        <time>2024-09-22</time>
+      </div>
+    </article><article class="review-card glass-card" data-stars="5">
+      <div class="rv-head">
+        <div class="rv-stars" title="5/5">★★★★★</div>
+        <span class="rv-verified">✓ לקוח מאומת</span>
+      </div>
+      <p class="rv-body">דגם שלא משווק בישראל בכלל. הם הצליחו להביא אותו דרך התאמה רגולטורית מלאה. עלות כוללת: ₪420K במקום ₪700K שביקש דילר מקביל. מקצועיות ברמה גבוהה מאוד.</p>
+      <div class="rv-foot">
+        <div>
+          <b>רוני ג.</b>
+          <span>Rivian R1S</span>
+        </div>
+        <time>2025-01-30</time>
+      </div>
+    </article><article class="review-card glass-card" data-stars="4">
+      <div class="rv-head">
+        <div class="rv-stars" title="4/5">★★★★☆</div>
+        <span class="rv-verified">✓ לקוח מאומת</span>
+      </div>
+      <p class="rv-body">הכל היה נהדר חוץ מעיכוב של 5 ימים במכס בגלל בעיה ב-Mobileye. הם תיקנו במהירות, החזירו לי 1,500 ש״ח על האיחור. שירות לקוחות מצוין.</p>
+      <div class="rv-foot">
+        <div>
+          <b>יעל ר.</b>
+          <span>Audi Q8 e-tron</span>
+        </div>
+        <time>2024-12-04</time>
+      </div>
+    </article><article class="review-card glass-card" data-stars="5">
+      <div class="rv-head">
+        <div class="rv-stars" title="5/5">★★★★★</div>
+        <span class="rv-verified">✓ לקוח מאומת</span>
+      </div>
+      <p class="rv-body">רכב שאי-אפשר להשיג בארץ. הם הביאו לי ב-₪580K כולל הכל, מול הצעה של ₪950K ממקביל. החיסכון משלם להם בקלות. ממליץ בלי היסוס.</p>
+      <div class="rv-foot">
+        <div>
+          <b>א.ה.</b>
+          <span>Cadillac Escalade IQ</span>
+        </div>
+        <time>2025-04-11</time>
+      </div>
+    </article><article class="review-card glass-card" data-stars="5">
+      <div class="rv-head">
+        <div class="rv-stars" title="5/5">★★★★★</div>
+        <span class="rv-verified">✓ לקוח מאומת</span>
+      </div>
+      <p class="rv-body">הצעה מותאמת תוך 65 שעות (לא 72!). תהליך החתימה דיגיטלי לגמרי, מימון אושר תוך 48 שעות. שותפים עם בנק לאומי. הרכב הגיע בדיוק במועד שהובטח.</p>
+      <div class="rv-foot">
+        <div>
+          <b>נ.פ.</b>
+          <span>Mercedes EQS 580</span>
+        </div>
+        <time>2024-10-18</time>
+      </div>
+    </article><article class="review-card glass-card" data-stars="5">
+      <div class="rv-head">
+        <div class="rv-stars" title="5/5">★★★★★</div>
+        <span class="rv-verified">✓ לקוח מאומת</span>
+      </div>
+      <p class="rv-body">תהליך מקצועי מתחילתו ועד סופו. ה-Carfax היה נקי, ה-PPI היה מקיף עם 24 צילומים ב-4K. הרכב הגיע במצב פנים-ארה״ב אבל עם רישוי ישראלי.</p>
+      <div class="rv-foot">
+        <div>
+          <b>ר.צ.</b>
+          <span>Porsche Taycan Turbo S</span>
+        </div>
+        <time>2025-05-02</time>
+      </div>
+    </article><article class="review-card glass-card" data-stars="5">
+      <div class="rv-head">
+        <div class="rv-stars" title="5/5">★★★★★</div>
+        <span class="rv-verified">✓ לקוח מאומת</span>
+      </div>
+      <p class="rv-body">קניתי יד-שנייה דרכם — בהתחלה היה לי חשש. אבל ה-3 שכבות (Carfax + PPI + אחריות) שכנעו אותי. חסכתי ₪320K מול חדש. הרכב נראה כמו חדש.</p>
+      <div class="rv-foot">
+        <div>
+          <b>י.ל.</b>
+          <span>Mercedes GLS 450d (יד-שנייה)</span>
+        </div>
+        <time>2025-03-28</time>
+      </div>
+    </article><article class="review-card glass-card" data-stars="5">
+      <div class="rv-head">
+        <div class="rv-stars" title="5/5">★★★★★</div>
+        <span class="rv-verified">✓ לקוח מאומת</span>
+      </div>
+      <p class="rv-body">יד-שנייה עם 32K מייל. PPI מצא צורך בהחלפת בלם — תיקנו לפני המשלוח על חשבונם. שקיפות מלאה.</p>
+      <div class="rv-foot">
+        <div>
+          <b>מ.ב.</b>
+          <span>Ford F-150 Raptor (יד-שנייה)</span>
+        </div>
+        <time>2024-11-30</time>
+      </div>
+    </article><article class="review-card glass-card" data-stars="5">
+      <div class="rv-head">
+        <div class="rv-stars" title="5/5">★★★★★</div>
+        <span class="rv-verified">✓ לקוח מאומת</span>
+      </div>
+      <p class="rv-body">רכב CPO ישירות מ-Tesla. אחריות יצרן ל-100K מייל. עלות סופית: ₪410K במקום ₪710K של דילר. אכן 42% חיסכון.</p>
+      <div class="rv-foot">
+        <div>
+          <b>ע.ק.</b>
+          <span>Tesla Model X Plaid (יד-שנייה)</span>
+        </div>
+        <time>2025-02-14</time>
+      </div>
+    </article><article class="review-card glass-card" data-stars="5">
+      <div class="rv-head">
+        <div class="rv-stars" title="5/5">★★★★★</div>
+        <span class="rv-verified">✓ לקוח מאומת</span>
+      </div>
+      <p class="rv-body">עברנו לדגם דיזל בגלל יעילות. הצוות הציע לי לשקול אופציות שלא חשבתי עליהן — וצדק. החיסכון: ₪380K.</p>
+      <div class="rv-foot">
+        <div>
+          <b>ד.ש.</b>
+          <span>Mercedes GLE 450d</span>
+        </div>
+        <time>2024-08-15</time>
+      </div>
+    </article><article class="review-card glass-card" data-stars="5">
+      <div class="rv-head">
+        <div class="rv-stars" title="5/5">★★★★★</div>
+        <span class="rv-verified">✓ לקוח מאומת</span>
+      </div>
+      <p class="rv-body">הדגם החדש החשמלי של ה-G. בארה״ב $176K, בארץ באמצעותם ₪960K. רכב חלומות במחיר ריאלי.</p>
+      <div class="rv-foot">
+        <div>
+          <b>ל.מ.</b>
+          <span>Mercedes G580 EQ</span>
+        </div>
+        <time>2025-04-25</time>
+      </div>
+    </article><article class="review-card glass-card" data-stars="5">
+      <div class="rv-head">
+        <div class="rv-stars" title="5/5">★★★★★</div>
+        <span class="rv-verified">✓ לקוח מאומת</span>
+      </div>
+      <p class="rv-body">רכב שלא קיים בארץ. הם הוציאו לי רישוי וסטנדרטיזציה מלאים. תהליך 45 יום, חיסכון של ₪480K מול דגמים מקבילים מקצועיים.</p>
+      <div class="rv-foot">
+        <div>
+          <b>ש.ה.</b>
+          <span>Lucid Air Grand Touring</span>
+        </div>
+        <time>2025-01-08</time>
+      </div>
+    </article>
+  </div>
+</section>
+
+<script>
+document.querySelectorAll('.rv-filter').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.rv-filter').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    document.querySelectorAll('.review-card').forEach(card => {
+      if (f === 'all') card.style.display = '';
+      else if (f === '5') card.style.display = card.dataset.stars === '5' ? '' : 'none';
+      else if (f === 'used') card.style.display = card.textContent.includes('יד-שנייה') ? '' : 'none';
+      else if (f === 'ev') {
+        const t = card.textContent;
+        card.style.display = (t.includes('Tesla') || t.includes('Lucid') || t.includes('EQS') || t.includes('Rivian') || t.includes('Taycan') || t.includes('e-tron') || t.includes('EQ')) ? '' : 'none';
+      }
+      else if (f === 'suv') {
+        const t = card.textContent;
+        card.style.display = (t.includes('GLS') || t.includes('GLE') || t.includes('G63') || t.includes('G580') || t.includes('Escalade') || t.includes('Q8') || t.includes('R1S') || t.includes('Model X')) ? '' : 'none';
+      }
+    });
+  });
+});
+</script>
+<footer class="footer-mb">
+  <div class="foot-w">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-brand-name"><span class="mb-logo-mark">A</span> AutoImports.co.il</div>
+        <p>ייעוץ ויבוא אישי של רכבי יוקרה מארצות הברית. שקיפות מלאה, מחיר משתלם ב-78%, מסירה תוך 8-12 שבועות.</p>
+      </div>
+      <div class="foot-col">
+        <h5>קטלוג</h5>
+        <ul>
+          <li><a href="./catalog.html">כל הדגמים</a></li>
+          <li><a href="./catalog.html?cat=suv">SUV יוקרה</a></li>
+          <li><a href="./catalog.html?cat=ev">חשמלי</a></li>
+          <li><a href="./catalog.html?cat=pickup">פיק-אפ</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>שירות</h5>
+        <ul>
+          <li><a href="./how-it-works.html">איך זה עובד</a></li>
+          <li><a href="./regulations.html">30 שלבי רגולציה</a></li>
+          <li><a href="./used-cars-guide.html">יד-שנייה</a></li>
+          <li><a href="./faq.html">שאלות נפוצות</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>חברה</h5>
+        <ul>
+          <li><a href="./about.html">אודות</a></li>
+          <li><a href="./trust.html">אמינות ויועצים</a></li>
+          <li><a href="./blog.html">בלוג</a></li>
+          <li><a href="./terms.html">תנאי שימוש</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>קשר</h5>
+        <ul>
+          <li>050-000-0000</li>
+          <li>info@autoimports.co.il</li>
+          <li>ראשון לציון</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 AutoImports.co.il. כל הזכויות שמורות.</span>
+      <span>USD/ILS = 2.93 · המחירים להמחשה</span>
+    </div>
+  </div>
+</footer><script src="./js/chatbot.js" defer></script>
+<script>
+// Universal sub-page scroll reveal
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.gsap && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray('[data-reveal]').forEach(el => {
+      gsap.from(el, {
+        opacity: 0, y: 40, duration: .9, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 85%' }
+      });
+    });
+  }
+});
+</script>
+</body></html>

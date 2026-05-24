@@ -1,0 +1,642 @@
+/* ============================================================
+   PROCESS TRACKER — Mercedes USA grade
+   Ultra-premium, interactive, cinematic
+   ============================================================ */
+
+/* ---------- Root override scope ---------- */
+.process-v2 {
+  position: relative;
+  background: #0a0b0d;
+  color: #f5f5f3;
+  padding: 140px 0 160px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Ambient glow */
+.process-v2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(800px 500px at 80% 20%, rgba(184,151,90,.10), transparent 60%),
+    radial-gradient(900px 600px at 15% 85%, rgba(217,185,119,.06), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Subtle metallic noise */
+.process-v2::after {
+  content:"";
+  position:absolute; inset:0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.04 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  opacity:.5;
+  mix-blend-mode: overlay;
+  pointer-events:none;
+  z-index:0;
+}
+
+.process-v2 .pv2-wrap {
+  position: relative;
+  z-index: 2;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 80px);
+}
+
+/* ---------- HEADER ---------- */
+.pv2-head {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 80px;
+}
+
+.pv2-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font: 500 11px/1 "Heebo", sans-serif;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: #b8975a;
+  margin-bottom: 28px;
+}
+.pv2-eyebrow::before,
+.pv2-eyebrow::after {
+  content:"";
+  width: 32px; height: 1px;
+  background: linear-gradient(90deg, transparent, #b8975a, transparent);
+}
+
+.pv2-title {
+  font-family: "Frank Ruhl Libre", "Heebo", serif;
+  font-weight: 500;
+  font-size: clamp(2.6rem, 5.4vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -.01em;
+  color: #ffffff;
+  margin: 0;
+}
+.pv2-title .accent {
+  color: #d9b977;
+  font-weight: 600;
+}
+
+.pv2-sub {
+  font: 400 17px/1.7 "Heebo", sans-serif;
+  color: rgba(245,245,243,.65);
+  max-width: 480px;
+  margin: 0;
+}
+
+/* ---------- PROGRESS BAR ---------- */
+.pv2-progress {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 64px;
+  padding: 22px 28px;
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 2px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.pv2-prog-label {
+  font: 500 10px/1 "Heebo", sans-serif;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: rgba(245,245,243,.55);
+  white-space: nowrap;
+}
+
+.pv2-prog-bar {
+  flex: 1;
+  height: 2px;
+  background: rgba(255,255,255,.06);
+  position: relative;
+  overflow: hidden;
+}
+.pv2-prog-fill {
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  background: linear-gradient(90deg, #8a6e3c 0%, #d9b977 50%, #f0d28f 100%);
+  transition: width .8s cubic-bezier(.22,.61,.36,1);
+  box-shadow: 0 0 24px rgba(217,185,119,.4);
+}
+.pv2-prog-fill::after {
+  content:"";
+  position:absolute; top:-2px; right:-2px; bottom:-2px;
+  width: 8px;
+  background: #f5e3b3;
+  box-shadow: 0 0 16px #f5e3b3, 0 0 32px #d9b977;
+  filter: blur(.3px);
+}
+
+.pv2-prog-stat {
+  font: 500 13px/1 "Frank Ruhl Libre", serif;
+  color: #ffffff;
+  white-space: nowrap;
+}
+.pv2-prog-stat .num {
+  font-size: 22px;
+  color: #d9b977;
+  margin-inline-end: 6px;
+}
+
+/* ---------- TIMELINE ---------- */
+.pv2-timeline {
+  position: relative;
+  margin-bottom: 80px;
+  padding: 60px 0 40px;
+}
+
+/* The line itself */
+.pv2-rail {
+  position: absolute;
+  top: 50%;
+  left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(184,151,90,.4) 8%,
+    rgba(184,151,90,.4) 92%,
+    transparent 100%);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.pv2-rail::before {
+  content:"";
+  position:absolute;
+  top:-1px; bottom:-1px;
+  left:0;
+  width:0%;
+  background: linear-gradient(90deg, #8a6e3c, #d9b977, #f0d28f);
+  box-shadow: 0 0 12px rgba(217,185,119,.6);
+  transition: width 1s cubic-bezier(.22,.61,.36,1);
+}
+.pv2-timeline[data-progress] .pv2-rail::before { width: var(--p,0%); }
+
+/* Nodes container — scrollable horizontally */
+.pv2-nodes {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 40px 0;
+  margin: 0 -8px;
+}
+.pv2-nodes::-webkit-scrollbar { display: none; }
+
+.pv2-node {
+  flex: 0 0 calc(100% / 7.5); /* ~7-8 visible */
+  min-width: 130px;
+  scroll-snap-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  text-align: center;
+  padding: 0 8px;
+  transition: transform .4s cubic-bezier(.22,.61,.36,1);
+}
+.pv2-node:hover { transform: translateY(-4px); }
+
+/* Connector lines between nodes */
+.pv2-node::before {
+  content:"";
+  position: absolute;
+  top: 50%;
+  inset-inline-start: -50%;
+  width: 100%;
+  height: 1px;
+  background: transparent;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+.pv2-node:first-child::before { display:none; }
+
+/* Number above */
+.pv2-node-num {
+  font-family: "Frank Ruhl Libre", serif;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: .3em;
+  color: rgba(245,245,243,.35);
+  margin-bottom: 18px;
+  transition: color .4s ease;
+}
+
+/* The DOT */
+.pv2-dot {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #0a0b0d;
+  border: 1px solid rgba(184,151,90,.5);
+  transition: all .5s cubic-bezier(.22,.61,.36,1);
+  flex-shrink: 0;
+}
+.pv2-dot::before {
+  content:"";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  transition: all .5s ease;
+}
+.pv2-dot::after {
+  content:"";
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: transparent;
+  transition: all .4s ease;
+}
+
+/* States */
+.pv2-node.is-done .pv2-dot {
+  background: #d9b977;
+  border-color: #d9b977;
+  box-shadow: 0 0 0 4px rgba(217,185,119,.15);
+}
+.pv2-node.is-done .pv2-dot::after {
+  background: #0a0b0d;
+  inset: 5px;
+}
+.pv2-node.is-done .pv2-node-num,
+.pv2-node.is-done .pv2-node-label { color: rgba(245,245,243,.5); }
+
+.pv2-node.is-active .pv2-dot {
+  width: 22px;
+  height: 22px;
+  background: #f0d28f;
+  border-color: #f5e3b3;
+  box-shadow:
+    0 0 0 6px rgba(217,185,119,.18),
+    0 0 0 14px rgba(217,185,119,.08),
+    0 0 40px rgba(245,227,179,.55);
+}
+.pv2-node.is-active .pv2-dot::after {
+  background: #0a0b0d;
+  inset: 6px;
+}
+.pv2-node.is-active .pv2-dot::before {
+  inset: -14px;
+  border-color: rgba(217,185,119,.25);
+  animation: pulse 2.4s ease-out infinite;
+}
+.pv2-node.is-active .pv2-node-num {
+  color: #d9b977;
+  font-size: 13px;
+}
+.pv2-node.is-active .pv2-node-label {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+@keyframes pulse {
+  0%   { transform: scale(.85); opacity: .9; }
+  100% { transform: scale(2.2);  opacity: 0; }
+}
+
+/* Label below dot */
+.pv2-node-label {
+  margin-top: 18px;
+  font: 400 13px/1.3 "Heebo", sans-serif;
+  color: rgba(245,245,243,.55);
+  transition: all .4s ease;
+  max-width: 110px;
+}
+
+/* Phase badge above number */
+.pv2-node-phase {
+  position: absolute;
+  top: -8px;
+  font: 600 9px/1 "Heebo", sans-serif;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(184,151,90,.7);
+  background: #0a0b0d;
+  padding: 0 6px;
+}
+
+/* ---------- ACTIVE STEP PANE — the big one ---------- */
+.pv2-stage {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 56px;
+  position: relative;
+}
+
+.pv2-stage-main {
+  position: relative;
+  padding: 56px 64px;
+  background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.01));
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 2px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  overflow: hidden;
+  min-height: 480px;
+}
+
+/* Gold corner accent */
+.pv2-stage-main::before {
+  content:"";
+  position: absolute;
+  top: 0; inset-inline-start: 0;
+  width: 64px; height: 64px;
+  border-top: 1px solid #b8975a;
+  border-inline-start: 1px solid #b8975a;
+}
+.pv2-stage-main::after {
+  content:"";
+  position: absolute;
+  bottom: 0; inset-inline-end: 0;
+  width: 64px; height: 64px;
+  border-bottom: 1px solid #b8975a;
+  border-inline-end: 1px solid #b8975a;
+}
+
+.pv2-stage-num {
+  font-family: "Frank Ruhl Libre", serif;
+  font-weight: 300;
+  font-size: clamp(64px, 9vw, 120px);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(217,185,119,.35);
+  letter-spacing: -.02em;
+  margin: 0 0 8px;
+  font-variant-numeric: tabular-nums;
+}
+
+.pv2-stage-meta {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.pv2-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  font: 500 11px/1 "Heebo", sans-serif;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  border-radius: 50px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+  color: rgba(245,245,243,.8);
+}
+.pv2-pill .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #d9b977;
+}
+.pv2-pill.is-client {
+  background: rgba(217,185,119,.08);
+  border-color: rgba(217,185,119,.3);
+  color: #f0d28f;
+}
+.pv2-pill.is-client .dot { background: #f0d28f; box-shadow: 0 0 8px #d9b977; }
+.pv2-pill.is-gita {
+  background: rgba(255,255,255,.05);
+  border-color: rgba(255,255,255,.12);
+  color: #ffffff;
+}
+
+.pv2-stage-title {
+  font-family: "Frank Ruhl Libre", serif;
+  font-weight: 500;
+  font-size: clamp(28px, 3.4vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -.01em;
+  color: #ffffff;
+  margin: 0 0 20px;
+}
+
+.pv2-stage-desc {
+  font: 400 16px/1.75 "Heebo", sans-serif;
+  color: rgba(245,245,243,.72);
+  margin: 0 0 32px;
+  max-width: 640px;
+}
+
+/* Detail row */
+.pv2-stage-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.pv2-detail h5 {
+  font: 500 10px/1 "Heebo", sans-serif;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: rgba(184,151,90,.85);
+  margin: 0 0 14px;
+}
+.pv2-detail p, .pv2-detail .chips {
+  font: 400 14px/1.6 "Heebo", sans-serif;
+  color: rgba(245,245,243,.75);
+  margin: 0;
+}
+.pv2-detail .chips {
+  display:flex; flex-wrap:wrap; gap:8px;
+}
+.pv2-detail .chip {
+  padding: 6px 12px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 2px;
+  font-size: 12px;
+  color: rgba(245,245,243,.8);
+}
+
+/* Nav arrows */
+.pv2-nav {
+  position: absolute;
+  bottom: 28px;
+  inset-inline-end: 32px;
+  display: flex;
+  gap: 12px;
+  z-index: 5;
+}
+.pv2-arrow {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.15);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+.pv2-arrow:hover {
+  background: #d9b977;
+  border-color: #d9b977;
+  color: #0a0b0d;
+  transform: scale(1.06);
+}
+.pv2-arrow svg { width: 16px; height: 16px; }
+
+/* ---------- PHASE RAIL (right side, sticky idea) ---------- */
+.pv2-phases {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.pv2-phase {
+  position: relative;
+  padding: 24px 0 24px 28px;
+  border-inline-start: 1px solid rgba(255,255,255,.08);
+  cursor: pointer;
+  transition: all .4s ease;
+}
+.pv2-phase::before {
+  content:"";
+  position: absolute;
+  top: 28px;
+  inset-inline-start: -5px;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: #0a0b0d;
+  border: 1px solid rgba(255,255,255,.25);
+  transition: all .4s ease;
+}
+.pv2-phase.is-active {
+  border-inline-start-color: #d9b977;
+}
+.pv2-phase.is-active::before {
+  background: #d9b977;
+  border-color: #d9b977;
+  box-shadow: 0 0 0 4px rgba(217,185,119,.18), 0 0 20px rgba(217,185,119,.6);
+}
+.pv2-phase.is-done::before {
+  background: #b8975a;
+  border-color: #b8975a;
+}
+
+.pv2-phase-num {
+  font: 500 10px/1 "Heebo", sans-serif;
+  letter-spacing: .3em;
+  color: rgba(184,151,90,.7);
+  margin-bottom: 6px;
+}
+.pv2-phase-name {
+  font-family: "Frank Ruhl Libre", serif;
+  font-weight: 500;
+  font-size: 19px;
+  color: rgba(245,245,243,.6);
+  margin-bottom: 4px;
+  transition: color .3s ease;
+}
+.pv2-phase.is-active .pv2-phase-name { color: #ffffff; }
+.pv2-phase-desc {
+  font: 400 12px/1.5 "Heebo", sans-serif;
+  color: rgba(245,245,243,.4);
+}
+.pv2-phase-range {
+  display: inline-block;
+  margin-top: 8px;
+  font: 500 10px/1 "Heebo", sans-serif;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(184,151,90,.55);
+}
+
+/* ---------- VEHICLE ANIMATION ---------- */
+.pv2-vehicle {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 32px;
+  transition: left 1s cubic-bezier(.22,.61,.36,1);
+  z-index: 5;
+  pointer-events: none;
+}
+.pv2-vehicle svg {
+  width: 100%; height: 100%;
+  filter: drop-shadow(0 4px 18px rgba(217,185,119,.5));
+}
+.pv2-vehicle::after {
+  content:"";
+  position:absolute;
+  inset-inline-end: 100%;
+  top: 50%;
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #f0d28f);
+  transform: translateY(-50%);
+  opacity: .8;
+}
+
+/* ---------- HINT ---------- */
+.pv2-hint {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+  font: 400 13px/1.5 "Heebo", sans-serif;
+  color: rgba(245,245,243,.5);
+  justify-content: center;
+}
+.pv2-hint kbd {
+  display: inline-grid;
+  place-items: center;
+  min-width: 26px;
+  height: 26px;
+  padding: 0 8px;
+  font: 500 11px/1 "Heebo", sans-serif;
+  color: rgba(245,245,243,.9);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 4px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1100px) {
+  .pv2-head { grid-template-columns: 1fr; gap: 24px; }
+  .pv2-stage { grid-template-columns: 1fr; }
+  .pv2-phases {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 16px;
+    scrollbar-width: none;
+  }
+  .pv2-phases::-webkit-scrollbar { display: none; }
+  .pv2-phase {
+    flex: 0 0 220px;
+    border-inline-start: none;
+    border-top: 1px solid rgba(255,255,255,.08);
+    padding: 24px 0 0;
+  }
+  .pv2-phase::before { top: -5px; inset-inline-start: 0; }
+  .pv2-phase.is-active { border-top-color: #d9b977; border-inline-start: none; }
+}
+@media (max-width: 720px) {
+  .process-v2 { padding: 80px 0 100px; }
+  .pv2-stage-main { padding: 36px 28px; }
+  .pv2-stage-details { grid-template-columns: 1fr; gap: 24px; }
+  .pv2-node { min-width: 100px; }
+  .pv2-progress { flex-wrap: wrap; }
+}
