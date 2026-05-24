@@ -123,10 +123,14 @@
 </section>
 
 <style>
-/* Kill ALL particles/stars overlays globally */
-.h-particles,.h-particles-fallback,.hero-particles,.hero-bigtype,.hero-livestrip,.hero-scrollhint,.h-grain,.h-vignette,[data-fold="hero"] .h-stage,.h-content{display:none !important}
+/* Kill ALL particles/stars/floating balls/grain overlays globally */
+.h-particles,.h-particles-fallback,.hero-particles,.hero-bigtype,.hero-livestrip,.hero-scrollhint,.h-grain,.h-vignette,.global-grain,.global-vignette,[data-fold="hero"] .h-stage,.h-content{display:none !important}
 [data-fold="hero"]{display:none !important}
 .hero-mb:not(.hero-v3){display:none !important}
+/* Kill floating action buttons (the floating balls) */
+.wa-fab,#waFab,.ai-fab,.fab,.chatbot-fab,[class*="-fab"]{display:none !important}
+/* Avoid double sticky bottom */
+.mob-bottom{display:none !important}
 /* Light fold backgrounds for breathing room */
 #why-mount,#trust-mount,#how,.calc,.faq-section,.cases-section,.board{background:#F7F9FC !important;color:#0A1224 !important}
 #why-mount *,#trust-mount *,#how *,.calc *,.faq-section *,.cases-section *,.board *{color:inherit}
