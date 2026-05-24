@@ -28,9 +28,8 @@
 <!-- three.js removed for performance -->
 
 <!-- Smooth scroll + scroll animations -->
-<script src="https://unpkg.com/lenis@1.0.42/dist/lenis.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<!-- Smooth-scroll & GSAP ScrollTrigger removed: plain native scroll only -->
+<script>window.Lenis=function(){this.start=function(){};this.stop=function(){};this.destroy=function(){};this.raf=function(){};this.on=function(){};this.scrollTo=function(){};};window.gsap={registerPlugin:function(){},to:function(){return{kill:function(){}}},from:function(){return{kill:function(){}}},fromTo:function(){return{kill:function(){}}},set:function(){},timeline:function(){return{to:function(){return this},from:function(){return this},fromTo:function(){return this},set:function(){return this},kill:function(){},pause:function(){return this},play:function(){return this},reverse:function(){return this},progress:function(){return 0}}},utils:{toArray:function(s){return Array.from(document.querySelectorAll(typeof s==='string'?s:''))}},matchMedia:function(){return{add:function(){}}}};window.ScrollTrigger={create:function(){return{kill:function(){},refresh:function(){}}},refresh:function(){},getAll:function(){return[]},killAll:function(){},update:function(){}};</script>
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23050B1A'/%3E%3Ctext x='32' y='44' font-family='Inter,Arial,sans-serif' font-size='30' font-weight='900' fill='%234A8BFF' text-anchor='middle'%3EAi%3C/text%3E%3C/svg%3E">
 </head>
@@ -123,19 +122,30 @@
 </section>
 
 <style>
-/* Kill ALL particles/stars/floating balls/grain overlays globally */
-.h-particles,.h-particles-fallback,.hero-particles,.hero-bigtype,.hero-livestrip,.hero-scrollhint,.h-grain,.h-vignette,.global-grain,.global-vignette,[data-fold="hero"] .h-stage,.h-content{display:none !important}
+/* Kill ALL particles/stars/floating balls/grain/canvas overlays */
+.h-particles,.h-particles-fallback,.hero-particles,.hero-bigtype,.hero-livestrip,.hero-scrollhint,.h-grain,.h-vignette,.global-grain,.global-vignette,[data-fold="hero"] .h-stage,.h-content,.stars,.star-field,.starfield,.particles-bg,.bg-particles,.floating-orb,.orb,.bubble,.float-bubble{display:none !important}
 [data-fold="hero"]{display:none !important}
 .hero-mb:not(.hero-v3){display:none !important}
-/* Kill floating action buttons (the floating balls) */
-.wa-fab,#waFab,.ai-fab,.fab,.chatbot-fab,[class*="-fab"]{display:none !important}
+/* Kill floating action buttons + chatbot + any fixed widget */
+.wa-fab,#waFab,.ai-fab,.fab,.chatbot-fab,[class*="-fab"],.chatbot,#chatbot,.chatbot-widget,.chatbot-launcher,.chat-bubble,.gita-chatbot,[id*="chatbot"],[class*="chatbot"]{display:none !important}
+/* Kill any rogue canvas overlay */
+body>canvas,body>div>canvas[style*="fixed"]{display:none !important}
 /* Avoid double sticky bottom */
 .mob-bottom{display:none !important}
+/* Kill the English BRAND NEW MODEL fold entirely (huge bold English headings) */
+#trust-mount{display:none !important}
 /* Light fold backgrounds for breathing room */
-#why-mount,#trust-mount,#how,.calc,.faq-section,.cases-section,.board{background:#F7F9FC !important;color:#0A1224 !important}
-#why-mount *,#trust-mount *,#how *,.calc *,.faq-section *,.cases-section *,.board *{color:inherit}
-#why-mount h1,#why-mount h2,#why-mount h3,#trust-mount h1,#trust-mount h2,#trust-mount h3,#how h1,#how h2,#how h3,.calc h1,.calc h2,.calc h3,.faq-section h1,.faq-section h2,.faq-section h3,.cases-section h1,.cases-section h2,.cases-section h3,.board h1,.board h2,.board h3{color:#050B1A}
-#why-mount p,#trust-mount p,#how p,.calc p,.faq-section p,.cases-section p,.board p{color:#3D4A66}
+#why-mount,#how,.calc,.faq-section,.cases-section,.board{background:#F7F9FC !important;color:#0A1224 !important}
+#why-mount *,#how *,.calc *,.faq-section *,.cases-section *,.board *{color:inherit}
+#why-mount h1,#why-mount h2,#why-mount h3,#how h1,#how h2,#how h3,.calc h1,.calc h2,.calc h3,.faq-section h1,.faq-section h2,.faq-section h3,.cases-section h1,.cases-section h2,.cases-section h3,.board h1,.board h2,.board h3{color:#050B1A}
+#why-mount p,#how p,.calc p,.faq-section p,.cases-section p,.board p{color:#3D4A66}
+/* Tame oversized bold mounts — cap h1/h2 sizes */
+#why-mount h1,#why-mount h2,.board h1,.board h2,#how h1,#how h2,.calc h1,.calc h2,.cases-section h1,.cases-section h2,.faq-section h1,.faq-section h2{font-size:clamp(24px,3.2vw,40px) !important;line-height:1.15 !important;font-weight:700 !important;letter-spacing:-.01em !important}
+#why-mount h3,.board h3,#how h3,.calc h3,.cases-section h3{font-size:clamp(18px,1.8vw,22px) !important;line-height:1.3 !important;font-weight:600 !important}
+/* Cap mobile fold height to prevent infinite-scroll feel */
+@media (max-width:768px){
+  .board{max-height:none}
+}
 .hero-v3{position:relative;min-height:90vh;background:linear-gradient(160deg,#050B1A 0%,#0A1530 100%);color:#fff;direction:rtl;overflow:hidden;padding:120px 0 80px}
 .hero-v3-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 80% 40%,rgba(74,139,255,.22),transparent 60%),radial-gradient(ellipse 50% 40% at 20% 70%,rgba(30,95,255,.12),transparent 60%),#050B1A;z-index:0}
 .hero-v3-grid{position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}
@@ -807,6 +817,6 @@
 <script src="./js/folds/why.js" defer></script>
 <script src="./js/folds/trust.js" defer></script>
 <!-- old hero.js disabled — V3 is pure HTML/CSS -->
-<script src="./js/chatbot.js" defer></script>
+<!-- chatbot.js removed: no floating ball -->
 </body>
 </html>
