@@ -122,6 +122,13 @@
 </section>
 
 <style>
+/* FORCE plain native scroll - no smooth, no momentum, no scroll-jacking */
+html,body{scroll-behavior:auto !important;overscroll-behavior:auto !important}
+html{overflow-x:hidden !important;overflow-y:auto !important}
+body{overflow-x:hidden !important;overflow-y:visible !important;position:static !important;transform:none !important}
+*{scroll-behavior:auto !important}
+/* Kill mobile sticky CTA (the floating bottom bar) */
+.sticky-mobile-cta,.mob-sticky-cta,.mobile-cta,[class*="sticky-mobile"]{display:none !important}
 /* Kill ALL particles/stars/floating balls/grain/canvas overlays */
 .h-particles,.h-particles-fallback,.hero-particles,.hero-bigtype,.hero-livestrip,.hero-scrollhint,.h-grain,.h-vignette,.global-grain,.global-vignette,[data-fold="hero"] .h-stage,.h-content,.stars,.star-field,.starfield,.particles-bg,.bg-particles,.floating-orb,.orb,.bubble,.float-bubble{display:none !important}
 [data-fold="hero"]{display:none !important}
@@ -177,10 +184,10 @@ body>canvas,body>div>canvas[style*="fixed"]{display:none !important}
 .hv3-badge-save{font-size:13px;color:#4ADE80;font-weight:600}
 @media (max-width:900px){
   .hero-v3{padding:90px 0 60px;min-height:auto}
-  .hero-v3-grid{grid-template-columns:1fr;gap:32px;padding:0 18px}
-  .hero-v3-visual{order:-1;width:100%;max-width:100%;overflow:visible}
-  .hv3-car{max-width:100%;width:100%;display:block;margin:0 auto}
-  .hv3-badge{position:relative;inset:auto;margin:-20px auto 0;max-width:340px;width:calc(100% - 32px);padding:16px 18px}
+  .hero-v3-grid{grid-template-columns:1fr;gap:24px;padding:0 16px}
+  .hero-v3-visual{order:-1;width:100%;max-width:100%;overflow:visible;display:block;text-align:center}
+  .hv3-car{max-width:100%;width:100%;height:auto;display:block;margin:0 auto;object-fit:contain}
+  .hv3-badge{position:relative;inset:auto;left:auto;right:auto;bottom:auto;display:block;margin:-16px auto 0;max-width:320px;width:auto;padding:14px 18px;box-sizing:border-box}
   .hv3-badge-name{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .hv3-badge-price{flex-direction:row;align-items:baseline;gap:10px}
   .hv3-now{font-size:20px}
