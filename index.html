@@ -61,75 +61,177 @@
   </div>
 </nav>
 
-<!-- ========= HERO V4 — minimal white, 2 CTAs only ========= -->
-<section class="hero-v4" id="hero">
-  <div class="hero-v4-inner">
-    <h1 class="hero-v4-h1">יבוא אישי של רכבים מארה״ב</h1>
-    <p class="hero-v4-sub">חיסכון של מאות אלפי שקלים. שקיפות מלאה. 38 ימים עד הבית.</p>
-    <div class="hero-v4-cta-row">
-      <a href="./start.html" class="hv4-cta-primary">קבלו הצעה — לקוחות חדשים</a>
-      <a href="./login.html" class="hv4-cta-secondary">כניסה ללקוחות קיימים</a>
+<!-- ========= HERO V3 — clean static ========= -->
+<section class="hero-v3" id="hero">
+  <div class="hero-v3-bg" aria-hidden="true"></div>
+  <div class="hero-v3-grid">
+    <div class="hero-v3-text">
+      <div class="hero-v3-eyebrow">
+        <span class="hv3-dot"></span>
+        <span>יבוא אישי מארה״ב · 100% שקוף</span>
+      </div>
+      <h1 class="hero-v3-h1">
+        <span>כל רכב מארה״ב.</span>
+        <span class="hv3-accent">במחיר נמוך מבישראל.</span>
+        <span>72 שעות עד הצעה. 38 ימים עד הבית.</span>
+      </h1>
+      <p class="hero-v3-sub">
+        אנחנו סורקים את כל ארצות-הברית, מבצעים תחרות בין שותפי-רכב,
+        ומשלמים רק את המחיר האמיתי. פלוס 5% עמלת שירות שקופה.
+      </p>
+      <div class="hero-v3-stats">
+        <div class="hv3-stat">
+          <div class="hv3-stat-num">₪348K</div>
+          <div class="hv3-stat-lbl">חיסכון ממוצע ללקוח</div>
+        </div>
+        <div class="hv3-stat-sep"></div>
+        <div class="hv3-stat">
+          <div class="hv3-stat-num">78%</div>
+          <div class="hv3-stat-lbl">חיסכון מקסימלי מול ישראל</div>
+        </div>
+        <div class="hv3-stat-sep"></div>
+        <div class="hv3-stat">
+          <div class="hv3-stat-num">72<small>h</small></div>
+          <div class="hv3-stat-lbl">מהפנייה להצעה מותאמת</div>
+        </div>
+      </div>
+      <div class="hero-v3-cta-row">
+        <a href="./start.html" class="hv3-cta-primary">קבלו הצעה — לקוחות חדשים →</a>
+        <a href="./login.html" class="hv3-cta-secondary">כניסה ללקוחות קיימים</a>
+      </div>
+      <div class="hero-v3-trust">
+        <span>מקדמה ₪500 בלבד · ללא התחייבות</span>
+        <span class="hv3-trust-sep">·</span>
+        <span>רישיון יבואן 17385</span>
+        <span class="hv3-trust-sep">·</span>
+        <span>ח״פ 516789432</span>
+      </div>
+    </div>
+    <div class="hero-v3-visual">
+      <img src="./images/car-mercedes-g580-eq.png" alt="Mercedes-Benz G580 EQ" class="hv3-car" loading="eager" fetchpriority="high">
+      <div class="hv3-badge">
+        <div class="hv3-badge-name">Mercedes-Benz G580 EQ</div>
+        <div class="hv3-badge-price">
+          <span class="hv3-was">₪2.1M ישראל</span>
+          <span class="hv3-now">₪1.18M יבוא</span>
+        </div>
+        <div class="hv3-badge-save">חיסכון: ₪915,000 (55%)</div>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-/* ============ FORCE NATIVE SCROLL ============ */
-html,body,*{scroll-behavior:auto !important;overscroll-behavior:auto !important}
+/* ============ WHITE HERO OVERRIDE - keep V3 layout, flip to white bg ============ */
+.hero-v3{background:#FFFFFF !important;color:#0A1224 !important;border-bottom:1px solid #E5E7EB}
+.hero-v3-bg{background:radial-gradient(ellipse 60% 50% at 80% 40%,rgba(74,139,255,.08),transparent 60%),radial-gradient(ellipse 50% 40% at 20% 70%,rgba(30,95,255,.05),transparent 60%),#FFFFFF !important}
+.hero-v3-eyebrow{color:#1E3A8A !important;border-color:rgba(74,139,255,.4) !important;background:#F0F6FF}
+.hero-v3-h1{color:#0A1224 !important}
+.hv3-accent{color:#1E3A8A !important}
+.hero-v3-sub{color:#4B5563 !important}
+.hero-v3-stats{border-block-color:#E5E7EB !important}
+.hv3-stat-num{color:#0A1224 !important}
+.hv3-stat-num small{color:#1E3A8A !important}
+.hv3-stat-lbl{color:#6B7280 !important}
+.hv3-stat-sep{background:#E5E7EB !important}
+.hv3-cta-primary{background:#1E3A8A !important;color:#fff !important;box-shadow:0 4px 12px rgba(30,58,138,.25) !important}
+.hv3-cta-primary:hover{background:#1E40AF !important;box-shadow:0 6px 16px rgba(30,58,138,.35) !important}
+.hv3-cta-secondary{color:#1E3A8A !important;border:1.5px solid #1E3A8A !important;background:#fff}
+.hv3-cta-secondary:hover{background:#F3F4F6 !important;color:#1E3A8A !important}
+.hero-v3-trust{color:#6B7280 !important}
+.hv3-trust-sep{color:#D1D5DB !important}
+.hv3-car{filter:drop-shadow(0 16px 40px rgba(0,0,0,.18)) !important}
+.hv3-badge{background:rgba(255,255,255,.95) !important;border:1px solid #E5E7EB !important;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.hv3-badge-name{color:#6B7280 !important}
+.hv3-was{color:#9CA3AF !important}
+.hv3-now{color:#1E3A8A !important}
+.hv3-badge-save{color:#059669 !important}
+.hv3-dot{background:#1E3A8A !important;box-shadow:0 0 8px rgba(30,58,138,.4) !important}
+
+/* ============ FORCE plain native scroll ============ */
+html,body{scroll-behavior:auto !important;overscroll-behavior:auto !important}
 html{overflow-x:hidden !important;overflow-y:auto !important}
-body{overflow-x:hidden !important;overflow-y:visible !important;position:static !important;transform:none !important;background:#FFFFFF !important;color:#0A1224 !important;font-family:'Heebo','Inter',Arial,sans-serif !important}
-
-/* ============ KILL ALL FLOATING/ANIMATED CRAP ============ */
-.h-particles,.h-particles-fallback,.hero-particles,.hero-bigtype,.hero-livestrip,.hero-scrollhint,.h-grain,.h-vignette,.global-grain,.global-vignette,.stars,.star-field,.starfield,.particles-bg,.bg-particles,.floating-orb,.orb,.bubble,.float-bubble,[data-fold="hero"] .h-stage,.h-content,.hero-mb{display:none !important}
-[data-fold="hero"]{display:none !important}
-.wa-fab,#waFab,.ai-fab,.fab,.chatbot-fab,[class*="-fab"],.chatbot,#chatbot,.chatbot-widget,.chatbot-launcher,.chat-bubble,.gita-chatbot,[id*="chatbot"],[class*="chatbot"]{display:none !important}
-body>canvas,canvas{display:none !important}
-.sticky-mobile-cta,.mob-sticky-cta,.mobile-cta,[class*="sticky-mobile"],.mob-bottom{display:none !important}
-#trust-mount{display:none !important}
-
-/* ============ NAV ============ */
-.mb-nav{background:#FFFFFF !important;border-bottom:1px solid #E5E7EB !important;box-shadow:0 1px 3px rgba(0,0,0,.04) !important}
-.mb-nav *{color:#0A1224 !important}
-.mb-nav a{color:#374151 !important;text-decoration:none}
-.mb-nav a:hover{color:#1E3A8A !important}
-
-/* ============ HERO V4 — pure white, minimal ============ */
-.hero-v4{background:#FFFFFF;color:#0A1224;direction:rtl;padding:120px 24px 80px;border-bottom:1px solid #E5E7EB}
-.hero-v4-inner{max-width:880px;margin:0 auto;text-align:center}
-.hero-v4-h1{font:700 clamp(28px,4.4vw,52px)/1.15 'Heebo',sans-serif;color:#0A1224;letter-spacing:-.02em;margin:0 0 20px}
-.hero-v4-sub{font:400 clamp(16px,1.4vw,20px)/1.55 'Heebo',sans-serif;color:#4B5563;max-width:640px;margin:0 auto 40px}
-.hero-v4-cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.hv4-cta-primary{display:inline-block;padding:16px 32px;background:#1E3A8A;color:#fff !important;border-radius:8px;font-weight:600;font-size:16px;text-decoration:none;transition:background .15s}
-.hv4-cta-primary:hover{background:#1E40AF}
-.hv4-cta-secondary{display:inline-block;padding:16px 32px;background:#fff;color:#1E3A8A !important;border:1.5px solid #1E3A8A;border-radius:8px;font-weight:600;font-size:16px;text-decoration:none;transition:background .15s}
-.hv4-cta-secondary:hover{background:#F3F4F6}
-@media(max-width:640px){
-  .hero-v4{padding:100px 18px 60px}
-  .hero-v4-cta-row{flex-direction:column;align-items:stretch;gap:12px}
-  .hv4-cta-primary,.hv4-cta-secondary{width:100%;text-align:center;padding:15px 24px}
-}
-
-/* ============ ALL FOLDS → WHITE BG, DARK TEXT ============ */
-section,#why-mount,#how,.calc,.faq-section,.cases-section,.board,#catalog,.catalog,#used-mount,.fold{background:#FFFFFF !important;color:#0A1224 !important}
-section *,#why-mount *,#how *,.calc *,.faq-section *,.cases-section *,.board *,#catalog *,.catalog *,#used-mount *,.fold *{color:inherit;background-color:transparent}
-section h1,section h2,#why-mount h1,#why-mount h2,#how h1,#how h2,.calc h1,.calc h2,.faq-section h1,.faq-section h2,.cases-section h1,.cases-section h2,.board h1,.board h2{color:#0A1224 !important;font-weight:700 !important;font-size:clamp(22px,3vw,36px) !important;line-height:1.2 !important;letter-spacing:-.01em !important}
-section h3,#why-mount h3,#how h3,.calc h3,.board h3,.cases-section h3{color:#0A1224 !important;font-weight:600 !important;font-size:clamp(17px,1.6vw,20px) !important;line-height:1.3 !important}
-section p,#why-mount p,#how p,.calc p,.faq-section p,.cases-section p,.board p{color:#4B5563 !important;font-size:15px;line-height:1.6}
-
-/* ============ CARDS / BUTTONS / INPUTS — clean ============ */
-button:not(.hv4-cta-primary):not(.hv4-cta-secondary),.btn{background:#1E3A8A !important;color:#fff !important;border:0;padding:12px 24px;border-radius:6px;font-weight:600;cursor:pointer}
-button:hover,.btn:hover{background:#1E40AF !important}
-input,select,textarea{background:#fff !important;color:#0A1224 !important;border:1px solid #D1D5DB !important;border-radius:6px;padding:10px 14px}
-.card,[class*="card"]:not([class*="catalog"]):not([class*="vcard"]){background:#F9FAFB !important;border:1px solid #E5E7EB !important;border-radius:8px;color:#0A1224 !important}
-
-/* ============ KILL ALL ANIMATIONS/TRANSITIONS THAT FEEL FLOATY ============ */
+body{overflow-x:hidden !important;overflow-y:visible !important;position:static !important;transform:none !important}
+*{scroll-behavior:auto !important}
+/* ============ KILL ALL ANIMATIONS/TRANSITIONS GLOBALLY ============ */
 *,*::before,*::after{animation-duration:0s !important;animation-delay:0s !important;transition-duration:0s !important}
 [data-reveal],[data-animate]{opacity:1 !important;transform:none !important;visibility:visible !important}
 
-/* ============ FOOTER ============ */
-footer,.footer{background:#0A1224 !important;color:#9CA3AF !important;padding:40px 24px}
-footer *,.footer *{color:#9CA3AF !important}
-footer h3,footer h4,.footer h3,.footer h4{color:#fff !important}
+/* Kill mobile sticky CTA (the floating bottom bar) */
+.sticky-mobile-cta,.mob-sticky-cta,.mobile-cta,[class*="sticky-mobile"]{display:none !important}
+/* Kill ALL particles/stars/floating balls/grain/canvas overlays */
+.h-particles,.h-particles-fallback,.hero-particles,.hero-bigtype,.hero-livestrip,.hero-scrollhint,.h-grain,.h-vignette,.global-grain,.global-vignette,[data-fold="hero"] .h-stage,.h-content,.stars,.star-field,.starfield,.particles-bg,.bg-particles,.floating-orb,.orb,.bubble,.float-bubble{display:none !important}
+[data-fold="hero"]{display:none !important}
+.hero-mb:not(.hero-v3){display:none !important}
+/* Kill floating action buttons + chatbot + any fixed widget */
+.wa-fab,#waFab,.ai-fab,.fab,.chatbot-fab,[class*="-fab"],.chatbot,#chatbot,.chatbot-widget,.chatbot-launcher,.chat-bubble,.gita-chatbot,[id*="chatbot"],[class*="chatbot"]{display:none !important}
+/* Kill any rogue canvas overlay */
+body>canvas,body>div>canvas[style*="fixed"]{display:none !important}
+/* Avoid double sticky bottom */
+.mob-bottom{display:none !important}
+/* Kill the English BRAND NEW MODEL fold entirely (huge bold English headings) */
+#trust-mount{display:none !important}
+/* Light fold backgrounds for breathing room */
+#why-mount,#how,.calc,.faq-section,.cases-section,.board{background:#F7F9FC !important;color:#0A1224 !important}
+#why-mount *,#how *,.calc *,.faq-section *,.cases-section *,.board *{color:inherit}
+#why-mount h1,#why-mount h2,#why-mount h3,#how h1,#how h2,#how h3,.calc h1,.calc h2,.calc h3,.faq-section h1,.faq-section h2,.faq-section h3,.cases-section h1,.cases-section h2,.cases-section h3,.board h1,.board h2,.board h3{color:#050B1A}
+#why-mount p,#how p,.calc p,.faq-section p,.cases-section p,.board p{color:#3D4A66}
+/* Tame oversized bold mounts — cap h1/h2 sizes */
+#why-mount h1,#why-mount h2,.board h1,.board h2,#how h1,#how h2,.calc h1,.calc h2,.cases-section h1,.cases-section h2,.faq-section h1,.faq-section h2{font-size:clamp(24px,3.2vw,40px) !important;line-height:1.15 !important;font-weight:700 !important;letter-spacing:-.01em !important}
+#why-mount h3,.board h3,#how h3,.calc h3,.cases-section h3{font-size:clamp(18px,1.8vw,22px) !important;line-height:1.3 !important;font-weight:600 !important}
+/* Cap mobile fold height to prevent infinite-scroll feel */
+@media (max-width:768px){
+  .board{max-height:none}
+}
+.hero-v3{position:relative;min-height:90vh;background:linear-gradient(160deg,#050B1A 0%,#0A1530 100%);color:#fff;direction:rtl;overflow:hidden;padding:120px 0 80px}
+.hero-v3-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 80% 40%,rgba(74,139,255,.22),transparent 60%),radial-gradient(ellipse 50% 40% at 20% 70%,rgba(30,95,255,.12),transparent 60%),#050B1A;z-index:0}
+.hero-v3-grid{position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}
+.hero-v3-eyebrow{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border:1px solid rgba(74,139,255,.35);border-radius:999px;font-size:13px;color:#A8C5FF;letter-spacing:.02em;margin-bottom:28px}
+.hv3-dot{width:6px;height:6px;border-radius:50%;background:#4A8BFF;box-shadow:0 0 12px #4A8BFF}
+.hero-v3-h1{font:800 clamp(34px,4.2vw,62px)/1.08 'Heebo',sans-serif;letter-spacing:-.025em;margin:0 0 24px;color:#fff}
+.hero-v3-h1 span{display:block}
+.hv3-accent{color:#4A8BFF}
+.hero-v3-sub{font:400 clamp(15px,1.15vw,18px)/1.65 'Heebo',sans-serif;color:#B4C2D9;max-width:560px;margin:0 0 36px}
+.hero-v3-stats{display:flex;align-items:center;gap:24px;padding:24px 0;border-block:1px solid rgba(255,255,255,.08);margin-bottom:32px}
+.hv3-stat-sep{width:1px;height:42px;background:rgba(255,255,255,.1)}
+.hv3-stat-num{font:800 clamp(24px,2.2vw,34px)/1 'Heebo',sans-serif;color:#fff;letter-spacing:-.02em}
+.hv3-stat-num small{font-size:.55em;color:#4A8BFF;font-weight:700;margin-inline-start:2px}
+.hv3-stat-lbl{font-size:12px;color:#7C8AA8;margin-top:6px;line-height:1.4}
+.hero-v3-cta-row{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:24px}
+.hv3-cta-primary{display:inline-flex;align-items:center;gap:8px;padding:18px 32px;background:#4A8BFF;color:#fff;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;box-shadow:0 8px 24px rgba(74,139,255,.4);transition:transform .2s,box-shadow .2s}
+.hv3-cta-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(74,139,255,.55)}
+.hv3-cta-secondary{display:inline-flex;align-items:center;padding:18px 24px;color:#A8C5FF;border:1px solid rgba(74,139,255,.3);border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;transition:border-color .2s,color .2s}
+.hv3-cta-secondary:hover{border-color:#4A8BFF;color:#fff}
+.hero-v3-trust{display:flex;flex-wrap:wrap;gap:8px;font-size:12px;color:#7C8AA8}
+.hv3-trust-sep{color:#3D4A66}
+.hero-v3-visual{position:relative;display:flex;align-items:center;justify-content:center}
+.hv3-car{width:100%;max-width:580px;height:auto;filter:drop-shadow(0 24px 64px rgba(0,0,0,.5))}
+.hv3-badge{position:absolute;bottom:8%;inset-inline-end:0;background:rgba(10,15,26,.85);backdrop-filter:blur(12px);border:1px solid rgba(74,139,255,.25);border-radius:14px;padding:18px 22px;max-width:280px}
+.hv3-badge-name{font-size:12px;color:#7C8AA8;letter-spacing:.04em;text-transform:uppercase;margin-bottom:10px}
+.hv3-badge-price{display:flex;flex-direction:column;gap:4px;margin-bottom:8px}
+.hv3-was{font-size:13px;color:#7C8AA8;text-decoration:line-through}
+.hv3-now{font-size:22px;font-weight:800;color:#4A8BFF}
+.hv3-badge-save{font-size:13px;color:#4ADE80;font-weight:600}
+@media (max-width:900px){
+  .hero-v3{padding:90px 0 60px;min-height:auto}
+  .hero-v3-grid{grid-template-columns:1fr;gap:24px;padding:0 16px}
+  .hero-v3-visual{order:-1;width:100%;max-width:100%;overflow:visible;display:block;text-align:center}
+  .hv3-car{max-width:100%;width:100%;height:auto;display:block;margin:0 auto;object-fit:contain}
+  .hv3-badge{position:relative;inset:auto;left:auto;right:auto;bottom:auto;display:block;margin:-16px auto 0;max-width:320px;width:auto;padding:14px 18px;box-sizing:border-box}
+  .hv3-badge-name{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .hv3-badge-price{flex-direction:row;align-items:baseline;gap:10px}
+  .hv3-now{font-size:20px}
+  .hero-v3-h1{font-size:clamp(26px,7.2vw,38px);text-align:start}
+  .hero-v3-sub{font-size:15px;text-align:start}
+  .hero-v3-stats{flex-wrap:nowrap;gap:14px;justify-content:space-between}
+  .hv3-stat-sep{display:none}
+  .hv3-stat-num{font-size:22px}
+  .hv3-stat-lbl{font-size:10.5px}
+  .hero-v3-cta-row{flex-direction:column;align-items:stretch;margin-top:8px}
+  .hv3-cta-primary,.hv3-cta-secondary{justify-content:center;text-align:center;padding:16px 24px;font-size:15px}
+  .hero-v3-trust{font-size:11px;justify-content:flex-start}
+  .hero-v3-eyebrow{font-size:12px;padding:6px 14px;margin-bottom:20px}
+}
 </style>
 
 <!-- ========= FOLD 2 — WHY BUY WITH US (הצעת הערך) ========= -->
