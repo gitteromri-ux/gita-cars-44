@@ -154,14 +154,23 @@
 .hv3-badge-save{font-size:13px;color:#4ADE80;font-weight:600}
 @media (max-width:900px){
   .hero-v3{padding:90px 0 60px;min-height:auto}
-  .hero-v3-grid{grid-template-columns:1fr;gap:36px;padding:0 20px}
-  .hero-v3-visual{order:-1}
-  .hv3-car{max-width:80%}
-  .hv3-badge{position:relative;bottom:auto;inset-inline-end:auto;margin:-30px auto 0;max-width:90%}
-  .hero-v3-stats{flex-wrap:wrap;gap:16px}
+  .hero-v3-grid{grid-template-columns:1fr;gap:32px;padding:0 18px}
+  .hero-v3-visual{order:-1;width:100%;max-width:100%;overflow:visible}
+  .hv3-car{max-width:100%;width:100%;display:block;margin:0 auto}
+  .hv3-badge{position:relative;inset:auto;margin:-20px auto 0;max-width:340px;width:calc(100% - 32px);padding:16px 18px}
+  .hv3-badge-name{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .hv3-badge-price{flex-direction:row;align-items:baseline;gap:10px}
+  .hv3-now{font-size:20px}
+  .hero-v3-h1{font-size:clamp(26px,7.2vw,38px);text-align:start}
+  .hero-v3-sub{font-size:15px;text-align:start}
+  .hero-v3-stats{flex-wrap:nowrap;gap:14px;justify-content:space-between}
   .hv3-stat-sep{display:none}
-  .hero-v3-cta-row{flex-direction:column;align-items:stretch}
-  .hv3-cta-primary,.hv3-cta-secondary{justify-content:center;text-align:center}
+  .hv3-stat-num{font-size:22px}
+  .hv3-stat-lbl{font-size:10.5px}
+  .hero-v3-cta-row{flex-direction:column;align-items:stretch;margin-top:8px}
+  .hv3-cta-primary,.hv3-cta-secondary{justify-content:center;text-align:center;padding:16px 24px;font-size:15px}
+  .hero-v3-trust{font-size:11px;justify-content:flex-start}
+  .hero-v3-eyebrow{font-size:12px;padding:6px 14px;margin-bottom:20px}
 }
 </style>
 
