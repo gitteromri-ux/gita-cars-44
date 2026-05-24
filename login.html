@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>כניסה ללקוחות קיימים | AutoImports.co.il</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{scroll-behavior:auto;background:#050B1A;color:#fff;font-family:'Heebo',sans-serif;direction:rtl;min-height:100vh}
+.wrap{max-width:480px;margin:0 auto;padding:80px 24px;min-height:100vh;display:flex;flex-direction:column;justify-content:center}
+.brand{font-family:'Frank Ruhl Libre',serif;font-size:28px;font-weight:700;color:#fff;text-align:center;margin-bottom:8px;letter-spacing:-.01em}
+.brand .ai{color:#4A8BFF}
+.subtitle{text-align:center;color:#A8C5FF;font-size:14px;margin-bottom:48px;letter-spacing:.04em;text-transform:uppercase}
+h1{font-family:'Frank Ruhl Libre',serif;font-size:36px;font-weight:500;line-height:1.15;margin-bottom:12px;letter-spacing:-.02em}
+.lead{color:#B4C2D9;font-size:16px;line-height:1.6;margin-bottom:36px}
+.form-group{margin-bottom:20px}
+label{display:block;font-size:13px;color:#A8C5FF;margin-bottom:8px;font-weight:500}
+input{width:100%;padding:14px 16px;background:rgba(255,255,255,.05);border:1px solid rgba(74,139,255,.25);border-radius:8px;color:#fff;font-size:15px;font-family:inherit;direction:rtl;outline:none;transition:border-color .15s}
+input:focus{border-color:#4A8BFF;background:rgba(74,139,255,.08)}
+input::placeholder{color:#5A6B8A}
+.btn-primary{width:100%;padding:16px;background:#4A8BFF;color:#fff;border:none;border-radius:8px;font-size:16px;font-weight:600;font-family:inherit;cursor:pointer;margin-top:8px;transition:background .15s}
+.btn-primary:hover{background:#3a7be0}
+.help-row{display:flex;justify-content:space-between;margin-top:24px;font-size:13px}
+.help-row a{color:#A8C5FF;text-decoration:none}
+.help-row a:hover{color:#fff}
+.divider{display:flex;align-items:center;margin:32px 0;color:#5A6B8A;font-size:12px;letter-spacing:.08em}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.08)}
+.divider span{padding:0 16px}
+.back-link{text-align:center;margin-top:24px}
+.back-link a{color:#7C8AA8;text-decoration:none;font-size:13px}
+.back-link a:hover{color:#A8C5FF}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><span class="ai">Ai</span> AutoImports<span style="color:#5A6B8A;font-size:.6em">.co.il</span></div>
+  <div class="subtitle">Customer Portal</div>
+  <h1>ברוכים השבים.</h1>
+  <p class="lead">היכנס לתיק שלך כדי לראות סטטוס יבוא, מסמכים, ותשלומים.</p>
+  <form onsubmit="event.preventDefault();alert('המערכת הזו פעילה — נחזור אליך בקרוב.');">
+    <div class="form-group">
+      <label for="email">דוא״ל או מספר תיק</label>
+      <input id="email" type="text" placeholder="you@example.com / #AI-12345" autocomplete="username" required>
+    </div>
+    <div class="form-group">
+      <label for="pass">סיסמה</label>
+      <input id="pass" type="password" placeholder="••••••••" autocomplete="current-password" required>
+    </div>
+    <button class="btn-primary" type="submit">כניסה לתיק שלי</button>
+    <div class="help-row">
+      <a href="#">שכחתי סיסמה</a>
+      <a href="./start.html">פתיחת תיק חדש →</a>
+    </div>
+  </form>
+  <div class="divider"><span>או</span></div>
+  <div class="back-link"><a href="./">← חזרה לעמוד הבית</a></div>
+</div>
+</body>
+</html>
